@@ -16,6 +16,7 @@ php artisan key:generate
 php artisan install:features
 php artisan migrate
 npm install
+npm run prepare
 composer run dev
 ```
 

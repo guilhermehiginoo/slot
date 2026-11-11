@@ -1,0 +1,57 @@
+#!/usr/bin/env sh
+
+# Regras completas de branch em AGENTS.md.
+
+RED='\033[0;31m'
+GREEN='\033[0;32m'
+NC='\033[0m'
+
+PATTERN='^(feature|hotfix|bugfix|enhancement|chore)/[a-z0-9]+(-[a-z0-9]+)*$'
+
+echo "Validando nomes das branches enviadas..."
+# O Git passa cada ref enviada no stdin: <local ref> <local sha> <remote ref> <remote sha>
+while read -r LOCAL_REF _ REMOTE_REF _; do
+    # Ignora exclusões de branch e tags
+    [ "$LOCAL_REF" = "(delete)" ] && continue
+    case "$REMOTE_REF" in
+        refs/heads/*) ;;
+        *) continue ;;
+    esac
+
+    BRANCH="${REMOTE_REF#refs/heads/}"
+
+    [ "$BRANCH" = "main" ] && continue
+    [ "$BRANCH" = "develop" ] && continue
+
+    if ! printf '%s' "$BRANCH" | grep -Eq "$PATTERN"; then
+        printf '%b\n' "${RED}Nome de branch inválido: ${BRANCH}${NC}"
+        echo ""
+        echo "Use um destes prefixos, seguido de uma descrição em kebab-case:"
+        echo "  feature/      funcionalidade nova"
+        echo "  enhancement/  melhoria em algo que já existe"
+        echo "  bugfix/       correção que sai da develop e volta pra develop"
+        echo "  hotfix/       correção urgente que sai da main e volta pra main"
+        echo "  chore/        manutenção, configuração, dependências, docs"
+        echo ""
+        echo "Exemplo: feature/12-reservar-horario"
+        printf '%b\n' "${RED}Renomeie com: git branch -m <novo-nome>${NC}"
+        exit 1
+    fi
+done
+
+echo "Validando formatação com Laravel Pint..."
+# Só arquivos versionados: pastas locais fora do Git não bloqueiam o push.
+if ! git ls-files -z -- '*.php' | xargs -0 ./vendor/bin/pint --test; then
+    printf '%b\n' "${RED}Laravel Pint encontrou problemas de formatação. Rode ./vendor/bin/pint e corrija antes de fazer push.${NC}"
+    exit 1
+fi
+
+echo "Executando análise estática com PHPStan..."
+if ! ./vendor/bin/phpstan analyse --no-progress --memory-limit=512M; then
+    printf '%b\n' "${RED}A análise estática falhou. Corrija os erros do PHPStan antes de fazer push.${NC}"
+    exit 1
+fi
+
+printf '%b\n' "${GREEN}Todas as validações concluídas com sucesso. Push permitido.${NC}"
+
+exit 0
