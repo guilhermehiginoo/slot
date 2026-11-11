@@ -10,4 +10,5 @@ parameters:
         - database/
         - routes/
 
-    level: 7
+    level: 6
+    tmpDir: storage/tmp/phpstan
