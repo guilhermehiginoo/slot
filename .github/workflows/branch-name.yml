@@ -1,0 +1,53 @@
+name: branch name
+
+on:
+  pull_request:
+    types: [opened, reopened, synchronize, edited]
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Validate branch name and target
+        env:
+          HEAD_BRANCH: ${{ github.head_ref }}
+          BASE_BRANCH: ${{ github.base_ref }}
+        run: |
+          pattern='^(feature|hotfix|bugfix|enhancement|chore)/[a-z0-9]+(-[a-z0-9]+)*$'
+
+          fail() {
+            echo "::error::$1"
+            echo "Regras completas em AGENTS.md."
+            exit 1
+          }
+
+          case "$BASE_BRANCH" in
+            main)
+              if [ "$HEAD_BRANCH" = "develop" ]; then
+                echo "Deploy: develop -> main"
+              elif printf '%s' "$HEAD_BRANCH" | grep -Eq '^hotfix/'; then
+                printf '%s' "$HEAD_BRANCH" | grep -Eq "$pattern" \
+                  || fail "Nome de hotfix inválido: $HEAD_BRANCH. Exemplo: hotfix/login-quebrado"
+              else
+                fail "A main só recebe PR da develop ou de hotfix/*. Recebido: $HEAD_BRANCH"
+              fi
+              ;;
+            develop)
+              if [ "$HEAD_BRANCH" = "main" ]; then
+                echo "Back-merge: main -> develop (depois de um hotfix)"
+              elif printf '%s' "$HEAD_BRANCH" | grep -Eq '^hotfix/'; then
+                fail "hotfix/* deve abrir PR para a main, não para a develop. Para bug que pode esperar o próximo deploy, use bugfix/*"
+              elif ! printf '%s' "$HEAD_BRANCH" | grep -Eq "$pattern"; then
+                fail "Nome de branch inválido: $HEAD_BRANCH. Use feature/, enhancement/, bugfix/ ou chore/ seguido de kebab-case"
+              fi
+              ;;
+            *)
+              fail "PRs devem ter como destino main ou develop. Recebido: $BASE_BRANCH"
+              ;;
+          esac
+
+          echo "OK: $HEAD_BRANCH -> $BASE_BRANCH"
