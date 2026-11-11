@@ -39,6 +39,8 @@ jobs:
             develop)
               if [ "$HEAD_BRANCH" = "main" ]; then
                 echo "Back-merge: main -> develop (depois de um hotfix)"
+              elif printf '%s' "$HEAD_BRANCH" | grep -Eq '^dependabot/'; then
+                echo "Atualização de dependência do Dependabot"
               elif printf '%s' "$HEAD_BRANCH" | grep -Eq '^hotfix/'; then
                 fail "hotfix/* deve abrir PR para a main, não para a develop. Para bug que pode esperar o próximo deploy, use bugfix/*"
               elif ! printf '%s' "$HEAD_BRANCH" | grep -Eq "$pattern"; then

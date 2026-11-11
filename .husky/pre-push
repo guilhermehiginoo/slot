@@ -23,6 +23,11 @@ while read -r LOCAL_REF _ REMOTE_REF _; do
     [ "$BRANCH" = "main" ] && continue
     [ "$BRANCH" = "develop" ] && continue
 
+    # Branches criadas pelo Dependabot
+    case "$BRANCH" in
+        dependabot/*) continue ;;
+    esac
+
     if ! printf '%s' "$BRANCH" | grep -Eq "$PATTERN"; then
         printf '%b\n' "${RED}Nome de branch inválido: ${BRANCH}${NC}"
         echo ""
