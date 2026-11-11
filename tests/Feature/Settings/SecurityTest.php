@@ -18,7 +18,7 @@ class SecurityTest extends TestCase
         $this->skipUnlessFortifyHas(Features::twoFactorAuthentication());
 
         Features::twoFactorAuthentication([
-            'confirm' => true,
+            'confirm'         => true,
             'confirmPassword' => true,
         ]);
 
@@ -27,7 +27,8 @@ class SecurityTest extends TestCase
         $this->actingAs($user)
             ->withSession(['auth.password_confirmed_at' => time()])
             ->get(route('security.edit'))
-            ->assertInertia(fn (Assert $page) => $page
+            ->assertInertia(
+                fn (Assert $page) => $page
                 ->component('settings/security')
                 ->where('canManageTwoFactor', true)
                 ->where('twoFactorEnabled', false),
@@ -41,7 +42,7 @@ class SecurityTest extends TestCase
         $user = User::factory()->create();
 
         Features::twoFactorAuthentication([
-            'confirm' => true,
+            'confirm'         => true,
             'confirmPassword' => true,
         ]);
 
@@ -63,7 +64,8 @@ class SecurityTest extends TestCase
             ->withSession(['auth.password_confirmed_at' => time()])
             ->get(route('security.edit'))
             ->assertOk()
-            ->assertInertia(fn (Assert $page) => $page
+            ->assertInertia(
+                fn (Assert $page) => $page
                 ->component('settings/security')
                 ->where('canManageTwoFactor', false)
                 ->missing('twoFactorEnabled')
@@ -79,8 +81,8 @@ class SecurityTest extends TestCase
             ->actingAs($user)
             ->from(route('security.edit'))
             ->put(route('user-password.update'), [
-                'current_password' => 'password',
-                'password' => 'new-password',
+                'current_password'      => 'password',
+                'password'              => 'new-password',
                 'password_confirmation' => 'new-password',
             ]);
 
@@ -99,8 +101,8 @@ class SecurityTest extends TestCase
             ->actingAs($user)
             ->from(route('security.edit'))
             ->put(route('user-password.update'), [
-                'current_password' => 'wrong-password',
-                'password' => 'new-password',
+                'current_password'      => 'wrong-password',
+                'password'              => 'new-password',
                 'password_confirmation' => 'new-password',
             ]);
 
