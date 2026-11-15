@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 use Carbon\CarbonImmutable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\{DB, Date};
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Validation\Rules\Password;
@@ -31,6 +32,9 @@ class AppServiceProvider extends ServiceProvider
     protected function configureDefaults(): void
     {
         Date::use(CarbonImmutable::class);
+
+        // Lazy loading throws outside production, so N+1 queries fail in tests instead of shipping.
+        Model::shouldBeStrict(!app()->isProduction());
 
         DB::prohibitDestructiveCommands(
             app()->isProduction(),
