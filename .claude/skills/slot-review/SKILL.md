@@ -74,4 +74,4 @@ git push -u origin HEAD
 gh pr create --base <base> --title "SLOT-N: <título do card>" --body-file <arquivo>
 ```
 
-O corpo segue `.github/pull_request_template.md`, preenchido com o link do card, os critérios de aceite marcados e um resumo do que mudou. Se o conector do Atlassian estiver disponível, mova o card para a coluna **PR Review** (status Revisando PR). Termine com o link do PR.
+O corpo segue `.github/pull_request_template.md`, preenchido com o link do card, os critérios de aceite marcados e um resumo do que mudou. Se o conector do Atlassian estiver disponível, mova o card para a coluna **PR Review** (status de id `10002`; escolha pelo id, porque a API pode devolver o nome traduzido). Termine com o link do PR.

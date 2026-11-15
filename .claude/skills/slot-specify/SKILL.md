@@ -38,7 +38,7 @@ git switch -c <branch> origin/<base>
 
 Se a branch já existir, só troque para ela. Se houver mudanças não commitadas, pare e pergunte.
 
-Se o conector estiver disponível, mova o card para a coluna **In progress**: o status Em andamento de id `10001`. Existe outro status com o mesmo nome (id `3`), que é a coluna Change Requested, então escolha pelo id.
+Se o conector estiver disponível, mova o card para a coluna **In progress** (status de id `10001`). Escolha pelo id: a API pode devolver o nome do status traduzido.
 
 ## 3. Tire as dúvidas em rodadas
 

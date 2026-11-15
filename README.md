@@ -68,16 +68,16 @@ As regras completas estão no [AGENTS.md](AGENTS.md), que vale para pessoas e pa
 
 ### O board do Jira
 
-Cada card anda da esquerda para a direita. Os nomes das colunas estão em inglês e os status em português.
+Cada card anda da esquerda para a direita:
 
-| Coluna           | Status       | Significa                                                     | Quem move                     |
-| ---------------- | ------------ | ------------------------------------------------------------- | ----------------------------- |
-| To Do            | A fazer      | Está na sprint e ninguém pegou ainda                          | —                             |
-| In progress      | Em andamento | Alguém pegou e está na spec, no plano ou no código            | `/slot-specify` ou quem pegou |
-| PR Review        | Revisando PR | O PR está aberto, esperando a revisão de outra pessoa do time | `/slot-review`, ao abrir o PR |
-| Change Requested | Em andamento | A revisão ou o QA pediu mudanças; o card volta para quem fez  | quem revisou                  |
-| QA               | GQ           | O PR foi mergeado na `develop` e o QA testa lá                | quem fez o merge              |
-| Done             | Concluído    | O QA validou os critérios de aceite                           | o QA                          |
+| Coluna           | Significa                                                     | Quem move                     |
+| ---------------- | ------------------------------------------------------------- | ----------------------------- |
+| To Do            | Está na sprint e ninguém pegou ainda                          | —                             |
+| In progress      | Alguém pegou e está na spec, no plano ou no código            | `/slot-specify` ou quem pegou |
+| PR Review        | O PR está aberto, esperando a revisão de outra pessoa do time | `/slot-review`, ao abrir o PR |
+| Change Requested | A revisão ou o QA pediu mudanças; o card volta para quem fez  | quem revisou                  |
+| QA               | O PR foi mergeado na `develop` e o QA testa lá                | quem fez o merge              |
+| Done             | O QA validou os critérios de aceite                           | o QA                          |
 
 - Pegar um card é se atribuir a ele no Jira. Uma pessoa trabalha em um card de cada vez.
 - Bug no escopo do card volta para Change Requested. Bug fora dele vira um card novo do tipo Bugfix.
