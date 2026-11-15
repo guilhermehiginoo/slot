@@ -98,31 +98,31 @@ Tipos: `feat`, `fix`, `test`, `refactor`, `perf`, `style`, `docs`, `chore`. O ho
 
 ## Pull requests
 
-Título: `SLOT-N: <título do card>`. A descrição segue o [template](.github/pull_request_template.md), com os títulos em inglês e o texto em português:
+Título: `SLOT-N: <título do card>`. A descrição segue o [template](.github/pull_request_template.md):
 
 ```markdown
-## What
+## O que mudou
 
 https://slotgestao.atlassian.net/browse/SLOT-N
 
 - <o que mudou, em poucos itens>
 
-## Why
+## Por que
 
 <o problema que o card resolve e para quem>
 
-## How can it be tested
+## Como testar
 
 1. <passo a passo para testar em http://slot.test>
 2. <os testes automatizados que cobrem a mudança>
 
-## Screenshot/video
+## Prints ou vídeo
 
 <só se a mudança aparecer na tela; sem tela, a seção sai>
 ```
 
-- O link do card no Jira vai sempre na primeira linha do **What**.
-- A IA só abre PR quando o usuário pede, e com esse formato. Como o `gh` não sobe imagem, quando a mudança tiver tela a IA deixa a seção **Screenshot/video** e pede para o usuário anexar o print ou o vídeo.
+- O link do card no Jira vai sempre na primeira linha do **O que mudou**.
+- A IA só abre PR quando o usuário pede, e com esse formato. Como o `gh` não sobe imagem, quando a mudança tiver tela a IA deixa a seção **Prints ou vídeo** e pede para o usuário anexar o print ou o vídeo.
 
 ## Backend
 

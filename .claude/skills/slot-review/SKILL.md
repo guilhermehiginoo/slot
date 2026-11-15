@@ -76,8 +76,8 @@ gh pr create --base <base> --title "SLOT-N: <título do card>" --body-file <arqu
 
 O corpo segue a seção Pull requests do AGENTS.md:
 
-- **What:** o link do card na primeira linha (`https://slotgestao.atlassian.net/browse/SLOT-N`), depois o que mudou em poucos itens.
-- **Why:** o objetivo da spec, em 2 ou 3 frases.
-- **How can it be tested:** o passo a passo para testar em `http://slot.test`, e os testes que cobrem cada cenário.
-- **Screenshot/video:** só se a mudança aparecer na tela. O `gh` não sobe imagem, então deixe a seção e peça para o usuário anexar o print ou o vídeo.
+- **O que mudou:** o link do card na primeira linha (`https://slotgestao.atlassian.net/browse/SLOT-N`), depois o que mudou em poucos itens.
+- **Por que:** o objetivo da spec, em 2 ou 3 frases.
+- **Como testar:** o passo a passo para testar em `http://slot.test`, e os testes que cobrem cada cenário.
+- **Prints ou vídeo:** só se a mudança aparecer na tela. O `gh` não sobe imagem, então deixe a seção e peça para o usuário anexar o print ou o vídeo.
   Se o conector do Atlassian estiver disponível, mova o card para a coluna **PR Review** (status de id `10002`; escolha pelo id, porque a API pode devolver o nome traduzido). Termine com o link do PR.
