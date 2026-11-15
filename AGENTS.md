@@ -96,6 +96,34 @@ Tipos: `feat`, `fix`, `test`, `refactor`, `perf`, `style`, `docs`, `chore`. O ho
 - A IA, quando for ela quem commita, roda `composer ci:check` (o mesmo que o CI) antes de cada commit e só commita com tudo verde.
 - Nunca use `--no-verify`.
 
+## Pull requests
+
+Título: `SLOT-N: <título do card>`. A descrição segue o [template](.github/pull_request_template.md), com os títulos em inglês e o texto em português:
+
+```markdown
+## What
+
+https://slotgestao.atlassian.net/browse/SLOT-N
+
+- <o que mudou, em poucos itens>
+
+## Why
+
+<o problema que o card resolve e para quem>
+
+## How can it be tested
+
+1. <passo a passo para testar em http://slot.test>
+2. <os testes automatizados que cobrem a mudança>
+
+## Screenshot/video
+
+<só se a mudança aparecer na tela; sem tela, a seção sai>
+```
+
+- O link do card no Jira vai sempre na primeira linha do **What**.
+- A IA só abre PR quando o usuário pede, e com esse formato. Como o `gh` não sobe imagem, quando a mudança tiver tela a IA deixa a seção **Screenshot/video** e pede para o usuário anexar o print ou o vídeo.
+
 ## Backend
 
 ### Controller fino

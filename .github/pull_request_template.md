@@ -1,22 +1,17 @@
-## Card
+## What
 
 https://slotgestao.atlassian.net/browse/SLOT-
 
-Spec: `specs/SLOT-/spec.md`
+<!-- O que mudou, em poucos itens. -->
 
-## O que mudou
+## Why
 
--
+<!-- O problema que o card resolve e para quem. -->
 
-## Critérios de aceite
+## How can it be tested
 
-- [ ]
+<!-- Passos para testar em http://slot.test e os testes automatizados que cobrem a mudança. -->
 
-## Definição de pronto
+## Screenshot/video
 
-- [ ] Todo cenário da spec tem um teste com `#[TestDox('Cenário: ...')]`
-- [ ] `composer ci:check` verde
-- [ ] Sem N+1 e sem regra de negócio no controller
-- [ ] Toda rota nova tem autorização
-- [ ] Telas novas funcionam com 375px de largura
-- [ ] `/slot-review` aprovado (`specs/SLOT-/review.md`)
+<!-- Só se a mudança aparecer na tela. Se não aparecer, apague esta seção. -->
