@@ -21,13 +21,13 @@ Siga o AGENTS.md. Escreva a spec em português.
 
 ## 2. Crie a branch
 
-| Tipo do card | Prefixo | Base |
-| --- | --- | --- |
-| História | `feature/` | `develop` |
-| Enhancement | `enhancement/` | `develop` |
-| Bugfix | `bugfix/` | `develop` |
-| Hotfix | `hotfix/` | `main` |
-| Chore | `chore/` | `develop` |
+| Tipo do card | Prefixo        | Base      |
+| ------------ | -------------- | --------- |
+| História     | `feature/`     | `develop` |
+| Enhancement  | `enhancement/` | `develop` |
+| Bugfix       | `bugfix/`      | `develop` |
+| Hotfix       | `hotfix/`      | `main`    |
+| Chore        | `chore/`       | `develop` |
 
 Nome: `<prefixo>SLOT-N-<descricao-curta-em-kebab-case>`, com a descrição tirada do título do card (até umas 5 palavras, sem acento). Exemplo: `feature/SLOT-12-reservar-horario`.
 
@@ -66,24 +66,31 @@ Tipo: <tipo> · Branch: `<branch>` · Base: `<base>`
 Aprovado por:
 
 ## Objetivo
+
 <o problema e para quem, em 2 ou 3 frases>
 
 ## Regras de negócio
+
 - R1: <regra testável>
 
 ## Cenários
+
 <os cenários Gherkin do card, ajustados com as respostas da entrevista>
 
 ## Critérios de aceite
+
 - [ ] <critério do card>
 
 ## Fora do escopo
+
 - <o que este card não faz, e qual card faz, se houver>
 
 ## Decisões
+
 - <pergunta> → <resposta> (<quem decidiu>)
 
 ## Suposições
+
 - <o que você assumiu sem perguntar, e por quê>
 ```
 

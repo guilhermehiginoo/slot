@@ -27,16 +27,16 @@ Veja `git status` e `git diff`. Adicione só os arquivos do passo atual, pelo no
 SLOT-N: (tipo) frase em português
 ```
 
-| Tipo | Quando |
-| --- | --- |
-| `feat` | comportamento novo |
-| `fix` | correção de bug |
-| `test` | só testes |
-| `refactor` | muda o código sem mudar comportamento |
-| `perf` | desempenho, como tirar um N+1 |
-| `style` | formatação |
-| `docs` | specs, planos, tasks, README, AGENTS.md |
-| `chore` | configuração, dependências, CI |
+| Tipo       | Quando                                  |
+| ---------- | --------------------------------------- |
+| `feat`     | comportamento novo                      |
+| `fix`      | correção de bug                         |
+| `test`     | só testes                               |
+| `refactor` | muda o código sem mudar comportamento   |
+| `perf`     | desempenho, como tirar um N+1           |
+| `style`    | formatação                              |
+| `docs`     | specs, planos, tasks, README, AGENTS.md |
+| `chore`    | configuração, dependências, CI          |
 
 A frase começa com verbo no presente, em minúsculo, sem ponto final, e diz o que mudou para quem lê o histórico: `SLOT-12: (feat) permite agendar um horário`.
 

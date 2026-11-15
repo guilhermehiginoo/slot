@@ -26,29 +26,35 @@ Até 8 KB. Só as seções que se aplicam ao card.
 # Plano · SLOT-N
 
 ## Banco
+
 - Migration `<nome>`: colunas, tipos, chaves estrangeiras, índices e `unique` (diga qual regra cada `unique` protege)
 - Model `<Nome>`: fillable, casts, relações, scopes, enum usado
 
 ## Backend
+
 | Rota | Controller@método | FormRequest | Action | Policy |
-| --- | --- | --- | --- | --- |
+| ---- | ----------------- | ----------- | ------ | ------ |
 
 - Action `<Verbo><Coisa>`: o que faz, se usa transação, o que pode dar errado
 
 ## Queries
+
 - <página ou endpoint>: quais relações carregar com `with()`, contagens com `withCount()`, paginação e colunas enviadas ao Inertia
 
 ## Frontend
+
 - `pages/<dominio>/<pagina>.tsx`: props que recebe e o que mostra
 - `components/<dominio>/<componente>.tsx`: novo ou reaproveitado
 - Comportamento no celular (375px)
 
 ## Testes
-| Cenário da spec | Teste |
-| --- | --- |
+
+| Cenário da spec   | Teste                                        |
+| ----------------- | -------------------------------------------- |
 | <nome do cenário> | `tests/Feature/<Dominio>/<Classe>::<metodo>` |
 
 ## Riscos
+
 - <o que pode quebrar e como o plano evita>
 ```
 

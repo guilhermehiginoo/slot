@@ -14,12 +14,12 @@ Você implementa **um** passo do `tasks.md` por vez, com TDD, e commita. Siga o 
 - Leia `specs/SLOT-N/tasks.md` e pegue o primeiro passo `- [ ]`.
 - Sem passo pendente, diga em que etapa o card está e qual comando rodar:
 
-| Situação | Próximo comando |
-| --- | --- |
-| Sem `spec.md` | `/slot-specify SLOT-N` |
-| Spec sem `Aprovado por:` | pedir aprovação a alguém do time |
-| Sem `plan.md` | `/slot-plan` |
-| Sem `tasks.md` | `/slot-tasks` |
+| Situação                 | Próximo comando                    |
+| ------------------------ | ---------------------------------- |
+| Sem `spec.md`            | `/slot-specify SLOT-N`             |
+| Spec sem `Aprovado por:` | pedir aprovação a alguém do time   |
+| Sem `plan.md`            | `/slot-plan`                       |
+| Sem `tasks.md`           | `/slot-tasks`                      |
 | Todos os passos marcados | `/slot-review`, em uma sessão nova |
 
 - Leia a spec, o plano e o código que o passo toca. Nada além do passo: o que for de outro passo ou de outro card fica de fora.

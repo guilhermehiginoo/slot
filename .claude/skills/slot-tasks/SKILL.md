@@ -21,8 +21,8 @@ Até 4 KB.
 # Tasks · SLOT-N
 
 - [ ] T1 · <o que o passo entrega, em uma frase>
-  - Teste: `tests/Feature/<Dominio>/<Classe>::<metodo>` (Cenário: <nome>)
-  - Arquivos: `<caminhos principais>`
+    - Teste: `tests/Feature/<Dominio>/<Classe>::<metodo>` (Cenário: <nome>)
+    - Arquivos: `<caminhos principais>`
 - [ ] T2 · ...
 ```
 

@@ -13,14 +13,15 @@ O texto das tasks e da documentação é em português. O código (nomes de clas
 
 ## Papéis
 
-| Papel | O que faz |
-| --- | --- |
-| **Admin** | Gerencia usuários, papéis, disciplinas, turmas e salas. |
-| **Professor** | Vê as próprias turmas, convida e remove monitores, aprova solicitações de monitoria. |
-| **Aluno** | Busca disciplinas, professores e monitores, agenda horários, conversa pelo chat, solicita ser monitor. |
-| **Monitor** | Não é um papel separado: é um aluno vinculado a uma **turma**. Publica horários e faz os atendimentos da disciplina daquela turma. |
+| Papel         | O que faz                                                                                                                          |
+| ------------- | ---------------------------------------------------------------------------------------------------------------------------------- |
+| **Admin**     | Gerencia usuários, papéis, disciplinas, turmas e salas.                                                                            |
+| **Professor** | Vê as próprias turmas, convida e remove monitores, aprova solicitações de monitoria.                                               |
+| **Aluno**     | Busca disciplinas, professores e monitores, agenda horários, conversa pelo chat, solicita ser monitor.                             |
+| **Monitor**   | Não é um papel separado: é um aluno vinculado a uma **turma**. Publica horários e faz os atendimentos da disciplina daquela turma. |
 
 Regras que valem para o backlog inteiro:
+
 - O aluno nunca se declara monitor sozinho. Ele solicita e o professor da turma aprova, ou o professor convida e ele aceita. Um aluno nunca fica público como monitor sem o próprio consentimento.
 - O professor é dono da **turma**, mas o aluno procura ajuda pela **disciplina**. Uma busca por `IMD0030` mostra os monitores de todas as turmas de IMD0030 no semestre atual.
 - Não existe matrícula. Como não integramos com o SIGAA, qualquer aluno pode agendar monitoria de qualquer disciplina.
@@ -29,35 +30,35 @@ Regras que valem para o backlog inteiro:
 
 As sprints duram uma semana e terminam na terça-feira.
 
-| Sprint | Datas | Objetivo |
-| --- | --- | --- |
-| 1 | 10/11 – 17/11 | Base do projeto e papéis de usuário |
-| 2 | 17/11 – 24/11 | O monitor consegue publicar horários para uma turma |
-| 3 | 24/11 – 01/12 | O aluno encontra uma disciplina e agenda um atendimento |
-| 4 | 01/12 – 08/12 | Chat sem WhatsApp, salas do IMD e entrega |
+| Sprint | Datas         | Objetivo                                                |
+| ------ | ------------- | ------------------------------------------------------- |
+| 1      | 10/11 – 17/11 | Base do projeto e papéis de usuário                     |
+| 2      | 17/11 – 24/11 | O monitor consegue publicar horários para uma turma     |
+| 3      | 24/11 – 01/12 | O aluno encontra uma disciplina e agenda um atendimento |
+| 4      | 01/12 – 08/12 | Chat sem WhatsApp, salas do IMD e entrega               |
 
 ## Tipos de ticket
 
 Cada tipo do Jira corresponde a um prefixo de branch do AGENTS.md, e a branch leva a chave do card: `feature/SLOT-12-reservar-horario`. A linha logo abaixo do título de cada item indica o tipo.
 
-| Tipo no Jira | Branch | Quando usar |
-| --- | --- | --- |
-| História | `feature/` | O usuário passa a conseguir fazer algo que antes não conseguia. |
-| Enhancement | `enhancement/` | Algo que já funciona fica melhor, e o usuário percebe. |
-| Bugfix | `bugfix/` | Bug que pode esperar o próximo deploy. |
-| Hotfix | `hotfix/` | Bug urgente em produção. Sai da `main` e o PR vai para a `main`. |
-| Chore | `chore/` | Manutenção que termina em código, invisível para o usuário. |
-| Tarefa | nenhuma | Trabalho sem código: levantamento, apresentação. |
+| Tipo no Jira | Branch         | Quando usar                                                      |
+| ------------ | -------------- | ---------------------------------------------------------------- |
+| História     | `feature/`     | O usuário passa a conseguir fazer algo que antes não conseguia.  |
+| Enhancement  | `enhancement/` | Algo que já funciona fica melhor, e o usuário percebe.           |
+| Bugfix       | `bugfix/`      | Bug que pode esperar o próximo deploy.                           |
+| Hotfix       | `hotfix/`      | Bug urgente em produção. Sai da `main` e o PR vai para a `main`. |
+| Chore        | `chore/`       | Manutenção que termina em código, invisível para o usuário.      |
+| Tarefa       | nenhuma        | Trabalho sem código: levantamento, apresentação.                 |
 
 ## Prioridade
 
 Todo item tem uma prioridade MoSCoW, definida pelo valor que ele agrega à promessa principal: **o aluno encontra ajuda para uma disciplina e agenda um atendimento**.
 
-| Prioridade | Significado | Prioridade no Jira |
-| --- | --- | --- |
-| **Must** | Sem ele, o fluxo principal ou a entrega não existe. | High |
-| **Should** | Agrega muito, mas a plataforma funciona sem ele. | Medium |
-| **Could** | Bom de ter. É o primeiro a ser cortado. | Low |
+| Prioridade | Significado                                         | Prioridade no Jira |
+| ---------- | --------------------------------------------------- | ------------------ |
+| **Must**   | Sem ele, o fluxo principal ou a entrega não existe. | High               |
+| **Should** | Agrega muito, mas a plataforma funciona sem ele.    | Medium             |
+| **Could**  | Bom de ter. É o primeiro a ser cortado.             | Low                |
 
 Dentro de cada sprint, os itens estão em ordem de prioridade. Se faltar tempo, corta-se primeiro o Could e depois o Should. Um Must só sai da sprint se o time concordar na daily.
 
@@ -66,11 +67,11 @@ Dentro de cada sprint, os itens estão em ordem de prioridade. Se faltar tempo, 
 Story points na escala de Fibonacci: 1, 2, 3, 5, 8. Os pontos medem esforço, complexidade e incerteza juntos, em relação aos outros itens, e não horas. Qualquer item estimado em 13 ou mais é quebrado em itens menores antes de entrar na sprint (foi assim que a SLOT-20 virou SLOT-20 e SLOT-29). A velocidade é a soma dos pontos dos itens concluídos ao fim da sprint.
 
 | Sprint | Pontos |
-| --- | --- |
-| 1 | 20 |
-| 2 | 29 |
-| 3 | 26 |
-| 4 | 49 |
+| ------ | ------ |
+| 1      | 20     |
+| 2      | 29     |
+| 3      | 26     |
+| 4      | 49     |
 
 ## Definição de pronto (vale para todo item)
 
@@ -85,43 +86,52 @@ Story points na escala de Fibonacci: 1, 2, 3, 5, 8. Os pontos medem esforço, co
 ## Sprint 1 – Base do projeto (10/11 – 17/11)
 
 ### SLOT-1 · Criar projeto Laravel com o starter kit de React ✅
+
 `chore/` · Concluída · **Prioridade:** Must · **Pontos:** 3
 
 Instalar o Laravel 13 com o starter kit oficial de React e Inertia, autenticação com Fortify e SQLite no ambiente local. Remover autenticação em dois fatores e passkeys (fora do escopo).
 
 **Critérios de aceite**
+
 - [x] O app roda localmente em `http://slot.test`.
 - [x] Cadastro, login, logout, redefinição de senha e verificação de e-mail funcionam.
 - [x] 2FA e passkeys não aparecem na interface nem nas rotas.
 
 ### SLOT-2 · Ferramentas de qualidade de código ✅
+
 `chore/` · Concluída · **Prioridade:** Must · **Pontos:** 2
 
 Configurar o Laravel Pint e o PHPStan com Larastan.
 
 **Critérios de aceite**
+
 - [x] `./vendor/bin/pint --test` e `./vendor/bin/phpstan analyse` passam sem erros na `main`.
 
 ### SLOT-3 · Git hooks e regras de branch ✅
+
 `chore/` · Concluída · **Prioridade:** Must · **Pontos:** 3
 
 Hook `pre-push` do Husky que valida o nome das branches e roda Pint e PHPStan. Workflow `branch-name` no GitHub que valida o nome e o destino de cada PR. Branches do Dependabot são aceitas.
 
 **Critérios de aceite**
+
 - [x] O push de `fix/foo` é bloqueado localmente com uma mensagem clara.
 - [x] Um PR de `feature/*` para a `main` falha no check `branch-name`.
 - [x] Um PR de `dependabot/*` para a `develop` passa.
 
 ### SLOT-4 · Pipeline de CI e documentação do projeto ✅
+
 `chore/` · Concluída · **Prioridade:** Must · **Pontos:** 2
 
 Workflow `tests` em todo PR. README com instruções de instalação e AGENTS.md com as regras de branch.
 
 **Critérios de aceite**
+
 - [x] Uma pessoa nova no time consegue clonar e rodar o app seguindo só o README.
 - [x] O CI roda em todo PR para a `develop` e para a `main`.
 
 ### SLOT-5 · Configurar o fluxo SDD do Slot (comandos /slot-*)
+
 `chore/` · **Prioridade:** Must · **Pontos:** 5
 
 Montar um fluxo de Spec-Driven Development próprio do Slot, inspirado no [speckit](https://github.com/VictorL0pes/speckit) mas mais enxuto: seis comandos do Claude Code em `.claude/skills/`, a constituição no `AGENTS.md` e validações no Git para garantir os padrões de branch e commit.
@@ -159,6 +169,7 @@ Cenário: Push com nome de branch fora do padrão é bloqueado
 ```
 
 **Critérios de aceite**
+
 - [ ] `AGENTS.md` como constituição: idioma, fluxo SDD, TDD, branches com a chave do Jira, padrão de commit sem coautoria de IA, controller fino, N+1 e performance, organização do frontend e definição de pronto. O `CLAUDE.md` continua importando o `AGENTS.md`.
 - [ ] Comandos `/slot-specify`, `/slot-plan`, `/slot-tasks`, `/slot-next`, `/slot-commit` e `/slot-review` em `.claude/skills/`.
 - [ ] Hook `commit-msg` exige `SLOT-N: ` igual à chave da branch e bloqueia coautoria de IA.
@@ -170,6 +181,7 @@ Cenário: Push com nome de branch fora do padrão é bloqueado
 - [ ] A SLOT-6 passa pelo fluxo inteiro como card piloto.
 
 ### SLOT-6 · Papéis de usuário
+
 `feature/` · **Prioridade:** Must · **Pontos:** 5
 
 Como **admin**, quero que cada usuário tenha um papel (admin, professor, aluno), para que cada pessoa só veja e faça o que cabe a ela.
@@ -177,6 +189,7 @@ Como **admin**, quero que cada usuário tenha um papel (admin, professor, aluno)
 Quem se cadastra entra como aluno. Só um admin muda o papel de alguém. Os seeders criam um usuário de cada papel para o desenvolvimento.
 
 **Cenários**
+
 ```gherkin
 Cenário: Novo cadastro entra como aluno
   Dado que estou na página de cadastro
@@ -195,6 +208,7 @@ Cenário: Admin muda um papel
 ```
 
 **Critérios de aceite**
+
 - [ ] Coluna `role` em `users` com um enum PHP (`admin`, `professor`, `student`), padrão `student`.
 - [ ] Middleware ou gate restringe as rotas de admin e devolve 403 para os demais.
 - [ ] Página de usuários do admin com busca por nome ou e-mail e um seletor de papel.
@@ -207,11 +221,13 @@ Cenário: Admin muda um papel
 ## Sprint 2 – O monitor consegue publicar horários (17/11 – 24/11)
 
 ### SLOT-7 · Catálogo de disciplinas
+
 `feature/` · **Prioridade:** Must · **Pontos:** 3
 
 Como **admin**, quero cadastrar as disciplinas com o código e o nome da UFRN, para que turmas e monitorias apontem para a disciplina certa.
 
 **Cenários**
+
 ```gherkin
 Cenário: Admin cria uma disciplina
   Dado que estou logado como admin
@@ -233,16 +249,19 @@ Cenário: Código repetido
 ```
 
 **Critérios de aceite**
+
 - [ ] A disciplina tem código (único, `^[A-Z]{3}\d{4}$`, salvo em maiúsculas e sem espaços) e nome.
 - [ ] O admin cria, edita e arquiva disciplinas. Disciplinas arquivadas não aparecem nas buscas nem aceitam novos horários, mas mantêm o histórico.
 - [ ] Seeder com as principais disciplinas do BTI, para o app não ficar vazio no desenvolvimento.
 
 ### SLOT-8 · Turmas
+
 `feature/` · **Prioridade:** Must · **Pontos:** 5
 
 Como **admin**, quero cadastrar as turmas de cada disciplina no semestre, com professores e horário, para que os professores possam gerenciar seus monitores.
 
 **Cenários**
+
 ```gherkin
 Cenário: Admin cria uma turma
   Dado que a disciplina IMD0030 existe
@@ -260,16 +279,19 @@ Cenário: Só professores dão aula
 ```
 
 **Critérios de aceite**
+
 - [ ] A turma tem disciplina, semestre (`YYYY.1` ou `YYYY.2`), número (`T01`), um ou mais professores, código de horário (texto livre, só para exibição) e uma sala opcional (ligada quando a SLOT-21 existir).
 - [ ] Disciplina + semestre + número é único.
 - [ ] O semestre atual vem da configuração (`SLOT_CURRENT_SEMESTER`). Buscas e agendamentos só consideram turmas do semestre atual.
 
 ### SLOT-9 · Página de turmas do professor
+
 `feature/` · **Prioridade:** Must · **Pontos:** 3
 
 Como **professor**, quero ver minhas turmas e os monitores de cada uma, para saber quem está ajudando meus alunos.
 
 **Cenários**
+
 ```gherkin
 Cenário: O professor vê só as próprias turmas
   Dado que dou aula em IMD0030 T01 e não em IMD0030 T02
@@ -283,11 +305,13 @@ Cenário: Professor abre a turma de outro professor
 ```
 
 **Critérios de aceite**
+
 - [ ] "Minhas turmas" lista as turmas do semestre atual em que o professor dá aula, com a quantidade de monitores.
 - [ ] A página da turma lista os monitores atuais, os convites pendentes e as solicitações de monitoria pendentes.
 - [ ] Uma policy bloqueia o acesso às turmas em que o professor não dá aula.
 
 ### SLOT-10 · Professor convida e remove monitores
+
 `feature/` · **Prioridade:** Must · **Pontos:** 8
 
 Como **professor**, quero convidar um aluno para ser monitor da minha turma, e removê-lo, para controlar quem dá monitoria para os meus alunos.
@@ -295,6 +319,7 @@ Como **professor**, quero convidar um aluno para ser monitor da minha turma, e r
 Virar monitor torna o nome e o perfil do aluno públicos (SLOT-23), então o aluno precisa aceitar o convite antes.
 
 **Cenários**
+
 ```gherkin
 Cenário: Convidar um monitor
   Dado que estou na página de uma turma em que dou aula
@@ -330,6 +355,7 @@ Cenário: Remover um monitor com atendimentos futuros
 ```
 
 **Critérios de aceite**
+
 - [ ] Tabela pivô `class_monitor` (turma, aluno, `appointed_by`, `appointed_at`), criada só quando o aluno aceita.
 - [ ] O convite tem status `pending | accepted | declined | revoked`. O professor pode revogar um convite pendente.
 - [ ] O aluno vê os convites pendentes no dashboard e recebe um e-mail (em fila).
@@ -340,11 +366,13 @@ Cenário: Remover um monitor com atendimentos futuros
 - [ ] Remover um monitor cancela os horários futuros dele naquela turma (ligado quando a SLOT-11 existir).
 
 ### SLOT-11 · Monitor publica horários
+
 `feature/` · **Prioridade:** Must · **Pontos:** 8
 
 Como **monitor**, quero publicar os horários em que estou disponível, para que os alunos possam agendar.
 
 **Cenários**
+
 ```gherkin
 Cenário: Publicar um horário
   Dado que sou monitor de IMD0030 T01
@@ -367,17 +395,20 @@ Cenário: Não é monitor
 ```
 
 **Critérios de aceite**
+
 - [ ] O horário tem turma, monitor, início, fim, local (uma sala do cadastro, um link online ou texto livre até a SLOT-21 existir) e vagas (≥ 1).
 - [ ] O monitor pode publicar uma repetição semanal por N semanas (cria N horários).
 - [ ] O monitor pode editar um horário sem agendamentos e cancelar qualquer horário (os agendamentos são cancelados e os alunos avisados, ver SLOT-18).
 - [ ] Os horários de um mesmo monitor não se sobrepõem.
 
 ### SLOT-12 · Levantamento das salas do IMD
+
 Tarefa · Sem código · **Prioridade:** Should · **Pontos:** 2
 
 Percorrer os prédios do IMD (primeiro o CIVT, depois o nPITI) e listar toda sala que pode receber uma monitoria. O resultado alimenta a importação da SLOT-21.
 
 **Critérios de aceite**
+
 - [ ] Planilha com: prédio, andar, nome ou número da sala, tipo (`classroom | lab | study room | auditorium`) e capacidade.
 - [ ] Exportada como CSV em `database/data/rooms.csv`, com o cabeçalho em inglês.
 - [ ] Salas fechadas para alunos (escritórios, andar da incubadora) ficam de fora.
@@ -387,11 +418,13 @@ Percorrer os prédios do IMD (primeiro o CIVT, depois o nPITI) e listar toda sal
 ## Sprint 3 – O aluno encontra uma disciplina e agenda um atendimento (24/11 – 01/12)
 
 ### SLOT-13 · Buscar disciplinas e turmas
+
 `feature/` · **Prioridade:** Must · **Pontos:** 5
 
 Como **aluno**, quero buscar uma disciplina pelo código ou pelo nome, para encontrar rápido as turmas e os monitores dela.
 
 **Cenários**
+
 ```gherkin
 Cenário: Busca pelo código
   Quando busco "imd0030"
@@ -412,17 +445,20 @@ Cenário: Nenhum resultado
 ```
 
 **Critérios de aceite**
+
 - [ ] Um único campo de busca encontra pelo código (prefixo) e pelo nome (contém), sem diferenciar maiúsculas nem acentos.
 - [ ] A busca sem acentos funciona no SQLite (por exemplo, com uma coluna normalizada `search_name` preenchida ao salvar).
 - [ ] Resultados paginados, disciplinas arquivadas escondidas.
 - [ ] A busca fica disponível no menu lateral para todo usuário logado.
 
 ### SLOT-14 · Aluno vê os horários disponíveis
+
 `feature/` · **Prioridade:** Must · **Pontos:** 3
 
 Como **aluno**, quero ver os horários disponíveis de uma disciplina, para escolher um que funcione para mim.
 
 **Cenários**
+
 ```gherkin
 Cenário: Horários na página da disciplina
   Dado que IMD0030 T01 e T02 têm monitores com horários disponíveis
@@ -435,16 +471,19 @@ Cenário: Horários lotados
 ```
 
 **Critérios de aceite**
+
 - [ ] A lista mostra o nome do monitor, a turma, data e hora, o local e as vagas restantes.
 - [ ] Só aparecem horários futuros, não cancelados, de turmas do semestre atual.
 - [ ] Filtro por período; lista paginada.
 
 ### SLOT-15 · Aluno agenda um horário
+
 `feature/` · **Prioridade:** Must · **Pontos:** 5
 
 Como **aluno**, quero agendar um horário e dizer com o que preciso de ajuda, para que o monitor possa se preparar.
 
 **Cenários**
+
 ```gherkin
 Cenário: Agendar um horário
   Dado um horário com vagas
@@ -470,16 +509,19 @@ Cenário: Agendamento em conflito
 ```
 
 **Critérios de aceite**
+
 - [ ] O agendamento guarda horário, aluno, assunto (opcional, até 500 caracteres) e status (`confirmed | cancelled | attended | no_show`).
 - [ ] A checagem de vagas roda dentro de uma transação com lock na linha.
 - [ ] Um aluno tem no máximo um agendamento ativo por horário.
 
 ### SLOT-16 · Cancelar agendamento
+
 `feature/` · **Prioridade:** Must · **Pontos:** 2
 
 Como **aluno**, quero cancelar meu agendamento, para que a vaga fique livre para outra pessoa.
 
 **Cenários**
+
 ```gherkin
 Cenário: Cancelar a tempo
   Dado que meu agendamento começa daqui a mais de 2 horas
@@ -493,35 +535,42 @@ Cenário: Cancelar tarde demais
 ```
 
 **Critérios de aceite**
+
 - [ ] O prazo de cancelamento vem da configuração (padrão de 2 horas).
 - [ ] Agendamentos cancelados continuam no histórico.
 
 ### SLOT-17 · Lista de atendimentos do monitor
+
 `feature/` · **Prioridade:** Must · **Pontos:** 3
 
 Como **monitor**, quero ver meus próximos atendimentos com quem agendou e o assunto, para poder me preparar.
 
 **Critérios de aceite**
+
 - [ ] Próximos atendimentos agrupados por dia, mostrando cada aluno e o assunto.
 - [ ] Cada atendimento leva ao perfil do aluno e, quando a SLOT-20 existir, a uma conversa com ele.
 
 ### SLOT-18 · Notificações por e-mail de agendamentos
+
 `feature/` · **Prioridade:** Should · **Pontos:** 3
 
 Como **monitor** ou **aluno**, quero receber um e-mail quando um agendamento é feito ou cancelado, para não perder nenhuma mudança.
 
 **Critérios de aceite**
+
 - [ ] O monitor recebe um e-mail quando um aluno agenda ou cancela.
 - [ ] O aluno recebe um e-mail quando o monitor cancela o horário.
 - [ ] Os e-mails vão para a fila (não são enviados durante a requisição).
 - [ ] Os testes usam `Notification::fake()` para conferir quem foi notificado.
 
 ### SLOT-19 · Aluno solicita ser monitor
+
 `feature/` · **Prioridade:** Should · **Pontos:** 5
 
 Como **aluno**, quero solicitar ser monitor de uma turma, para que o professor dela avalie e me aprove.
 
 **Cenários**
+
 ```gherkin
 Cenário: Aluno envia uma solicitação
   Dado que sou aluno e não sou monitor de IMD0030 T01
@@ -546,6 +595,7 @@ Cenário: Solicitação repetida
 ```
 
 **Critérios de aceite**
+
 - [ ] Botão de solicitar no card da turma, na página da disciplina (SLOT-13).
 - [ ] A solicitação tem status `pending | approved | rejected`, mensagem opcional e motivo da recusa.
 - [ ] Só uma solicitação pendente por aluno por turma. Quem já é monitor da turma não pode solicitar.
@@ -556,11 +606,13 @@ Cenário: Solicitação repetida
 ## Sprint 4 – Chat, salas e entrega (01/12 – 08/12)
 
 ### SLOT-20 · Mensagens diretas
+
 `feature/` · **Prioridade:** Should · **Pontos:** 5
 
 Como **aluno**, quero mandar mensagem para um monitor ou professor dentro do Slot, para tirar uma dúvida sem precisar passar meu WhatsApp.
 
 **Cenários**
+
 ```gherkin
 Cenário: Começar uma conversa pelo perfil
   Dado que estou no perfil do monitor João
@@ -580,6 +632,7 @@ Cenário: Privacidade
 ```
 
 **Critérios de aceite**
+
 - [ ] Só conversas entre duas pessoas (sem grupos). Começar uma conversa com quem você já conversa reabre a conversa existente.
 - [ ] Qualquer pessoa pode começar uma conversa com um professor ou monitor. Um aluno não pode começar uma conversa com um aluno comum, mas pode responder em uma conversa que já existe.
 - [ ] Só os dois participantes leem ou escrevem na conversa.
@@ -587,11 +640,13 @@ Cenário: Privacidade
 - [ ] A página da conversa mostra as mensagens em ordem e atualiza ao enviar.
 
 ### SLOT-29 · Caixa de entrada e mensagens não lidas
+
 `feature/` · **Prioridade:** Should · **Pontos:** 5
 
 Como **qualquer usuário**, quero ver todas as minhas conversas e quais têm mensagens novas, para não perder nenhuma resposta.
 
 **Cenários**
+
 ```gherkin
 Cenário: Receber uma mensagem
   Dado que o João me mandou uma mensagem
@@ -610,6 +665,7 @@ Cenário: Mensagem nova com a conversa aberta
 ```
 
 **Critérios de aceite**
+
 - [ ] A página "Mensagens" lista as conversas pela última mensagem, com o nome da outra pessoa, uma prévia e o número de não lidas.
 - [ ] O item "Mensagens" do menu lateral mostra o total de não lidas.
 - [ ] Abrir uma conversa marca as mensagens dela como lidas.
@@ -617,11 +673,13 @@ Cenário: Mensagem nova com a conversa aberta
 - [ ] Funciona em 375px: no mobile, a lista e a conversa são telas separadas.
 
 ### SLOT-21 · Cadastro de salas
+
 `feature/` · **Prioridade:** Should · **Pontos:** 8
 
 Como **admin**, quero cadastrar as salas do IMD, uma a uma ou importando o CSV do levantamento, para que horários e reservas apontem para lugares reais.
 
 **Cenários**
+
 ```gherkin
 Cenário: Importar o levantamento
   Dado o CSV da SLOT-12
@@ -640,17 +698,20 @@ Cenário: Desativar uma sala
 ```
 
 **Critérios de aceite**
+
 - [ ] A sala tem prédio, andar, nome ou número, tipo, capacidade e um indicador de ativa. Prédio + nome é único.
 - [ ] O admin cria, edita e desativa salas, e filtra a lista por prédio e tipo.
 - [ ] A importação do CSV valida todas as linhas e nunca importa pela metade sem avisar.
 - [ ] O formulário de turma (SLOT-8) e o de horário (SLOT-11) oferecem as salas ativas.
 
 ### SLOT-22 · Reservar sala
+
 `feature/` · **Prioridade:** Should · **Pontos:** 5
 
 Como **monitor** ou **professor**, quero reservar uma sala para um horário, para ter onde fazer o atendimento.
 
 **Cenários**
+
 ```gherkin
 Cenário: Reservar uma sala livre
   Dado que "CIVT A204" está livre na terça das 14:00 às 15:00
@@ -673,17 +734,20 @@ Cenário: Usar a sala em um horário de monitoria
 ```
 
 **Critérios de aceite**
+
 - [ ] Não há reservas sobrepostas para a mesma sala (checado em uma transação).
 - [ ] A página da sala mostra as reservas da semana em uma lista ou calendário simples.
 - [ ] Alunos que não são monitores não reservam salas.
 - [ ] Cancelar um horário de monitoria não cancela a reserva da sala (quem reservou é que cancela).
 
 ### SLOT-23 · Buscar professores e monitores
+
 `feature/` · **Prioridade:** Should · **Pontos:** 5
 
 Como **aluno**, quero buscar professores e monitores pelo nome, para descobrir quem dá aula ou monitoria de quê e como falar com eles.
 
 **Cenários**
+
 ```gherkin
 Cenário: Buscar um monitor
   Dado que o João é monitor de IMD0030 T01
@@ -705,41 +769,50 @@ Cenário: Alunos que não são monitores
 ```
 
 **Critérios de aceite**
+
 - [ ] A busca de pessoas encontra pelo nome, sem diferenciar maiúsculas nem acentos, com filtro por `professor | monitor`.
 - [ ] Só professores e monitores do semestre atual aparecem na busca. Alunos comuns não são listados (privacidade).
 - [ ] O perfil mostra nome, papel, turmas e, para monitores, os próximos horários disponíveis. O e-mail não aparece.
 - [ ] O perfil já tem o lugar de um botão "Enviar mensagem", que a SLOT-20 ativa.
 
 ### SLOT-24 · Revisão de mobile e acessibilidade
+
 `enhancement/` · **Prioridade:** Must · **Pontos:** 5
 
 **Critérios de aceite**
+
 - [ ] Todos os fluxos testados em um celular de verdade (Android e iOS), corrigindo o que as checagens de cada PR deixaram passar.
 - [ ] Todo formulário mostra os erros de validação do servidor ao lado do campo.
 - [ ] A navegação por teclado funciona nos fluxos de busca, agendamento e chat.
 - [ ] Todos os textos da interface revisados para ficarem consistentes.
 
 ### SLOT-25 · Dados de demonstração e deploy
+
 `chore/` · **Prioridade:** Must · **Pontos:** 5
 
 **Critérios de aceite**
+
 - [ ] O seeder cria uma demonstração realista: disciplinas e turmas do BTI, professores, monitores, horários, agendamentos, as salas levantadas e algumas conversas.
 - [ ] `develop` mergeada na `main` e publicada.
 - [ ] Tabela de funcionalidades do README atualizada com o que foi entregue.
 
 ### SLOT-26 · Apresentação final
+
 Tarefa · **Prioridade:** Must · **Pontos:** 3
 
 **Critérios de aceite**
+
 - [ ] Roteiro da demonstração com um fluxo completo por papel.
 - [ ] Slides com o histórico das sprints (objetivo, o que foi entregue, o que foi cortado, velocidade).
 
 ### SLOT-27 · Dashboard por papel
+
 `enhancement/` · **Prioridade:** Could · **Pontos:** 5
 
 Como **qualquer usuário**, quero que o dashboard mostre o que importa para o meu papel, para achar rápido minha próxima ação.
 
 **Critérios de aceite**
+
 - [ ] Aluno: próximos agendamentos, mensagens não lidas e o campo de busca de disciplinas.
 - [ ] Monitor: próximos atendimentos, por turma.
 - [ ] Professor: suas turmas e a quantidade de solicitações de monitoria pendentes.
@@ -747,11 +820,13 @@ Como **qualquer usuário**, quero que o dashboard mostre o que importa para o me
 - [ ] Os estados vazios têm uma mensagem curta e um link para a próxima ação.
 
 ### SLOT-28 · Controle de presença
+
 `feature/` · **Prioridade:** Could · **Pontos:** 3
 
 Como **monitor**, quero marcar quem compareceu a cada atendimento, para que o professor acompanhe o trabalho da monitoria.
 
 **Critérios de aceite**
+
 - [ ] Depois que o atendimento termina, o monitor marca cada agendamento como `attended` ou `no_show`.
 - [ ] O professor vê o total de presenças por monitor na página da turma (SLOT-9).
 

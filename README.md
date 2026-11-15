@@ -8,21 +8,21 @@ Projeto da disciplina de Gestão de Projetos e Metodologias Ágeis (UFRN/IMD), d
 
 ## Funcionalidades planejadas
 
-| Sprint | Objetivo |
-| --- | --- |
-| 1 (10/11 – 17/11) | Base do projeto e papéis de usuário |
-| 2 (17/11 – 24/11) | O monitor consegue publicar horários para uma turma |
+| Sprint            | Objetivo                                                |
+| ----------------- | ------------------------------------------------------- |
+| 1 (10/11 – 17/11) | Base do projeto e papéis de usuário                     |
+| 2 (17/11 – 24/11) | O monitor consegue publicar horários para uma turma     |
 | 3 (24/11 – 01/12) | O aluno encontra uma disciplina e agenda um atendimento |
-| 4 (01/12 – 08/12) | Chat sem WhatsApp, salas do IMD e entrega |
+| 4 (01/12 – 08/12) | Chat sem WhatsApp, salas do IMD e entrega               |
 
 ## Stack
 
-| Camada | Tecnologia |
-| --- | --- |
-| Backend | Laravel 13, PHP 8.5 |
-| Frontend | React 19, Inertia, TypeScript, Tailwind |
-| Banco local | SQLite |
-| Qualidade | PHPUnit, Laravel Pint, PHPStan com Larastan, Husky |
+| Camada      | Tecnologia                                         |
+| ----------- | -------------------------------------------------- |
+| Backend     | Laravel 13, PHP 8.5                                |
+| Frontend    | React 19, Inertia, TypeScript, Tailwind            |
+| Banco local | SQLite                                             |
+| Qualidade   | PHPUnit, Laravel Pint, PHPStan com Larastan, Husky |
 
 O projeto parte do starter kit oficial de React do Laravel, com autenticação por Fortify (login, registro, verificação de email e confirmação de senha).
 
@@ -46,14 +46,14 @@ Com o `composer dev` rodando, o app fica em http://slot.test.
 
 ## Comandos úteis
 
-| Comando | O que faz |
-| --- | --- |
-| `composer dev` | Sobe o Vite e os processos de desenvolvimento |
-| `php artisan test` | Roda os testes |
-| `./vendor/bin/pint` | Formata o código PHP |
-| `./vendor/bin/phpstan analyse` | Roda a análise estática |
-| `npm run types:check` | Verifica os tipos do TypeScript |
-| `composer ci:check` | Roda tudo que o CI roda |
+| Comando                        | O que faz                                     |
+| ------------------------------ | --------------------------------------------- |
+| `composer dev`                 | Sobe o Vite e os processos de desenvolvimento |
+| `php artisan test`             | Roda os testes                                |
+| `./vendor/bin/pint`            | Formata o código PHP                          |
+| `./vendor/bin/phpstan analyse` | Roda a análise estática                       |
+| `npm run types:check`          | Verifica os tipos do TypeScript               |
+| `composer ci:check`            | Roda tudo que o CI roda                       |
 
 ## Fluxo de trabalho
 
@@ -81,10 +81,10 @@ Não use `--no-verify` pra pular os hooks. Se o Pint reclamar, rode `./vendor/bi
 
 ## Time
 
-| Pessoa | Papel |
-| --- | --- |
+| Pessoa           | Papel               |
+| ---------------- | ------------------- |
 | Guilherme Higino | Product Owner e dev |
-| Adrian Felipe | Scrum Master e dev |
-| Renan Avelino | Dev |
-| Maurício Costa | Dev |
-| Marcos Antonio | QA |
+| Adrian Felipe    | Scrum Master e dev  |
+| Renan Avelino    | Dev                 |
+| Maurício Costa   | Dev                 |
+| Marcos Antonio   | QA                  |

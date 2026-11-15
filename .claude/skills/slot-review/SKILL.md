@@ -18,12 +18,14 @@ Rode em uma sessão nova: você não escreveu o código que vai julgar. Você n�
 ## 2. Confira
 
 **Contra a spec**
+
 - Todo critério de aceite está cumprido.
 - Todo cenário tem um teste com `#[TestDox('Cenário: ...')]` que realmente prova o cenário. Procure com `grep -rn "Cenário:" tests/`.
 - Nada fora do escopo do card entrou no diff.
 - Todo passo do `tasks.md` está marcado.
 
 **Backend**
+
 - Controller só autoriza, valida, chama a Action e responde. Validação em FormRequest, regra de negócio em Action, autorização em Policy.
 - Toda rota que lê ou altera dado de alguém tem autorização, e existe teste de acesso negado.
 - Sem N+1: relações com `with()`, sem query em loop ou accessor de listagem, listagens paginadas, props do Inertia só com os campos usados.
@@ -31,11 +33,13 @@ Rode em uma sessão nova: você não escreveu o código que vai julgar. Você n�
 - Escrita em mais de uma tabela dentro de transação.
 
 **Frontend**
+
 - Arquivos no lugar certo (`pages/<dominio>/`, `components/<dominio>/`), kebab-case, um componente por arquivo.
 - URLs pelo Wayfinder, sem string solta. Sem `any` e sem `@ts-ignore`.
 - Componentes existentes reaproveitados.
 
 **Rodando**
+
 - `composer test` verde.
 - Abra cada página nova ou alterada em `http://slot.test` com 375px de largura e confira se nada quebra ou estoura a tela. Use o `insights` do Herd para ver se a página faz N+1 ou query lenta.
 
@@ -49,9 +53,11 @@ Escreva `specs/SLOT-N/review.md` (até 4 KB):
 Veredito: aprovado | voltar para o /slot-next
 
 ## Problemas
+
 - <arquivo:linha> · <o que está errado> · <por que importa>
 
 ## Conferido
+
 - <o que você verificou e passou>
 ```
 

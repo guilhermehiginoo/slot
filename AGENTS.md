@@ -20,14 +20,14 @@ Board: [Jira](https://slotgestao.atlassian.net/jira/software/projects/SLOT/board
 
 Toda mudança de código nasce de um card do Jira e passa por spec, plano e tasks antes de virar código. Os comandos ficam em `.claude/skills/` e os artefatos de cada card em `specs/SLOT-N/`, commitados junto com o código.
 
-| Ordem | Comando | O que faz | Gera |
-| --- | --- | --- | --- |
-| 1 | `/slot-specify SLOT-N` | Lê o card, cria a branch, tira as dúvidas e escreve a spec | `spec.md` |
-| 2 | `/slot-plan` | Decide como construir, depois que a spec foi aprovada | `plan.md` |
-| 3 | `/slot-tasks` | Quebra o plano em passos do tamanho de um commit | `tasks.md` |
-| 4 | `/slot-next` | Implementa o próximo passo com TDD e commita | código |
-| — | `/slot-commit` | Commita no padrão do projeto (o `/slot-next` já chama) | commit |
-| 5 | `/slot-review` | Confere card, spec e código, devolve problemas ao `tasks.md` ou abre o PR | `review.md` e PR |
+| Ordem | Comando                | O que faz                                                                 | Gera             |
+| ----- | ---------------------- | ------------------------------------------------------------------------- | ---------------- |
+| 1     | `/slot-specify SLOT-N` | Lê o card, cria a branch, tira as dúvidas e escreve a spec                | `spec.md`        |
+| 2     | `/slot-plan`           | Decide como construir, depois que a spec foi aprovada                     | `plan.md`        |
+| 3     | `/slot-tasks`          | Quebra o plano em passos do tamanho de um commit                          | `tasks.md`       |
+| 4     | `/slot-next`           | Implementa o próximo passo com TDD e commita                              | código           |
+| —     | `/slot-commit`         | Commita no padrão do projeto (o `/slot-next` já chama)                    | commit           |
+| 5     | `/slot-review`         | Confere card, spec e código, devolve problemas ao `tasks.md` ou abre o PR | `review.md` e PR |
 
 Regras do fluxo:
 
@@ -52,23 +52,23 @@ Todo código de produto é escrito em ciclos de teste primeiro:
 
 ## Branches
 
-| Branch | Papel |
-| --- | --- |
-| `main` | Produção. Tudo que está na main está publicado. |
+| Branch    | Papel                                              |
+| --------- | -------------------------------------------------- |
+| `main`    | Produção. Tudo que está na main está publicado.    |
 | `develop` | Integração. O deploy é o merge da develop na main. |
 
 Nunca faça commit direto na `main` ou na `develop`. Todo trabalho acontece em uma branch própria e entra por pull request.
 
 O prefixo da branch vem do tipo do card no Jira:
 
-| Tipo no Jira | Prefixo | Sai de | PR para |
-| --- | --- | --- | --- |
-| História | `feature/` | `develop` | `develop` |
-| Enhancement | `enhancement/` | `develop` | `develop` |
-| Bugfix | `bugfix/` | `develop` | `develop` |
-| Hotfix | `hotfix/` | `main` | `main` |
-| Chore | `chore/` | `develop` | `develop` |
-| Tarefa | sem branch | — | — |
+| Tipo no Jira | Prefixo        | Sai de    | PR para   |
+| ------------ | -------------- | --------- | --------- |
+| História     | `feature/`     | `develop` | `develop` |
+| Enhancement  | `enhancement/` | `develop` | `develop` |
+| Bugfix       | `bugfix/`      | `develop` | `develop` |
+| Hotfix       | `hotfix/`      | `main`    | `main`    |
+| Chore        | `chore/`       | `develop` | `develop` |
+| Tarefa       | sem branch     | —         | —         |
 
 Formato: `prefixo/SLOT-N` ou `prefixo/SLOT-N-descricao-em-kebab-case`. A chave do card vai sempre em maiúsculo, porque é ela que liga a branch ao card no Jira. A descrição é opcional, em português, só com letras minúsculas, números e hífens.
 
@@ -128,15 +128,15 @@ O controller só liga as peças. Cada método faz, nesta ordem: autoriza, valida
 
 Organização em `resources/js/`:
 
-| Pasta | O que vai nela |
-| --- | --- |
-| `pages/<dominio>/` | Uma página por rota, espelhando o controller: `CourseController@index` vira `pages/courses/index.tsx` |
-| `components/<dominio>/` | Componentes de um domínio: `components/courses/course-card.tsx` |
-| `components/` (raiz) | Componentes de layout e de uso geral, como os que já existem |
-| `components/ui/` | Só primitivos do shadcn. Não coloque regra de negócio aqui |
-| `hooks/` | Hooks reutilizáveis, sempre `use-<nome>.ts` |
-| `types/<dominio>.ts` | Tipos das props que vêm do backend |
-| `lib/` | Funções puras, sem React |
+| Pasta                   | O que vai nela                                                                                        |
+| ----------------------- | ----------------------------------------------------------------------------------------------------- |
+| `pages/<dominio>/`      | Uma página por rota, espelhando o controller: `CourseController@index` vira `pages/courses/index.tsx` |
+| `components/<dominio>/` | Componentes de um domínio: `components/courses/course-card.tsx`                                       |
+| `components/` (raiz)    | Componentes de layout e de uso geral, como os que já existem                                          |
+| `components/ui/`        | Só primitivos do shadcn. Não coloque regra de negócio aqui                                            |
+| `hooks/`                | Hooks reutilizáveis, sempre `use-<nome>.ts`                                                           |
+| `types/<dominio>.ts`    | Tipos das props que vêm do backend                                                                    |
+| `lib/`                  | Funções puras, sem React                                                                              |
 
 - Arquivos em kebab-case e em inglês. Um componente por arquivo.
 - Página só monta a tela: busca nada, recebe tudo por props do Inertia. Pedaço de tela com lógica própria ou com mais de umas 150 linhas vira componente.
