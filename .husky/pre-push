@@ -6,7 +6,7 @@ RED='\033[0;31m'
 GREEN='\033[0;32m'
 NC='\033[0m'
 
-PATTERN='^(feature|hotfix|bugfix|enhancement|chore)/[a-z0-9]+(-[a-z0-9]+)*$'
+PATTERN='^(feature|hotfix|bugfix|enhancement|chore)/SLOT-[0-9]+(-[a-z0-9]+)*$'
 
 echo "Validando nomes das branches enviadas..."
 # O Git passa cada ref enviada no stdin: <local ref> <local sha> <remote ref> <remote sha>
@@ -31,14 +31,15 @@ while read -r LOCAL_REF _ REMOTE_REF _; do
     if ! printf '%s' "$BRANCH" | grep -Eq "$PATTERN"; then
         printf '%b\n' "${RED}Nome de branch inválido: ${BRANCH}${NC}"
         echo ""
-        echo "Use um destes prefixos, seguido de uma descrição em kebab-case:"
-        echo "  feature/      funcionalidade nova"
-        echo "  enhancement/  melhoria em algo que já existe"
-        echo "  bugfix/       correção que sai da develop e volta pra develop"
-        echo "  hotfix/       correção urgente que sai da main e volta pra main"
-        echo "  chore/        manutenção, configuração, dependências, docs"
+        echo "Formato: prefixo/SLOT-N ou prefixo/SLOT-N-descricao-em-kebab-case"
+        echo "O prefixo vem do tipo do card no Jira:"
+        echo "  feature/      História"
+        echo "  enhancement/  Enhancement"
+        echo "  bugfix/       Bugfix (sai da develop e volta pra develop)"
+        echo "  hotfix/       Hotfix (sai da main e volta pra main)"
+        echo "  chore/        Chore"
         echo ""
-        echo "Exemplo: feature/12-reservar-horario"
+        echo "Exemplo: feature/SLOT-12-reservar-horario"
         printf '%b\n' "${RED}Renomeie com: git branch -m <novo-nome>${NC}"
         exit 1
     fi
@@ -54,6 +55,13 @@ fi
 echo "Executando análise estática com PHPStan..."
 if ! ./vendor/bin/phpstan analyse --no-progress --memory-limit=512M; then
     printf '%b\n' "${RED}A análise estática falhou. Corrija os erros do PHPStan antes de fazer push.${NC}"
+    exit 1
+fi
+
+echo "Rodando os testes..."
+php artisan config:clear --ansi > /dev/null
+if ! php artisan test; then
+    printf '%b\n' "${RED}Os testes falharam. Corrija antes de fazer push.${NC}"
     exit 1
 fi
 
