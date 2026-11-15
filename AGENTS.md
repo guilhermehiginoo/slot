@@ -93,7 +93,7 @@ Tipos: `feat`, `fix`, `test`, `refactor`, `perf`, `style`, `docs`, `chore`. O ho
 
 - Um commit por passo do `tasks.md`. Commits pequenos e que deixam os testes verdes.
 - Commits feitos por IA não levam coautoria: nada de `Co-Authored-By` de IA nem linha "Generated with". O hook `commit-msg` bloqueia.
-- A IA, quando for ela quem commita, roda `composer test` antes de cada commit e só commita com tudo verde.
+- A IA, quando for ela quem commita, roda `composer ci:check` (o mesmo que o CI) antes de cada commit e só commita com tudo verde.
 - Nunca use `--no-verify`.
 
 ## Backend
@@ -151,7 +151,7 @@ Organização em `resources/js/`:
 Dois hooks do Husky, ativados com `npm run prepare` depois de clonar (o `.npmrc` usa `ignore-scripts=true`):
 
 - **`commit-msg`:** a mensagem começa com a chave da branch (`SLOT-N: `) e não tem coautoria de IA.
-- **`pre-push`:** nome da branch, Laravel Pint (`--test`), PHPStan com Larastan e os testes. Se o Pint reclamar, rode `./vendor/bin/pint` e commite a formatação.
+- **`pre-push`:** nome da branch, formatação e lint do frontend e do Markdown (`vp check`), Laravel Pint (`--test`), PHPStan com Larastan e os testes. Se a formatação reclamar, rode `npx vp check --fix` e `./vendor/bin/pint` e commite o resultado.
 
 No GitHub, o workflow `branch-name` valida nome e destino de cada PR (a `main` só recebe da `develop` ou de `hotfix/*`, e a `develop` não recebe `hotfix/*`), e o workflow `tests` roda `composer ci:check`.
 
@@ -160,7 +160,7 @@ Se o nome da branch estiver errado, renomeie com `git branch -m <novo-nome>`.
 ## Definição de pronto
 
 - Todos os critérios de aceite do card estão cumpridos e cada cenário tem seu teste.
-- `composer test` verde e o CI verde no PR.
+- `composer ci:check` verde e o CI verde no PR.
 - Nenhum N+1, nenhuma regra de negócio no controller, toda rota com autorização.
 - Telas novas funcionam com 375px de largura.
 - O PR foi revisado por outra pessoa do time e o card está atualizado no Jira.

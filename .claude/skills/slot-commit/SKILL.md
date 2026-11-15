@@ -12,10 +12,10 @@ Tire a chave `SLOT-N` do nome da branch atual. Se estiver na `main` ou na `devel
 ## 2. Rode os testes
 
 ```bash
-composer test
+composer ci:check
 ```
 
-Só commite com tudo verde. Se o Pint reclamar, rode `./vendor/bin/pint` e rode `composer test` de novo. Commit que só mexe em arquivos `.md` pode pular esse passo.
+É o mesmo que o CI roda: formatação e lint do frontend (`vp`), tipos do TypeScript, Pint, PHPStan e os testes. Só commite com tudo verde, inclusive em commit que só mexe em `.md`, porque o `vp` também formata Markdown. Se a formatação reclamar, rode `npx vp check --fix` e `./vendor/bin/pint`, e rode `composer ci:check` de novo.
 
 ## 3. Escolha o que entra
 

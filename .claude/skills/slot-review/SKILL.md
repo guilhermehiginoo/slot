@@ -40,7 +40,7 @@ Rode em uma sessão nova: você não escreveu o código que vai julgar. Você n�
 
 **Rodando**
 
-- `composer test` verde.
+- `composer ci:check` verde.
 - Abra cada página nova ou alterada em `http://slot.test` com 375px de largura e confira se nada quebra ou estoura a tela. Use o `insights` do Herd para ver se a página faz N+1 ou query lenta.
 
 ## 3. Registre
@@ -74,4 +74,4 @@ git push -u origin HEAD
 gh pr create --base <base> --title "SLOT-N: <título do card>" --body-file <arquivo>
 ```
 
-O corpo segue `.github/pull_request_template.md`, preenchido com o link do card, os critérios de aceite marcados e um resumo do que mudou. Se o conector do Atlassian estiver disponível, mova o card para **Revisando PR**. Termine com o link do PR.
+O corpo segue `.github/pull_request_template.md`, preenchido com o link do card, os critérios de aceite marcados e um resumo do que mudou. Se o conector do Atlassian estiver disponível, mova o card para a coluna **PR Review** (status Revisando PR). Termine com o link do PR.

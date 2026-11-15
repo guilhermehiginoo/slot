@@ -45,6 +45,12 @@ while read -r LOCAL_REF _ REMOTE_REF _; do
     fi
 done
 
+echo "Validando formatação e lint do frontend com o vp..."
+if ! npm run check --silent; then
+    printf '%b\n' "${RED}O vp encontrou problemas. Rode npx vp check --fix e corrija antes de fazer push.${NC}"
+    exit 1
+fi
+
 echo "Validando formatação com Laravel Pint..."
 # Só arquivos versionados: pastas locais fora do Git não bloqueiam o push.
 if ! git ls-files -z -- '*.php' | xargs -0 ./vendor/bin/pint --test; then

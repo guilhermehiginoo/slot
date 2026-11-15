@@ -43,10 +43,10 @@ Escreva o mínimo de código para o teste passar. Rode o teste de novo até fica
 Limpe o código com o teste verde. Depois rode tudo:
 
 ```bash
-composer test
+composer ci:check
 ```
 
-Isso roda Pint, PHPStan e todos os testes. Se o Pint reclamar, rode `./vendor/bin/pint`. Só siga com tudo verde. Se o modo estrito acusar lazy loading, corrija com `with()`.
+Isso roda o mesmo que o CI: `vp` (formatação e lint do frontend), tipos do TypeScript, Pint, PHPStan e todos os testes. Se a formatação reclamar, rode `npx vp check --fix` e `./vendor/bin/pint`. Só siga com tudo verde. Se o modo estrito acusar lazy loading, corrija com `with()`.
 
 ## Quando parar
 

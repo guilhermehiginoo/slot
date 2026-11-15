@@ -15,7 +15,7 @@ Spec: `specs/SLOT-/spec.md`
 ## Definição de pronto
 
 - [ ] Todo cenário da spec tem um teste com `#[TestDox('Cenário: ...')]`
-- [ ] `composer test` verde
+- [ ] `composer ci:check` verde
 - [ ] Sem N+1 e sem regra de negócio no controller
 - [ ] Toda rota nova tem autorização
 - [ ] Telas novas funcionam com 375px de largura
