@@ -1,0 +1,39 @@
+#!/usr/bin/env sh
+
+# Regras completas de commit em AGENTS.md, seção Commits.
+
+RED='\033[0;31m'
+NC='\033[0m'
+
+MSG=$(grep -v '^#' "$1")
+FIRST=$(printf '%s\n' "$MSG" | head -n 1)
+
+fail() {
+    printf '%b\n' "${RED}$1${NC}"
+    echo "Formato: SLOT-N: (tipo) frase em português"
+    echo "Exemplo: SLOT-12: (feat) permite agendar um horário"
+    exit 1
+}
+
+# Mensagens que o próprio Git gera
+case "$FIRST" in
+    Merge\ * | Revert\ * | fixup!\ * | squash!\ * | amend!\ *) exit 0 ;;
+esac
+
+if printf '%s\n' "$MSG" | grep -qiE '^co-authored-by:.*(claude|anthropic|openai|codex|copilot|cursor|gemini)|generated with'; then
+    fail "Commits não levam coautoria de IA. Remova as linhas Co-Authored-By e \"Generated with\"."
+fi
+
+printf '%s' "$FIRST" | grep -Eq '^SLOT-[0-9]+: ' \
+    || fail "A mensagem precisa começar com a chave do card: SLOT-N: "
+
+# Fora de uma branch com chave (rebase, HEAD destacado), só o formato vale.
+BRANCH=$(git symbolic-ref --short -q HEAD)
+KEY=$(printf '%s' "$BRANCH" | grep -oE 'SLOT-[0-9]+' | head -n 1)
+[ -z "$KEY" ] && exit 0
+
+case "$FIRST" in
+    "$KEY: "*) exit 0 ;;
+esac
+
+fail "A branch $BRANCH é do card $KEY, mas o commit começa com outra chave."
