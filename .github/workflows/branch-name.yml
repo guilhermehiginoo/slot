@@ -17,7 +17,7 @@ jobs:
           HEAD_BRANCH: ${{ github.head_ref }}
           BASE_BRANCH: ${{ github.base_ref }}
         run: |
-          pattern='^(feature|hotfix|bugfix|enhancement|chore)/[a-z0-9]+(-[a-z0-9]+)*$'
+          pattern='^(feature|hotfix|bugfix|enhancement|chore)/SLOT-[0-9]+(-[a-z0-9]+)*$'
 
           fail() {
             echo "::error::$1"
@@ -31,7 +31,7 @@ jobs:
                 echo "Deploy: develop -> main"
               elif printf '%s' "$HEAD_BRANCH" | grep -Eq '^hotfix/'; then
                 printf '%s' "$HEAD_BRANCH" | grep -Eq "$pattern" \
-                  || fail "Nome de hotfix inválido: $HEAD_BRANCH. Exemplo: hotfix/login-quebrado"
+                  || fail "Nome de hotfix inválido: $HEAD_BRANCH. Exemplo: hotfix/SLOT-31-login-quebrado"
               else
                 fail "A main só recebe PR da develop ou de hotfix/*. Recebido: $HEAD_BRANCH"
               fi
@@ -44,7 +44,7 @@ jobs:
               elif printf '%s' "$HEAD_BRANCH" | grep -Eq '^hotfix/'; then
                 fail "hotfix/* deve abrir PR para a main, não para a develop. Para bug que pode esperar o próximo deploy, use bugfix/*"
               elif ! printf '%s' "$HEAD_BRANCH" | grep -Eq "$pattern"; then
-                fail "Nome de branch inválido: $HEAD_BRANCH. Use feature/, enhancement/, bugfix/ ou chore/ seguido de kebab-case"
+                fail "Nome de branch inválido: $HEAD_BRANCH. Use feature/, enhancement/, bugfix/ ou chore/ seguido da chave do card: feature/SLOT-12-reservar-horario"
               fi
               ;;
             *)
