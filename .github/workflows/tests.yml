@@ -1,10 +1,10 @@
 name: tests
 
 on:
-  push:
+  pull_request:
     branches:
       - main
-  pull_request:
+      - develop
 
 permissions:
   contents: read
@@ -34,5 +34,18 @@ jobs:
       - name: Setup Application
         run: composer setup
 
-      - name: Run CI Checks
-        run: composer ci:check
+      - name: Frontend (vp check e tsc)
+        run: |
+          npm run check
+          npm run types:check
+
+      - name: Laravel Pint (pint.json)
+        run: composer lint:check
+
+      - name: PHPStan
+        run: composer types:check
+
+      - name: Testes
+        run: |
+          php artisan config:clear --ansi
+          php artisan test
