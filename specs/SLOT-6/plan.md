@@ -8,7 +8,9 @@
     - cast `role => Role::class` e `$attributes = ['role' => 'student']`, para o model recém-criado já ter o papel sem reler do banco (o modo estrito lança exceção em atributo ausente).
     - `role` fica fora do `$fillable`: só muda pela Action do admin, nunca por mass assignment do cadastro ou do perfil (R2, R4).
     - `isAdmin(): bool`.
-- `UserFactory`: padrão `student`, estados `admin()` e `professor()`.
+- Migration `add_admin_since_to_users_table`: `timestamp('admin_since')->nullable()` depois de `role`. Os admins que já existem recebem `admin_since = created_at` (R8).
+- Model `User`: cast `admin_since => datetime`, fora do `$fillable` como o `role`.
+- `UserFactory`: padrão `student`, estados `admin()` (com `admin_since = now()`) e `professor()`.
 - `DatabaseSeeder`: um usuário de cada papel com a factory (`admin@slot.test`, `professor@slot.test`, `student@slot.test`).
 
 ## Backend
@@ -21,7 +23,7 @@
 - Rotas em `routes/admin.php`, incluído pelo `web.php`, no grupo `auth`, `verified` e `can:viewAny,App\Models\User`, prefixo `admin` e nomes `admin.*` (R3). O middleware `can` devolve 403 para professor e aluno.
 - `UserPolicy`: `viewAny` e `update` só para admin (R3, R4).
 - `UpdateUserRoleRequest`: `authorize()` chama a policy `update`; `role` obrigatório e `Rule::enum(Role::class)`.
-- Action `App\Actions\Admin\UpdateUserRole::handle(User $actor, User $user, Role $role)`: se `$actor` é o `$user` e o novo papel não é admin, lança `ValidationException` no campo `role` com "Você não pode tirar o seu próprio papel de admin." (R5). Uma tabela só, sem transação.
+- Action `App\Actions\Admin\UpdateUserRole::handle(User $actor, User $user, Role $role)`: se `$actor` é o `$user` e o novo papel não é admin, lança `ValidationException` no campo `role` com "Você não pode tirar o seu próprio papel de admin." (R5). Se o `$user` é admin, deixa de ser admin e não virou admin depois do `$actor` (`admin_since` mais novo), lança `ValidationException` no `role` com "Você não pode rebaixar um admin mais antigo que você." (R8). Ao promover grava `admin_since = now()`, ao rebaixar grava `null`. Uma tabela só, sem transação.
 - O controller responde com redirect de volta e um toast "Papel atualizado." pelo `Inertia::flash`, como o `ProfileController`.
 - R6 sai de graça: o papel é lido do banco a cada requisição, junto com o usuário logado.
 

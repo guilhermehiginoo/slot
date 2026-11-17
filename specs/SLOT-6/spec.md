@@ -17,6 +17,7 @@ Hoje todo usuário do Slot é igual. O admin precisa que cada pessoa tenha um pa
 - R5: O admin não consegue tirar o próprio papel de admin.
 - R6: A mudança de papel vale na próxima requisição da pessoa, sem precisar sair e entrar de novo.
 - R7: O menu lateral mostra os itens do papel de quem está logado.
+- R8: Um admin só rebaixa outro admin que virou admin depois dele. Um admin novo não rebaixa um mais antigo.
 
 ## Cenários
 
@@ -41,6 +42,18 @@ Cenário: Admin não tira o próprio papel de admin
   Quando tento mudar o meu papel para "aluno"
   Então vejo um erro e continuo admin
 
+Cenário: Admin mais antigo rebaixa um admin mais novo
+  Dado que estou logado como admin
+  E a Maria virou admin depois de mim
+  Quando mudo o papel da Maria para "aluno"
+  Então a Maria passa a ser aluna
+
+Cenário: Admin novo não rebaixa um admin mais antigo
+  Dado que estou logado como admin
+  E a Maria virou admin antes de mim
+  Quando tento mudar o papel da Maria para "aluno"
+  Então vejo um erro e a Maria continua admin
+
 Cenário: Admin busca um usuário
   Dado que estou logado como admin
   Quando busco por parte do nome ou do e-mail da Maria
@@ -53,6 +66,7 @@ Cenário: Admin busca um usuário
 - [ ] Middleware ou gate restringe as rotas de admin e devolve 403 para os demais.
 - [ ] Página de usuários do admin com busca por nome ou e-mail e um seletor de papel.
 - [ ] O admin não consegue tirar o próprio papel de admin (evita ficar sem acesso).
+- [ ] Um admin só rebaixa admins que viraram admin depois dele (coluna `admin_since` em `users`).
 - [ ] O `DatabaseSeeder` cria `admin@slot.test`, `professor@slot.test` e `student@slot.test`.
 - [ ] Uma prop compartilhada do Inertia expõe o papel do usuário logado, e o menu lateral mostra os itens de cada papel.
 
@@ -72,7 +86,9 @@ Cenário: Admin busca um usuário
 - Na tela os papéis aparecem como Admin, Professor e Aluno. No código e no banco: `admin`, `professor`, `student`.
 - Cada linha da página de usuários tem um seletor de papel e um botão Salvar. O papel não muda só de escolher no seletor, para evitar troca sem querer.
 - Na linha do próprio admin o seletor fica desabilitado com a marca "você". O backend recusa a mudança mesmo assim, com a mensagem "Você não pode tirar o seu próprio papel de admin."
-- Um admin pode promover outra pessoa a admin e rebaixar outro admin. Como ninguém tira o próprio admin, sempre sobra pelo menos um.
+- Um admin pode promover outra pessoa a admin. Para rebaixar outro admin, precisa ser admin há mais tempo que ele (`admin_since` mais antigo). Assim o admin mais antigo nunca é rebaixado e sempre sobra pelo menos um, mesmo com dois admins agindo ao mesmo tempo.
+- Quem vira admin ganha `admin_since` com a data da promoção. Quem deixa de ser admin perde o `admin_since`. Os admins que já existem no banco recebem a data de cadastro.
+- Se um admin novo tenta rebaixar um mais antigo, o backend recusa com "Você não pode rebaixar um admin mais antigo que você." O seletor continua habilitado na tela.
 - A busca é um campo só, procura parte do nome ou do e-mail sem diferenciar maiúsculas, e a lista vem em ordem de nome, 15 por página.
 - A lista mostra nome, e-mail e papel. Nada de editar nome ou e-mail dos outros por aqui.
 - O papel aparece no menu do usuário (embaixo do nome e do e-mail), para dar para conferir qual papel está ativo.
