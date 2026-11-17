@@ -13,3 +13,6 @@
     - Teste: `npm run types:check` e conferência no navegador com os três usuários do seeder
     - Arquivos: `resources/js/hooks/use-nav-groups.ts`, `resources/js/components/nav-main.tsx`, `resources/js/components/app-sidebar.tsx`, `resources/js/components/app-header.tsx`, `resources/js/components/user-info.tsx`
 - [x] T5 · Conferir a página de usuários e o menu no celular (375px)
+- [ ] T6 · Review: uma pessoa do time aprova a spec e preenche `Aprovado por:` em `specs/SLOT-6/spec.md` (sem código)
+- [ ] T7 · Review: teste de um admin rebaixando outro admin
+    - Teste: `tests/Feature/Admin/UserManagementTest::test_admin_can_demote_another_admin`: o admin A muda o admin B para `student`, sem erro na sessão, o B fica `Role::Student` e depois recebe 403 em `/admin/users`
