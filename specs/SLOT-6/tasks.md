@@ -14,8 +14,8 @@
     - Arquivos: `resources/js/hooks/use-nav-groups.ts`, `resources/js/components/nav-main.tsx`, `resources/js/components/app-sidebar.tsx`, `resources/js/components/app-header.tsx`, `resources/js/components/user-info.tsx`
 - [x] T5 · Conferir a página de usuários e o menu no celular (375px)
 - [ ] T6 · Review: uma pessoa do time aprova a spec e preenche `Aprovado por:` em `specs/SLOT-6/spec.md` (sem código)
-- [ ] T7 · Review: teste de um admin mais antigo rebaixando um admin mais novo
+- [x] T7 · Review: teste de um admin mais antigo rebaixando um admin mais novo
     - Teste: `tests/Feature/Admin/UserManagementTest::test_older_admin_demotes_a_newer_admin` (Cenário: Admin mais antigo rebaixa um admin mais novo): o B vira `Role::Student` e depois recebe 403 em `/admin/users`
-- [ ] T8 · Um admin novo não rebaixa um admin mais antigo (R8)
+- [x] T8 · Um admin novo não rebaixa um admin mais antigo (R8)
     - Teste: `tests/Feature/Admin/UserManagementTest::test_newer_admin_cannot_demote_an_older_admin` (Cenário: Admin novo não rebaixa um admin mais antigo) e `test_admin_can_promote_another_user_to_admin` (promover grava `admin_since`)
     - Arquivos: migration `add_admin_since_to_users_table`, `app/Models/User.php`, `database/factories/UserFactory.php`, `app/Actions/Admin/UpdateUserRole.php`

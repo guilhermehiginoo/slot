@@ -120,10 +120,45 @@ class UserManagementTest extends TestCase
             ->assertSessionHasNoErrors();
 
         $this->assertSame(Role::Admin, $maria->refresh()->role);
+        $this->assertNotNull($maria->admin_since);
 
         $this->actingAs($maria)
             ->get(route('admin.users.index'))
             ->assertOk();
+    }
+
+    #[TestDox('Cenário: Admin mais antigo rebaixa um admin mais novo')]
+    public function test_older_admin_demotes_a_newer_admin()
+    {
+        $admin = User::factory()->admin()->create(['admin_since' => now()->subYear()]);
+        $maria = User::factory()->admin()->create(['admin_since' => now()->subDay()]);
+
+        $this->actingAs($admin)
+            ->patch(route('admin.users.update', $maria), ['role' => 'student'])
+            ->assertSessionHasNoErrors();
+
+        $maria->refresh();
+        $this->assertSame(Role::Student, $maria->role);
+        $this->assertNull($maria->admin_since);
+
+        $this->actingAs($maria)
+            ->get(route('admin.users.index'))
+            ->assertForbidden();
+    }
+
+    #[TestDox('Cenário: Admin novo não rebaixa um admin mais antigo')]
+    public function test_newer_admin_cannot_demote_an_older_admin()
+    {
+        $maria = User::factory()->admin()->create(['admin_since' => now()->subYear()]);
+        $admin = User::factory()->admin()->create(['admin_since' => now()->subDay()]);
+
+        $this->actingAs($admin)
+            ->from(route('admin.users.index'))
+            ->patch(route('admin.users.update', $maria), ['role' => 'student'])
+            ->assertSessionHasErrors(['role' => 'Você não pode rebaixar um admin mais antigo que você.'])
+            ->assertRedirect(route('admin.users.index'));
+
+        $this->assertSame(Role::Admin, $maria->refresh()->role);
     }
 
     #[TestDox('Cenário: Admin não tira o próprio papel de admin')]

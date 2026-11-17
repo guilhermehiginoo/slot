@@ -9,17 +9,31 @@ use Illuminate\Validation\ValidationException;
 class UpdateUserRole
 {
     /**
-     * Change a user's role. An admin never removes their own admin role,
-     * so the app always keeps at least one admin.
+     * Change a user's role. An admin never removes their own admin role and only
+     * demotes admins newer than them, so the oldest admin always stays.
      *
      * @throws ValidationException
      */
     public function handle(User $actor, User $user, Role $role): User
     {
-        if ($actor->is($user) && $user->isAdmin() && $role !== Role::Admin) {
-            throw ValidationException::withMessages([
-                'role' => 'Você não pode tirar o seu próprio papel de admin.',
-            ]);
+        if ($user->isAdmin() && $role !== Role::Admin) {
+            if ($actor->is($user)) {
+                throw ValidationException::withMessages([
+                    'role' => 'Você não pode tirar o seu próprio papel de admin.',
+                ]);
+            }
+
+            if (!$actor->admin_since?->lt($user->admin_since)) {
+                throw ValidationException::withMessages([
+                    'role' => 'Você não pode rebaixar um admin mais antigo que você.',
+                ]);
+            }
+        }
+
+        if ($role === Role::Admin && !$user->isAdmin()) {
+            $user->admin_since = now();
+        } elseif ($role !== Role::Admin) {
+            $user->admin_since = null;
         }
 
         $user->role = $role;

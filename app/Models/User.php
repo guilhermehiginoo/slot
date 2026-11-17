@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use App\Enums\Role;
+use Carbon\CarbonImmutable;
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\{Fillable, Hidden};
@@ -16,6 +17,7 @@ use Illuminate\Support\Carbon;
  * @property string $name
  * @property string $email
  * @property Role $role
+ * @property CarbonImmutable|null $admin_since
  * @property Carbon|null $email_verified_at
  * @property string $password
  * @property string|null $two_factor_secret
@@ -56,6 +58,7 @@ class User extends Authenticatable implements MustVerifyEmail
             'email_verified_at' => 'datetime',
             'password'          => 'hashed',
             'role'              => Role::class,
+            'admin_since'       => 'datetime',
         ];
     }
 
