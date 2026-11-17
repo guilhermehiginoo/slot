@@ -1,0 +1,15 @@
+# Tasks · SLOT-6
+
+- [x] T1 · Todo usuário tem um papel, quem se cadastra entra como aluno e a prop compartilhada expõe o papel
+    - Teste: `tests/Feature/Auth/RegistrationTest::test_new_users_register_as_students` (Cenário: Novo cadastro entra como aluno) e `tests/Feature/Auth/RoleSharedPropTest`
+    - Arquivos: `app/Enums/Role.php`, migration `add_role_to_users_table`, `app/Models/User.php`, `database/factories/UserFactory.php`
+- [x] T2 · O seeder cria um usuário de cada papel
+    - Teste: `tests/Feature/Database/DatabaseSeederTest::test_seeder_creates_one_user_of_each_role`
+    - Arquivos: `database/seeders/DatabaseSeeder.php`
+- [x] T3 · Página de usuários do admin: 403 para os demais, busca por nome ou e-mail e troca de papel sem tirar o próprio admin
+    - Teste: `tests/Feature/Admin/UserManagementTest` (Cenários: Quem não é admin não acessa as páginas de admin; Admin muda um papel; Admin não tira o próprio papel de admin; Admin busca um usuário)
+    - Arquivos: `app/Policies/UserPolicy.php`, `routes/admin.php`, `routes/web.php`, `app/Http/Controllers/Admin/UserController.php`, `app/Http/Requests/Admin/UpdateUserRoleRequest.php`, `app/Actions/Admin/UpdateUserRole.php`, `resources/js/pages/admin/users/index.tsx`, `resources/js/components/admin/user-role-form.tsx`, `resources/js/components/pagination.tsx`, `resources/js/lib/roles.ts`, `resources/js/types/`
+- [x] T4 · O menu lateral mostra os itens de cada papel e o menu do usuário mostra o papel
+    - Teste: `npm run types:check` e conferência no navegador com os três usuários do seeder
+    - Arquivos: `resources/js/hooks/use-nav-groups.ts`, `resources/js/components/nav-main.tsx`, `resources/js/components/app-sidebar.tsx`, `resources/js/components/app-header.tsx`, `resources/js/components/user-info.tsx`
+- [ ] T5 · Conferir a página de usuários e o menu no celular (375px)
