@@ -10,11 +10,6 @@ class DatabaseSeeder extends Seeder
 {
     use WithoutModelEvents;
 
-    /**
-     * Seed the application's database.
-     *
-     * One user of each role for development, all with the password "password".
-     */
     public function run(): void
     {
         User::factory()->admin()->create([

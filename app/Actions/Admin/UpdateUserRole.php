@@ -9,9 +9,6 @@ use Illuminate\Validation\ValidationException;
 class UpdateUserRole
 {
     /**
-     * Change a user's role. An admin never removes their own admin role and only
-     * demotes admins newer than them, so the oldest admin always stays.
-     *
      * @throws ValidationException
      */
     public function handle(User $actor, User $user, Role $role): User

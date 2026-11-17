@@ -4,7 +4,6 @@ export type PaginationLink = {
     active: boolean;
 };
 
-/** The JSON of Laravel's LengthAwarePaginator. */
 export type Paginated<T> = {
     data: T[];
     current_page: number;

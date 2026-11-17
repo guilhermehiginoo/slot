@@ -13,9 +13,6 @@ use Inertia\{Inertia, Response};
 
 class UserController extends Controller
 {
-    /**
-     * List the users, searching by name or email. Access is checked by the admin route group.
-     */
     public function index(Request $request): Response
     {
         $search = $request->string('search')->trim()->value() ?: null;
@@ -37,9 +34,6 @@ class UserController extends Controller
         ]);
     }
 
-    /**
-     * Change the user's role.
-     */
     public function update(UpdateUserRoleRequest $request, User $user, UpdateUserRole $updateUserRole): RedirectResponse
     {
         $updateUserRole->handle($request->user(), $user, $request->enum('role', Role::class));

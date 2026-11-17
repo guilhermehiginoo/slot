@@ -36,11 +36,6 @@ class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
 
     /**
-     * The model's default values for attributes.
-     *
-     * The role stays out of the fillable list on purpose: only an admin changes it,
-     * through UpdateUserRole, never by mass assignment.
-     *
      * @var array<string, mixed>
      */
     protected $attributes = [
@@ -48,8 +43,6 @@ class User extends Authenticatable implements MustVerifyEmail
     ];
 
     /**
-     * Get the attributes that should be cast.
-     *
      * @return array<string, string>
      */
     protected function casts(): array

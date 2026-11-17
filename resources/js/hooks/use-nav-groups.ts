@@ -15,7 +15,6 @@ const platformGroup: NavGroup = {
     ],
 };
 
-// Professors and students get their own items as their pages arrive (SLOT-9, SLOT-13 onwards).
 const groupsByRole: Record<Role, NavGroup[]> = {
     admin: [
         {
@@ -33,7 +32,6 @@ const groupsByRole: Record<Role, NavGroup[]> = {
     student: [],
 };
 
-/** The menu groups of the logged user, based on their role. */
 export function useNavGroups(): NavGroup[] {
     const { auth } = usePage().props;
 
