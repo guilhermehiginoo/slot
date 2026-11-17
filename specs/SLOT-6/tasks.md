@@ -12,4 +12,4 @@
 - [x] T4 · O menu lateral mostra os itens de cada papel e o menu do usuário mostra o papel
     - Teste: `npm run types:check` e conferência no navegador com os três usuários do seeder
     - Arquivos: `resources/js/hooks/use-nav-groups.ts`, `resources/js/components/nav-main.tsx`, `resources/js/components/app-sidebar.tsx`, `resources/js/components/app-header.tsx`, `resources/js/components/user-info.tsx`
-- [ ] T5 · Conferir a página de usuários e o menu no celular (375px)
+- [x] T5 · Conferir a página de usuários e o menu no celular (375px)
