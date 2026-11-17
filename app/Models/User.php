@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Enums\Role;
 use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\{Fillable, Hidden};
@@ -14,6 +15,7 @@ use Illuminate\Support\Carbon;
  * @property int $id
  * @property string $name
  * @property string $email
+ * @property Role $role
  * @property Carbon|null $email_verified_at
  * @property string $password
  * @property string|null $two_factor_secret
@@ -32,6 +34,18 @@ class User extends Authenticatable implements MustVerifyEmail
     use Notifiable;
 
     /**
+     * The model's default values for attributes.
+     *
+     * The role stays out of the fillable list on purpose: only an admin changes it,
+     * through UpdateUserRole, never by mass assignment.
+     *
+     * @var array<string, mixed>
+     */
+    protected $attributes = [
+        'role' => Role::Student->value,
+    ];
+
+    /**
      * Get the attributes that should be cast.
      *
      * @return array<string, string>
@@ -41,6 +55,12 @@ class User extends Authenticatable implements MustVerifyEmail
         return [
             'email_verified_at' => 'datetime',
             'password'          => 'hashed',
+            'role'              => Role::class,
         ];
+    }
+
+    public function isAdmin(): bool
+    {
+        return $this->role === Role::Admin;
     }
 }
