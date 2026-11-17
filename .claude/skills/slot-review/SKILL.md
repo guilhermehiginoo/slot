@@ -11,11 +11,16 @@ Rode em uma sessão nova: você não escreveu o código que vai julgar. Você n�
 ## 1. Leia tudo
 
 - Tire a chave `SLOT-N` do nome da branch atual e a base (`main` para `hotfix/`, `develop` para o resto).
-- O card no Jira (conector do Atlassian, `getJiraIssue`) ou o link na spec.
+- O card da branch no Jira, sempre: `getJiraIssue` com a chave `SLOT-N` da branch, no site `slotgestao.atlassian.net`. Leia o tipo, a descrição, os cenários, os critérios de aceite e o status. O link na spec não substitui o card. Se o conector do Atlassian não estiver disponível ou o card não existir, pare e peça ao usuário para conectar ou corrigir a branch.
 - `specs/SLOT-N/spec.md`, `plan.md` e `tasks.md`.
 - O diff inteiro: `git fetch origin && git diff origin/<base>...HEAD`. Leia também o código em volta das mudanças, não só as linhas alteradas.
 
 ## 2. Confira
+
+**Contra o card**
+
+- O prefixo da branch bate com o tipo do card (tabela de branches do AGENTS.md).
+- Todo cenário e todo critério de aceite do card está na spec. Cenário ou regra que a spec tem e o card não tem é problema até o card ser atualizado no Jira.
 
 **Contra a spec**
 

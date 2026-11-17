@@ -1,5 +1,6 @@
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { useInitials } from '@/hooks/use-initials';
+import { roleLabels } from '@/lib/roles';
 import type { User } from '@/types';
 
 export function UserInfo({
@@ -22,9 +23,14 @@ export function UserInfo({
             <div className="grid flex-1 text-left text-sm leading-tight">
                 <span className="truncate font-medium">{user.name}</span>
                 {showEmail && (
-                    <span className="truncate text-xs text-muted-foreground">
-                        {user.email}
-                    </span>
+                    <>
+                        <span className="truncate text-xs text-muted-foreground">
+                            {user.email}
+                        </span>
+                        <span className="truncate text-xs text-muted-foreground">
+                            {roleLabels[user.role]}
+                        </span>
+                    </>
                 )}
             </div>
         </>
