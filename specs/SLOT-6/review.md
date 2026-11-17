@@ -1,23 +1,24 @@
 # Review · SLOT-6
 
-Veredito: voltar para o /slot-next
+Veredito: aprovado
 
 ## Problemas
 
-- specs/SLOT-6/spec.md:4 · A linha `Aprovado por:` está vazia, e o código foi escrito mesmo assim. · O AGENTS.md proíbe código de produto antes de uma pessoa do time aprovar a spec. Alguém do time precisa ler a spec e assinar antes do PR.
-- tests/Feature/Admin/UserManagementTest.php · Nenhum teste cobre um admin rebaixando outro admin. Só existe o teste de promover (`test_admin_can_promote_another_user_to_admin`). · A spec diz que um admin pode rebaixar outro admin. A regra que bloqueia o próprio admin (R5) compara `$actor->is($user)`, e se alguém trocar isso por `isAdmin()` todo rebaixamento passa a falhar sem nenhum teste ficar vermelho. Conferido à mão: hoje funciona, o outro admin vira aluno e perde o acesso a `/admin`.
+Nenhum.
 
 ## Conferido
 
-- Card x spec: os 6 critérios de aceite estão cumpridos e os 3 cenários do card estão na spec. A spec adiciona 2 cenários (próprio admin e busca), e todos têm teste com `#[TestDox('Cenário: ...')]`.
-- Os passos T1 a T5 do `tasks.md` estão marcados. Nada fora do escopo entrou no diff (o menu de professor e de aluno tem só o Dashboard, como diz a spec).
-- Backend: o controller faz só o necessário, a validação fica no `UpdateUserRoleRequest` (`Rule::enum`), a regra fica na Action `UpdateUserRole` e a autorização no `UserPolicy`. O grupo `/admin` usa `can:viewAny` e o FormRequest chama `can('update')`. Há testes de 403 para aluno e professor no GET e no PATCH, e de redirect para visitante.
-- `role` fica fora do `$fillable`, e há testes de que o cadastro e o perfil ignoram `role`. A migration tem índice e default `student`. Uma tabela só, então não precisa de transação.
-- Sem N+1: o `index` faz `select` de 4 colunas, `paginate(15)` e não tem relações. O `auth.user` é o mesmo de antes, agora com `role`. O `insights` do Herd não estava disponível (Herd Pro), então a conferência foi pela leitura do código.
-- Frontend: os arquivos estão em `pages/admin/users/` e `components/admin/`. As URLs vêm do Wayfinder (`UserController.index/update`), não tem `any` nem `@ts-ignore`, e o código reaproveita `Select`, `Badge`, `InputError` e `Heading`.
-- Em 375px no `slot.test`, logado como admin: a página de usuários não tem rolagem lateral, a linha do próprio admin fica desabilitada com "você", e o menu lateral mostra "Administração › Usuários".
-- `composer ci:check` verde: formatação, lint, tipos, Pint, PHPStan e 56 testes (53 passaram, 3 pulados).
+- Os dois problemas do review anterior foram resolvidos: a spec tem `Aprovado por: Guilherme Higino` (T6) e existe o teste `test_older_admin_demotes_a_newer_admin` (T7), que rebaixa outro admin e confere o 403 depois.
+- Card x spec: todos os critérios de aceite estão cumpridos, inclusive a coluna `admin_since` da R8. Os 7 cenários da spec têm teste com `#[TestDox('Cenário: ...')]` em `UserManagementTest` e `RegistrationTest`.
+- `tasks.md`: T1 a T8 marcados.
+- R8 na Action `UpdateUserRole`: só rebaixa outro admin quem tem `admin_since` estritamente mais antigo. Um `admin_since` nulo ou igual recusa a mudança, que é o lado seguro. O admin mais antigo nunca é rebaixado, então sempre sobra um admin, mesmo com dois agindo ao mesmo tempo (a observação do review anterior fica resolvida). Promover grava `admin_since`, rebaixar limpa, e a migration preenche os admins que já existem com o `created_at`.
+- Backend: o controller autoriza (grupo `can:viewAny` + `authorize()` do FormRequest), valida (`Rule::enum`), chama a Action e responde. `role` e `admin_since` ficam fora do `$fillable`, e há testes de que o cadastro e o perfil ignoram `role`. Há testes de 403 para aluno e professor e de redirect para visitante. Uma tabela só, sem transação.
+- Sem N+1: o `index` faz `select` de 4 colunas, `paginate(15)` e não carrega relações. O `insights` do Herd não está disponível (Herd Pro), então isso foi conferido lendo o código.
+- Frontend: arquivos em `pages/admin/users/` e `components/admin/`, URLs pelo Wayfinder, sem `any` nem `@ts-ignore`, e o código reaproveita `Select`, `Badge`, `InputError` e `Heading`. O erro da R8 aparece pelo `InputError` embaixo do seletor.
+- Em 375px no `slot.test`, logado como admin, `/admin/users` não tem rolagem lateral (`scrollWidth` 375) e a linha do próprio admin fica desabilitada com "você".
+- `composer ci:check` verde: formatação, lint, tipos, Pint, PHPStan e 58 testes (55 passaram, 3 pulados).
 
-## Observação (sem ação neste card)
+## Observações (sem ação neste card)
 
-- Se dois admins se rebaixarem ao mesmo tempo, o sistema pode ficar sem nenhum admin. É improvável no uso real, e o `DatabaseSeeder` ou o `tinker` recuperam. Fica registrado caso o time queira uma regra de "último admin".
+- `AGENTS.md` ganhou a seção "Comentários", que é regra do projeto inteiro e não do card. O commit de refactor só mexe em arquivos do card, então o risco é baixo, mas vale citar no PR para o time saber da regra nova.
+- A tabela de Testes do `plan.md` não lista os dois cenários da R8. O `tasks.md` (T7 e T8) aponta os testes certos.
