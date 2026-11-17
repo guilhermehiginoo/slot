@@ -2,7 +2,7 @@
 
 Card: https://slotgestao.atlassian.net/browse/SLOT-6
 Tipo: História · Branch: `feature/SLOT-6-papeis-de-usuario` · Base: `develop`
-Aprovado por:
+Aprovado por: Guilherme Higino
 
 ## Objetivo
 
