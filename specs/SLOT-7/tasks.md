@@ -10,7 +10,7 @@
     - Teste: `tests/Feature/Admin/CourseManagementTest` (Cenários: Admin cria uma disciplina; O código é normalizado; Código inválido; Código repetido)
     - Arquivos: `app/Http/Requests/Admin/SaveCourseRequest.php`, `app/Actions/Admin/CreateCourse.php`
 - [x] T4 · Review: corrigir a formatação do Pint que quebrava o CI e registrar a aprovação da spec
-- [ ] T5 · O admin abre o formulário de criar e edita uma disciplina, arquivada ou não
+- [x] T5 · O admin abre o formulário de criar e edita uma disciplina, arquivada ou não
     - Teste: `tests/Feature/Admin/CourseManagementTest` (Cenários: Admin edita uma disciplina; Salvar sem mudar o código), editar arquivada e 403 para os demais
     - Arquivos: `routes/admin.php`, `app/Http/Controllers/Admin/CourseController.php`, `app/Actions/Admin/UpdateCourse.php`
 - [ ] T6 · O admin arquiva uma disciplina; arquivar de novo mantém a data

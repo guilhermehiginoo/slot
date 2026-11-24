@@ -214,4 +214,105 @@ class CourseManagementTest extends TestCase
 
         $this->assertDatabaseCount('courses', 0);
     }
+
+    public function test_admin_opens_the_create_and_edit_pages()
+    {
+        $admin  = User::factory()->admin()->create();
+        $course = Course::factory()->create(['code' => 'IMD0030', 'name' => 'Linguagem de Programação I']);
+
+        $this->actingAs($admin)
+            ->get(route('admin.courses.create'))
+            ->assertOk()
+            ->assertInertia(fn (Assert $page) => $page->component('admin/courses/create'));
+
+        $this->actingAs($admin)
+            ->get(route('admin.courses.edit', $course))
+            ->assertOk()
+            ->assertInertia(fn (Assert $page) => $page
+                ->component('admin/courses/edit')
+                ->where('course', [
+                    'id'   => $course->id,
+                    'code' => 'IMD0030',
+                    'name' => 'Linguagem de Programação I',
+                ]));
+    }
+
+    #[TestDox('Cenário: Admin edita uma disciplina')]
+    public function test_admin_edits_a_course()
+    {
+        $admin  = User::factory()->admin()->create();
+        $course = Course::factory()->create(['code' => 'IMD0030', 'name' => 'Linguagem de Programação I']);
+
+        $this->actingAs($admin)
+            ->patch(route('admin.courses.update', $course), [
+                'code' => 'IMD0031',
+                'name' => 'Linguagem de Programação 1',
+            ])
+            ->assertSessionHasNoErrors()
+            ->assertRedirect(route('admin.courses.index'));
+
+        $this->assertDatabaseHas('courses', [
+            'id'   => $course->id,
+            'code' => 'IMD0031',
+            'name' => 'Linguagem de Programação 1',
+        ]);
+    }
+
+    #[TestDox('Cenário: Salvar sem mudar o código')]
+    public function test_saving_without_changing_the_code_is_allowed()
+    {
+        $admin  = User::factory()->admin()->create();
+        $course = Course::factory()->create(['code' => 'IMD0030']);
+
+        $this->actingAs($admin)
+            ->patch(route('admin.courses.update', $course), [
+                'code' => 'IMD0030',
+                'name' => 'Linguagem de Programação 1',
+            ])
+            ->assertSessionHasNoErrors();
+
+        $this->assertSame('Linguagem de Programação 1', $course->fresh()->name);
+    }
+
+    public function test_editing_to_a_code_in_use_is_rejected()
+    {
+        $admin = User::factory()->admin()->create();
+        Course::factory()->create(['code' => 'IMD0012']);
+        $course = Course::factory()->create(['code' => 'IMD0030']);
+
+        $this->actingAs($admin)
+            ->patch(route('admin.courses.update', $course), ['code' => 'imd0012', 'name' => 'Outra'])
+            ->assertSessionHasErrors(['code' => 'Este código já está em uso']);
+
+        $this->assertSame('IMD0030', $course->fresh()->code);
+    }
+
+    public function test_admin_edits_an_archived_course()
+    {
+        $admin  = User::factory()->admin()->create();
+        $course = Course::factory()->archived()->create(['code' => 'IMD0030']);
+
+        $this->actingAs($admin)
+            ->patch(route('admin.courses.update', $course), ['code' => 'IMD0030', 'name' => 'Novo nome'])
+            ->assertSessionHasNoErrors();
+
+        $course->refresh();
+        $this->assertSame('Novo nome', $course->name);
+        $this->assertTrue($course->isArchived());
+    }
+
+    public function test_non_admins_cannot_edit_courses()
+    {
+        $course = Course::factory()->create(['code' => 'IMD0030', 'name' => 'Original']);
+
+        foreach ([User::factory()->create(), User::factory()->professor()->create()] as $user) {
+            $this->actingAs($user)->get(route('admin.courses.create'))->assertForbidden();
+            $this->actingAs($user)->get(route('admin.courses.edit', $course))->assertForbidden();
+            $this->actingAs($user)
+                ->patch(route('admin.courses.update', $course), ['code' => 'IMD0030', 'name' => 'Mudou'])
+                ->assertForbidden();
+        }
+
+        $this->assertSame('Original', $course->fresh()->name);
+    }
 }
