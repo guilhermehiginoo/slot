@@ -48,7 +48,7 @@ class ClassGroupManagementTest extends TestCase
             ->get(route('admin.class-groups.index'))
             ->assertOk()
             ->assertInertia(fn (Assert $page) => $page
-                ->component('admin/class-groups/index', false)
+                ->component('admin/class-groups/index')
                 ->has('classGroups.data', 1)
                 ->has('classGroups.data.0', fn (Assert $classGroup) => $classGroup
                     ->has('id')

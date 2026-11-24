@@ -12,7 +12,7 @@
 - [x] T4 · O seeder cria 2 professores e 4 turmas em 2026.2, sem duplicar ao rodar de novo
     - Teste: `tests/Feature/Database/DatabaseSeederTest` (turmas do seeder e rodar duas vezes); atualizar `test_seeder_creates_one_user_of_each_role`, que quebra com os professores novos
     - Arquivos: `database/seeders/ClassGroupSeeder.php`, `database/seeders/DatabaseSeeder.php`
-- [ ] T5 · Tela da lista: tabela no desktop e cards no celular, filtros, paginação "Exibindo X–Y de Z turmas", estados vazios e item "Turmas" no menu
+- [x] T5 · Tela da lista: tabela no desktop e cards no celular, filtros, paginação "Exibindo X–Y de Z turmas", estados vazios e item "Turmas" no menu
     - Teste: `php artisan wayfinder:generate --with-form`, `npm run types:check` e conferência no navegador no desktop
     - Arquivos: `resources/js/pages/admin/class-groups/index.tsx`, `resources/js/components/admin/class-group-filters.tsx`, `resources/js/components/admin/class-group-list.tsx`, `resources/js/types/admin.ts`, `resources/js/hooks/use-nav-groups.ts`
 - [ ] T6 · Modais de criar e editar turma com o seletor de professores, e conferência das telas em 375px
