@@ -13,3 +13,23 @@ export type AdminCourse = {
     name: string;
     archived_at: string | null;
 };
+
+export type CourseOption = {
+    id: number;
+    code: string;
+    name: string;
+};
+
+export type ProfessorOption = {
+    id: number;
+    name: string;
+};
+
+export type AdminClassGroup = {
+    id: number;
+    semester: string;
+    number: string;
+    schedule: string;
+    course: CourseOption;
+    professors: ProfessorOption[];
+};

@@ -1,5 +1,6 @@
 import { usePage } from '@inertiajs/react';
-import { GraduationCap, LayoutGrid, Users } from 'lucide-react';
+import { GraduationCap, LayoutGrid, School, Users } from 'lucide-react';
+import ClassGroupController from '@/actions/App/Http/Controllers/Admin/ClassGroupController';
 import CourseController from '@/actions/App/Http/Controllers/Admin/CourseController';
 import UserController from '@/actions/App/Http/Controllers/Admin/UserController';
 import { dashboard } from '@/routes';
@@ -25,6 +26,11 @@ const groupsByRole: Record<Role, NavGroup[]> = {
                     title: 'Disciplinas',
                     href: CourseController.index(),
                     icon: GraduationCap,
+                },
+                {
+                    title: 'Turmas',
+                    href: ClassGroupController.index(),
+                    icon: School,
                 },
             ],
         },
