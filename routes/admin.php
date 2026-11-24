@@ -9,5 +9,5 @@ Route::middleware(['auth', 'verified', 'can:viewAny,' . User::class])
     ->name('admin.')
     ->group(function () {
         Route::resource('users', UserController::class)->only(['index', 'update']);
-        Route::resource('courses', CourseController::class)->only(['index']);
+        Route::resource('courses', CourseController::class)->only(['index', 'store']);
     });

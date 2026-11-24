@@ -12,14 +12,14 @@
 
 ## Backend
 
-| Rota                                   | Controller@método                     | FormRequest              | Action          | Autorização                          |
-| -------------------------------------- | ------------------------------------- | ------------------------ | --------------- | ------------------------------------ |
-| `GET /admin/courses`                   | `Admin\CourseController@index`        | —                        | —               | grupo + `Gate::authorize(viewAny)`   |
-| `GET /admin/courses/create`            | `Admin\CourseController@create`       | —                        | —               | `Gate::authorize(create)`            |
-| `POST /admin/courses`                  | `Admin\CourseController@store`        | `Admin\SaveCourseRequest` | `CreateCourse`  | grupo + `authorize()` (create)       |
-| `GET /admin/courses/{course}/edit`     | `Admin\CourseController@edit`         | —                        | —               | `Gate::authorize(update)`            |
-| `PATCH /admin/courses/{course}`        | `Admin\CourseController@update`       | `Admin\SaveCourseRequest` | `UpdateCourse`  | grupo + `authorize()` (update)       |
-| `POST /admin/courses/{course}/archive` | `Admin\CourseArchiveController@store` | —                        | `ArchiveCourse` | `Gate::authorize(archive)`           |
+| Rota                                   | Controller@método                     | FormRequest               | Action          | Autorização                        |
+| -------------------------------------- | ------------------------------------- | ------------------------- | --------------- | ---------------------------------- |
+| `GET /admin/courses`                   | `Admin\CourseController@index`        | —                         | —               | grupo + `Gate::authorize(viewAny)` |
+| `GET /admin/courses/create`            | `Admin\CourseController@create`       | —                         | —               | `Gate::authorize(create)`          |
+| `POST /admin/courses`                  | `Admin\CourseController@store`        | `Admin\SaveCourseRequest` | `CreateCourse`  | grupo + `authorize()` (create)     |
+| `GET /admin/courses/{course}/edit`     | `Admin\CourseController@edit`         | —                         | —               | `Gate::authorize(update)`          |
+| `PATCH /admin/courses/{course}`        | `Admin\CourseController@update`       | `Admin\SaveCourseRequest` | `UpdateCourse`  | grupo + `authorize()` (update)     |
+| `POST /admin/courses/{course}/archive` | `Admin\CourseArchiveController@store` | —                         | `ArchiveCourse` | `Gate::authorize(archive)`         |
 
 - Rotas no grupo que já existe em `routes/admin.php` (`auth`, `verified` e `can:viewAny,User`, prefixo `admin`, nomes `admin.*`), o que dá R1:
 
@@ -66,19 +66,19 @@ Route::resource('courses.archive', CourseArchiveController::class)->only('store'
 
 Tudo em `tests/Feature/Admin/CourseManagementTest`, com `RefreshDatabase`, factories e `#[TestDox('Cenário: ...')]` em cada teste de cenário.
 
-| Cenário da spec                              | Teste                                                          |
-| -------------------------------------------- | -------------------------------------------------------------- |
-| Admin cria uma disciplina                    | `test_admin_creates_a_course`                                  |
-| O código é normalizado                       | `test_the_code_is_normalized`                                  |
-| Código inválido                              | `test_the_code_must_have_three_letters_and_four_digits`        |
-| Código repetido                              | `test_the_code_must_be_unique`                                 |
-| Admin edita uma disciplina                   | `test_admin_edits_a_course`                                    |
-| Salvar sem mudar o código                    | `test_saving_without_changing_the_code_is_allowed`             |
-| Admin arquiva uma disciplina                 | `test_admin_archives_a_course`                                 |
-| Cancelar o arquivamento                      | sem teste de feature (ver Riscos)                              |
-| Buscar por código ou nome                    | `test_admin_searches_courses_by_code_or_name`                  |
-| Estados vazios                               | `test_empty_states_come_from_total_and_search`                 |
-| Quem não é admin não acessa o catálogo       | `test_non_admins_cannot_open_the_courses_pages`                |
+| Cenário da spec                        | Teste                                                   |
+| -------------------------------------- | ------------------------------------------------------- |
+| Admin cria uma disciplina              | `test_admin_creates_a_course`                           |
+| O código é normalizado                 | `test_the_code_is_normalized`                           |
+| Código inválido                        | `test_the_code_must_have_three_letters_and_four_digits` |
+| Código repetido                        | `test_the_code_must_be_unique`                          |
+| Admin edita uma disciplina             | `test_admin_edits_a_course`                             |
+| Salvar sem mudar o código              | `test_saving_without_changing_the_code_is_allowed`      |
+| Admin arquiva uma disciplina           | `test_admin_archives_a_course`                          |
+| Cancelar o arquivamento                | sem teste de feature (ver Riscos)                       |
+| Buscar por código ou nome              | `test_admin_searches_courses_by_code_or_name`           |
+| Estados vazios                         | `test_empty_states_come_from_total_and_search`          |
+| Quem não é admin não acessa o catálogo | `test_non_admins_cannot_open_the_courses_pages`         |
 
 Testes de apoio: nome obrigatório e com no máximo 255 caracteres; editar uma disciplina arquivada; código de arquivada continua reservado; arquivar duas vezes mantém a data; lista ordenada por código e paginada de 15 em 15; visitante vai para o login; professor e aluno recebem 403 em criar, editar e arquivar; `DatabaseSeederTest` confere as 14 disciplinas e que rodar o seeder duas vezes não duplica.
 

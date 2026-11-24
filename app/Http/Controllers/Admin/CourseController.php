@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Admin\CreateCourse;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\SaveCourseRequest;
 use App\Models\Course;
 use Illuminate\Database\Eloquent\Builder;
-use Illuminate\Http\Request;
+use Illuminate\Http\{RedirectResponse, Request};
 use Illuminate\Support\Facades\Gate;
 use Inertia\{Inertia, Response};
 
@@ -32,5 +34,17 @@ class CourseController extends Controller
             'courses' => $courses,
             'filters' => ['search' => $search],
         ]);
+    }
+
+    public function store(SaveCourseRequest $request, CreateCourse $createCourse): RedirectResponse
+    {
+        $createCourse->handle(
+            $request->string('code')->value(),
+            $request->string('name')->value(),
+        );
+
+        Inertia::flash('toast', ['type' => 'success', 'message' => 'Disciplina salva com sucesso!']);
+
+        return to_route('admin.courses.index');
     }
 }

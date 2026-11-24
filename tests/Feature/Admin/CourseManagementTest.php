@@ -102,4 +102,116 @@ class CourseManagementTest extends TestCase
                 ->where('courses.total', 0)
                 ->where('filters.search', 'IMD9999'));
     }
+
+    #[TestDox('Cenário: Admin cria uma disciplina')]
+    public function test_admin_creates_a_course()
+    {
+        $admin = User::factory()->admin()->create();
+
+        $this->actingAs($admin)
+            ->post(route('admin.courses.store'), [
+                'code' => 'IMD0030',
+                'name' => 'Linguagem de Programação I',
+            ])
+            ->assertSessionHasNoErrors()
+            ->assertRedirect(route('admin.courses.index'));
+
+        $this->assertDatabaseHas('courses', [
+            'code'        => 'IMD0030',
+            'name'        => 'Linguagem de Programação I',
+            'archived_at' => null,
+        ]);
+    }
+
+    #[TestDox('Cenário: O código é normalizado')]
+    public function test_the_code_is_normalized()
+    {
+        $admin = User::factory()->admin()->create();
+
+        $this->actingAs($admin)
+            ->post(route('admin.courses.store'), [
+                'code' => 'imd0030 ',
+                'name' => 'Linguagem de Programação I',
+            ])
+            ->assertSessionHasNoErrors();
+
+        $this->assertDatabaseHas('courses', ['code' => 'IMD0030']);
+        $this->assertDatabaseCount('courses', 1);
+    }
+
+    #[TestDox('Cenário: Código inválido')]
+    public function test_the_code_must_have_three_letters_and_four_digits()
+    {
+        $admin = User::factory()->admin()->create();
+
+        $this->actingAs($admin)
+            ->post(route('admin.courses.store'), [
+                'code' => 'IMD30',
+                'name' => 'Linguagem de Programação I',
+            ])
+            ->assertSessionHasErrors(['code' => 'O código deve ter 3 letras seguidas de 4 dígitos']);
+
+        $this->assertDatabaseCount('courses', 0);
+    }
+
+    #[TestDox('Cenário: Código repetido')]
+    public function test_the_code_must_be_unique()
+    {
+        $admin = User::factory()->admin()->create();
+        Course::factory()->create(['code' => 'IMD0030']);
+
+        $this->actingAs($admin)
+            ->post(route('admin.courses.store'), [
+                'code' => 'IMD0030',
+                'name' => 'Outra disciplina',
+            ])
+            ->assertSessionHasErrors(['code' => 'Este código já está em uso']);
+
+        $this->assertDatabaseCount('courses', 1);
+    }
+
+    public function test_an_archived_course_keeps_its_code_reserved()
+    {
+        $admin = User::factory()->admin()->create();
+        Course::factory()->archived()->create(['code' => 'IMD0030']);
+
+        $this->actingAs($admin)
+            ->post(route('admin.courses.store'), [
+                'code' => 'IMD0030',
+                'name' => 'Outra disciplina',
+            ])
+            ->assertSessionHasErrors(['code' => 'Este código já está em uso']);
+
+        $this->assertDatabaseCount('courses', 1);
+    }
+
+    public function test_the_name_is_required_and_limited_to_255_characters()
+    {
+        $admin = User::factory()->admin()->create();
+
+        $this->actingAs($admin)
+            ->post(route('admin.courses.store'), ['code' => 'IMD0030', 'name' => ''])
+            ->assertSessionHasErrors(['name' => 'Informe o nome da disciplina.']);
+
+        $this->actingAs($admin)
+            ->post(route('admin.courses.store'), ['code' => 'IMD0030', 'name' => str_repeat('a', 256)])
+            ->assertSessionHasErrors(['name' => 'O nome deve ter no máximo 255 caracteres.']);
+
+        $this->assertDatabaseCount('courses', 0);
+    }
+
+    public function test_non_admins_cannot_create_courses()
+    {
+        $data = ['code' => 'IMD0030', 'name' => 'Linguagem de Programação I'];
+
+        $this->actingAs(User::factory()->create())
+            ->post(route('admin.courses.store'), $data)
+            ->assertForbidden();
+
+        $this->actingAs(User::factory()->professor()->create())
+            ->post(route('admin.courses.store'), $data)
+            ->assertForbidden();
+
+        $this->assertDatabaseCount('courses', 0);
+    }
 }
