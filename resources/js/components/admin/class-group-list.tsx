@@ -1,3 +1,4 @@
+import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import type { AdminClassGroup } from '@/types';
 
@@ -32,19 +33,15 @@ export function ClassGroupList({ classGroups, onEdit }: Props) {
                             <span className="font-semibold">
                                 {classGroup.course.code} · {classGroup.number}
                             </span>
-                            <span className="text-sm text-muted-foreground">
+                            <Badge variant="secondary">
                                 {classGroup.semester}
-                            </span>
+                            </Badge>
                         </div>
                         <p className="text-sm">{classGroup.course.name}</p>
-                        <dl className="grid grid-cols-[auto_1fr] gap-x-3 gap-y-1 text-sm">
-                            <dt className="text-muted-foreground">
-                                Professores
-                            </dt>
-                            <dd>{professorNames(classGroup)}</dd>
-                            <dt className="text-muted-foreground">Horário</dt>
-                            <dd>{classGroup.schedule}</dd>
-                        </dl>
+                        <p className="text-sm">{professorNames(classGroup)}</p>
+                        <p className="text-sm text-muted-foreground">
+                            {classGroup.semester} · {classGroup.schedule}
+                        </p>
                         <Button
                             variant="outline"
                             className="h-11 w-full"

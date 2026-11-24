@@ -57,7 +57,8 @@ class ClassGroupManagementTest extends TestCase
                     ->where('schedule', '35M12')
                     ->where('course', ['id' => $lp1->id, 'code' => 'IMD0030', 'name' => 'Linguagem de Programação I'])
                     ->where('professors', [['id' => $ana->id, 'name' => 'Ana Costa']]))
-                ->where('filters', ['course' => null, 'semester' => '2026.2']));
+                ->where('filters', ['course' => null, 'semester' => '2026.2'])
+                ->where('currentSemester', '2026.2'));
 
         $this->actingAs($admin)
             ->get(route('admin.class-groups.index', ['semester' => '2026.1']))

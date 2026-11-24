@@ -1,4 +1,4 @@
-import { Head } from '@inertiajs/react';
+import { Head, Link } from '@inertiajs/react';
 import { Plus } from 'lucide-react';
 import { useState } from 'react';
 import ClassGroupController from '@/actions/App/Http/Controllers/Admin/ClassGroupController';
@@ -20,6 +20,7 @@ type Props = {
         course: number | null;
         semester: string;
     };
+    currentSemester: string;
     hasClassGroups: boolean;
     courses: CourseOption[];
     professors: ProfessorOption[];
@@ -29,6 +30,7 @@ type Props = {
 export default function ClassGroupsIndex({
     classGroups,
     filters,
+    currentSemester,
     hasClassGroups,
     courses,
     semesters,
@@ -42,6 +44,15 @@ export default function ClassGroupsIndex({
         >
             <Plus />
             Nova turma
+        </Button>
+    );
+
+    const filtered =
+        filters.course !== null || filters.semester !== currentSemester;
+
+    const clearFiltersButton = (
+        <Button variant="outline" className="h-11" asChild>
+            <Link href={ClassGroupController.index()}>Limpar filtros</Link>
         </Button>
     );
 
@@ -68,10 +79,14 @@ export default function ClassGroupsIndex({
                     semesters={semesters}
                 />
 
+                {filtered && hasClassGroups && classGroups.total > 0 && (
+                    <div>{clearFiltersButton}</div>
+                )}
+
                 {!hasClassGroups && (
                     <EmptyState
                         title="Nenhuma turma cadastrada"
-                        description="Comece cadastrando a primeira turma do semestre."
+                        description="Cadastre a primeira turma para vincular professores e monitores."
                         action={newClassGroupButton}
                     />
                 )}
@@ -79,7 +94,8 @@ export default function ClassGroupsIndex({
                 {hasClassGroups && classGroups.total === 0 && (
                     <EmptyState
                         title="Nenhuma turma encontrada"
-                        description="Tente outro semestre ou disciplina."
+                        description="Altere a disciplina ou o semestre para tentar novamente."
+                        action={clearFiltersButton}
                     />
                 )}
 
