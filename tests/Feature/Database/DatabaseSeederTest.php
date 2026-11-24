@@ -74,7 +74,7 @@ class DatabaseSeederTest extends TestCase
             [
                 'IMD0012 T01' => ['Ana Costa'],
                 'IMD0029 T01' => ['Carlos Alves'],
-                'IMD0030 T01' => ['Ana Costa', 'Carlos Alves'],
+                'IMD0030 T01' => ['Ana Costa', 'Carlos Alves', 'Professor'],
                 'IMD0030 T02' => ['Carlos Alves'],
             ],
             $this->seededClassGroups(),
@@ -88,9 +88,9 @@ class DatabaseSeederTest extends TestCase
         $this->seed(ClassGroupSeeder::class);
         $this->seed(ClassGroupSeeder::class);
 
-        $this->assertSame(2, User::count());
+        $this->assertSame(3, User::count());
         $this->assertSame(4, ClassGroup::count());
-        $this->assertSame(5, DB::table('class_group_user')->count());
+        $this->assertSame(6, DB::table('class_group_user')->count());
     }
 
     public function test_seeder_creates_monitors_an_invitation_and_an_application_in_imd0030_t01()
@@ -122,7 +122,7 @@ class DatabaseSeederTest extends TestCase
         $this->seed(MonitorSeeder::class);
         $this->seed(MonitorSeeder::class);
 
-        $this->assertSame(6, User::count());
+        $this->assertSame(7, User::count());
         $this->assertSame(2, DB::table('class_monitor')->count());
         $this->assertSame(1, MonitorInvitation::count());
         $this->assertSame(1, MonitorApplication::count());
