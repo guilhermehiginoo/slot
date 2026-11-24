@@ -26,6 +26,11 @@ const groupsByRole: Record<Role, NavGroup[]> = {
                     href: UserController.index(),
                     icon: Users,
                 },
+            ],
+        },
+        {
+            label: 'Acadêmico',
+            items: [
                 {
                     title: 'Disciplinas',
                     href: CourseController.index(),

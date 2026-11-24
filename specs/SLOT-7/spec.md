@@ -89,7 +89,7 @@ Cenário: Quem não é admin não acessa o catálogo
 - **Confirmar arquivamento (modal):** "A disciplina deixará de aparecer nas buscas e não aceitará novos horários. O histórico será mantido.", com "IMD0030 — Linguagem de Programação I" e "Não será possível criar novos agendamentos para esta disciplina." Botões "Arquivar disciplina" e "Cancelar".
 - **Mensagens:** "Disciplina salva com sucesso!" (criar e editar) e "Disciplina arquivada com sucesso!".
 - **Estados vazios:** sem disciplinas, "Nenhuma disciplina cadastrada" e "Comece cadastrando a primeira disciplina do catálogo." com o botão "+ Nova disciplina". Busca sem resultado, "Nenhuma disciplina encontrada" e "Tente buscar por outro código ou nome."
-- **Menu:** novo item "Disciplinas" no grupo de administração, abaixo de "Usuários".
+- **Menu:** novo grupo "Acadêmico", só para o admin, com o item "Disciplinas". "Usuários" fica sozinho no grupo "Administração".
 
 ## Critérios de aceite
 
@@ -115,6 +115,7 @@ Cenário: Quem não é admin não acessa o catálogo
 - Lista do admin → mostra arquivadas com selo, 15 por página, busca por código e nome (Renan)
 - Nome → obrigatório, até 255 caracteres, pode repetir (Renan)
 - Seeder → disciplinas reais do início do BTI (Renan)
+- Menu → "Disciplinas" em um grupo "Acadêmico" separado de "Usuários" (Guilherme)
 - Identidade visual do protótipo (logo do Slot com "IMD / UFRN", favicon, fonte Sora e cores azul e marinho no tema do app inteiro) → entra neste card (Guilherme)
 
 ## Suposições
