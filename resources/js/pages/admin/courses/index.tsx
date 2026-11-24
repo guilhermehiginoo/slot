@@ -30,7 +30,10 @@ export default function CoursesIndex({ courses, filters }: Props) {
     };
 
     const newCourseButton = (
-        <Button size="lg" onClick={() => openForm(null)}>
+        <Button
+            className="h-[46px] min-h-11 gap-2 rounded-xl px-3.5 has-[>svg]:px-3.5 md:w-[213px]"
+            onClick={() => openForm(null)}
+        >
             <Plus />
             Nova disciplina
         </Button>
