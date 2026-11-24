@@ -4,6 +4,7 @@ export type PersonRow = {
     id: number;
     name: string;
     details: ReactNode[];
+    action?: ReactNode;
 };
 
 type Props = {
@@ -14,6 +15,8 @@ type Props = {
 };
 
 export function PeopleSection({ title, columns, rows, emptyMessage }: Props) {
+    const hasActions = rows.some((row) => row.action);
+
     return (
         <section className="flex flex-col gap-3">
             <h2 className="text-xl font-semibold">{title}</h2>
@@ -43,6 +46,9 @@ export function PeopleSection({ title, columns, rows, emptyMessage }: Props) {
                                         {detail}
                                     </p>
                                 ))}
+                                {row.action && (
+                                    <div className="mt-2">{row.action}</div>
+                                )}
                             </li>
                         ))}
                     </ul>
@@ -62,6 +68,13 @@ export function PeopleSection({ title, columns, rows, emptyMessage }: Props) {
                                             {column}
                                         </th>
                                     ))}
+                                    {hasActions && (
+                                        <th className="px-4 py-3 font-medium">
+                                            <span className="sr-only">
+                                                Ações
+                                            </span>
+                                        </th>
+                                    )}
                                 </tr>
                             </thead>
                             <tbody className="divide-y">
@@ -78,6 +91,11 @@ export function PeopleSection({ title, columns, rows, emptyMessage }: Props) {
                                                 {detail}
                                             </td>
                                         ))}
+                                        {hasActions && (
+                                            <td className="px-4 py-4 text-right">
+                                                {row.action}
+                                            </td>
+                                        )}
                                     </tr>
                                 ))}
                             </tbody>

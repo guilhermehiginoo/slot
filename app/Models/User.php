@@ -8,6 +8,7 @@ use Database\Factories\UserFactory;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Attributes\{Fillable, Hidden};
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\{BelongsToMany, HasMany};
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Carbon;
@@ -58,5 +59,23 @@ class User extends Authenticatable implements MustVerifyEmail
     public function isAdmin(): bool
     {
         return $this->role === Role::Admin;
+    }
+
+    /**
+     * @return BelongsToMany<ClassGroup, $this, ClassMonitor>
+     */
+    public function monitoredClassGroups(): BelongsToMany
+    {
+        return $this->belongsToMany(ClassGroup::class, 'class_monitor')
+            ->using(ClassMonitor::class)
+            ->withPivot(['appointed_by', 'appointed_at']);
+    }
+
+    /**
+     * @return HasMany<MonitorInvitation, $this>
+     */
+    public function monitorInvitations(): HasMany
+    {
+        return $this->hasMany(MonitorInvitation::class);
     }
 }
