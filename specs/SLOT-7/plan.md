@@ -12,14 +12,14 @@
 
 ## Backend
 
-| Rota                                   | Controller@método                     | FormRequest               | Action          | Autorização                        |
-| -------------------------------------- | ------------------------------------- | ------------------------- | --------------- | ---------------------------------- |
-| `GET /admin/courses`                   | `Admin\CourseController@index`        | —                         | —               | grupo + `Gate::authorize(viewAny)` |
-| `GET /admin/courses/create`            | `Admin\CourseController@create`       | —                         | —               | `Gate::authorize(create)`          |
-| `POST /admin/courses`                  | `Admin\CourseController@store`        | `Admin\SaveCourseRequest` | `CreateCourse`  | grupo + `authorize()` (create)     |
-| `GET /admin/courses/{course}/edit`     | `Admin\CourseController@edit`         | —                         | —               | `Gate::authorize(update)`          |
-| `PATCH /admin/courses/{course}`        | `Admin\CourseController@update`       | `Admin\SaveCourseRequest` | `UpdateCourse`  | grupo + `authorize()` (update)     |
-| `POST /admin/courses/{course}/archive` | `Admin\CourseArchiveController@store` | —                         | `ArchiveCourse` | `Gate::authorize(archive)`         |
+| Rota                                   | Controller@método                     | FormRequest              | Action          | Autorização                          |
+| -------------------------------------- | ------------------------------------- | ------------------------ | --------------- | ------------------------------------ |
+| `GET /admin/courses`                   | `Admin\CourseController@index`        | —                        | —               | grupo + `Gate::authorize(viewAny)`   |
+| `GET /admin/courses/create`            | `Admin\CourseController@create`       | —                        | —               | `Gate::authorize(create)`            |
+| `POST /admin/courses`                  | `Admin\CourseController@store`        | `Admin\SaveCourseRequest` | `CreateCourse`  | grupo + `authorize()` (create)       |
+| `GET /admin/courses/{course}/edit`     | `Admin\CourseController@edit`         | —                        | —               | `Gate::authorize(update)`            |
+| `PATCH /admin/courses/{course}`        | `Admin\CourseController@update`       | `Admin\SaveCourseRequest` | `UpdateCourse`  | grupo + `authorize()` (update)       |
+| `POST /admin/courses/{course}/archive` | `Admin\CourseArchiveController@store` | —                        | `ArchiveCourse` | `Gate::authorize(archive)`           |
 
 - Rotas no grupo que já existe em `routes/admin.php` (`auth`, `verified` e `can:viewAny,User`, prefixo `admin`, nomes `admin.*`), o que dá R1:
 
@@ -50,10 +50,10 @@ Route::resource('courses.archive', CourseArchiveController::class)->only('store'
 
 - `types/admin.ts`: `AdminCourse` (`id`, `code`, `name`, `archived_at: string | null`).
 - `components/pagination.tsx` (compartilhado): prop opcional `label`. Com `label="disciplinas"`, o texto central vira "Exibindo X–Y de Z disciplinas" e a barra aparece mesmo com uma página só, como no protótipo. Sem `label`, a tela de usuários não muda. Pede `from`, `to` e `total` no `Pick` do tipo.
-- `components/empty-state.tsx` (raiz, uso geral): título, descrição e ação opcional, usado pelos dois estados vazios. Antes, conferir se já existe algo parecido em `components/`.
+- `components/empty-state.tsx` (raiz, uso geral): título, descrição e ação opcional, usado pelos dois estados vazios. Não existe nada parecido em `components/`, então ele é novo.
 - `components/admin/course-actions.tsx`: botão Editar (link do Wayfinder) e Arquivar, que abre o diálogo; em disciplina arquivada, o segundo botão vira "Arquivada" desabilitado. Área de toque de 44px no celular.
-- `components/admin/course-list.tsx`: de `md:` em diante, tabela com Código, Nome, Status e Ações; no celular, cada disciplina vira um card com código e selo (`Badge` "Ativa" ou "Arquivada"), nome e ações.
-- `components/admin/archive-course-dialog.tsx`: confirmação com os textos da spec. Usa `<Form>` com `CourseArchiveController.store.form(course.id)`, botões "Arquivar disciplina" e "Cancelar", e fecha no `onSuccess`. Usa o `AlertDialog` do shadcn; se não existir em `components/ui/`, adicionar só o primitivo pela CLI.
+- `components/admin/course-list.tsx`: de `md:` em diante, um `<table>` simples (não existe `ui/table`) com Código, Nome, Status e Ações; no celular, cada disciplina vira um card com código e selo (`Badge` "Ativa" ou "Arquivada"), nome e ações.
+- `components/admin/archive-course-dialog.tsx`: confirmação com os textos da spec. Usa `<Form>` com `CourseArchiveController.store.form(course.id)`, botões "Arquivar disciplina" e "Cancelar", e fecha no `onSuccess`. Usa o `Dialog` que já existe em `components/ui/`, sem primitivo novo.
 - `components/admin/course-form.tsx`: Código e Nome com `Label`, `Input` e `InputError`, a dica "Identificador oficial da disciplina no IMD." e os botões "Cancelar" (link para a lista) e "Salvar disciplina". Recebe a ação (store ou update) por props, para servir às duas páginas.
 - Páginas em `pages/admin/courses/`:
     - `index.tsx`: título, "+ Nova disciplina", busca no mesmo formato da tela de usuários, lista, paginação e estados vazios; guarda no estado a disciplina que está sendo arquivada.
@@ -66,19 +66,19 @@ Route::resource('courses.archive', CourseArchiveController::class)->only('store'
 
 Tudo em `tests/Feature/Admin/CourseManagementTest`, com `RefreshDatabase`, factories e `#[TestDox('Cenário: ...')]` em cada teste de cenário.
 
-| Cenário da spec                        | Teste                                                   |
-| -------------------------------------- | ------------------------------------------------------- |
-| Admin cria uma disciplina              | `test_admin_creates_a_course`                           |
-| O código é normalizado                 | `test_the_code_is_normalized`                           |
-| Código inválido                        | `test_the_code_must_have_three_letters_and_four_digits` |
-| Código repetido                        | `test_the_code_must_be_unique`                          |
-| Admin edita uma disciplina             | `test_admin_edits_a_course`                             |
-| Salvar sem mudar o código              | `test_saving_without_changing_the_code_is_allowed`      |
-| Admin arquiva uma disciplina           | `test_admin_archives_a_course`                          |
-| Cancelar o arquivamento                | sem teste de feature (ver Riscos)                       |
-| Buscar por código ou nome              | `test_admin_searches_courses_by_code_or_name`           |
-| Estados vazios                         | `test_empty_states_come_from_total_and_search`          |
-| Quem não é admin não acessa o catálogo | `test_non_admins_cannot_open_the_courses_pages`         |
+| Cenário da spec                              | Teste                                                          |
+| -------------------------------------------- | -------------------------------------------------------------- |
+| Admin cria uma disciplina                    | `test_admin_creates_a_course`                                  |
+| O código é normalizado                       | `test_the_code_is_normalized`                                  |
+| Código inválido                              | `test_the_code_must_have_three_letters_and_four_digits`        |
+| Código repetido                              | `test_the_code_must_be_unique`                                 |
+| Admin edita uma disciplina                   | `test_admin_edits_a_course`                                    |
+| Salvar sem mudar o código                    | `test_saving_without_changing_the_code_is_allowed`             |
+| Admin arquiva uma disciplina                 | `test_admin_archives_a_course`                                 |
+| Cancelar o arquivamento                      | sem teste de feature (ver Riscos)                              |
+| Buscar por código ou nome                    | `test_admin_searches_courses_by_code_or_name`                  |
+| Estados vazios                               | `test_empty_states_come_from_total_and_search`                 |
+| Quem não é admin não acessa o catálogo       | `test_non_admins_cannot_open_the_courses_pages`                |
 
 Testes de apoio: nome obrigatório e com no máximo 255 caracteres; editar uma disciplina arquivada; código de arquivada continua reservado; arquivar duas vezes mantém a data; lista ordenada por código e paginada de 15 em 15; visitante vai para o login; professor e aluno recebem 403 em criar, editar e arquivar; `DatabaseSeederTest` confere as 14 disciplinas e que rodar o seeder duas vezes não duplica.
 
@@ -86,7 +86,7 @@ Testes de apoio: nome obrigatório e com no máximo 255 caracteres; editar uma d
 
 - O cenário "Cancelar o arquivamento" é só de interface: o diálogo fecha sem enviar nada. Não há o que provar em PHPUnit, então a revisão confere à mão.
 - O `Pagination` é compartilhado com a tela de usuários. A prop `label` é opcional para não mudar o comportamento dela, e o protótipo diz "Próximo" onde o componente diz "Próxima" (mantido).
-- O `AlertDialog` e o tipo `Paginated` (`from`, `to`, `total`) precisam ser conferidos antes de codar; se faltarem, entram como passos no `tasks.md`.
+- O `Dialog` e o tipo `Paginated` (`from`, `to`, `total`) já foram conferidos no repositório: o `Paginated` tem esses campos e o `Dialog` existe, então não há primitivo novo.
 - O `LIKE` do SQLite só ignora maiúsculas em ASCII: buscar "PROGRAMAÇÃO" não acha "Programação". A busca sem acento é da SLOT-13, e os testes usam texto sem acento.
 - As mensagens de campo vazio ("Informe o código da disciplina.", "Informe o nome da disciplina.") e de nome longo não estão na spec nem no protótipo. São suposição para o revisor conferir.
 - Arquivar uma disciplina já arquivada responde com sucesso e não altera nada, em vez de erro: o botão já fica desabilitado, e uma requisição repetida não deve quebrar a tela.
