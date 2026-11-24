@@ -3,6 +3,7 @@ import { Plus } from 'lucide-react';
 import { useState } from 'react';
 import ClassGroupController from '@/actions/App/Http/Controllers/Admin/ClassGroupController';
 import { ClassGroupFilters } from '@/components/admin/class-group-filters';
+import { ClassGroupFormDialog } from '@/components/admin/class-group-form-dialog';
 import { ClassGroupList } from '@/components/admin/class-group-list';
 import { EmptyState } from '@/components/empty-state';
 import { Pagination } from '@/components/pagination';
@@ -33,14 +34,21 @@ export default function ClassGroupsIndex({
     currentSemester,
     hasClassGroups,
     courses,
+    professors,
     semesters,
 }: Props) {
-    const [, setEditing] = useState<AdminClassGroup | null>(null);
+    const [formOpen, setFormOpen] = useState(false);
+    const [editing, setEditing] = useState<AdminClassGroup | null>(null);
+
+    const openForm = (classGroup: AdminClassGroup | null) => {
+        setEditing(classGroup);
+        setFormOpen(true);
+    };
 
     const newClassGroupButton = (
         <Button
             className="h-[46px] min-h-11 gap-2 rounded-xl px-3.5 has-[>svg]:px-3.5 md:w-[213px]"
-            onClick={() => setEditing(null)}
+            onClick={() => openForm(null)}
         >
             <Plus />
             Nova turma
@@ -103,7 +111,7 @@ export default function ClassGroupsIndex({
                     <div className="flex flex-col gap-4 md:gap-0 md:overflow-hidden md:rounded-xl md:border md:bg-card">
                         <ClassGroupList
                             classGroups={classGroups.data}
-                            onEdit={setEditing}
+                            onEdit={openForm}
                         />
                         <div className="md:border-t md:px-4 md:py-3">
                             <Pagination page={classGroups} label="turmas" />
@@ -111,6 +119,15 @@ export default function ClassGroupsIndex({
                     </div>
                 )}
             </div>
+
+            <ClassGroupFormDialog
+                open={formOpen}
+                classGroup={editing}
+                courses={courses}
+                professors={professors}
+                currentSemester={currentSemester}
+                onClose={() => setFormOpen(false)}
+            />
         </>
     );
 }

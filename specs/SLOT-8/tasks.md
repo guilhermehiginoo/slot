@@ -15,6 +15,6 @@
 - [x] T5 · Tela da lista: tabela no desktop e cards no celular, filtros, paginação "Exibindo X–Y de Z turmas", estados vazios e item "Turmas" no menu
     - Teste: `php artisan wayfinder:generate --with-form`, `npm run types:check` e conferência no navegador no desktop
     - Arquivos: `resources/js/pages/admin/class-groups/index.tsx`, `resources/js/components/admin/class-group-filters.tsx`, `resources/js/components/admin/class-group-list.tsx`, `resources/js/types/admin.ts`, `resources/js/hooks/use-nav-groups.ts`
-- [ ] T6 · Modais de criar e editar turma com o seletor de professores, e conferência das telas em 375px
+- [x] T6 · Modais de criar e editar turma com o seletor de professores, e conferência das telas em 375px
     - Teste: `npm run types:check` e conferência no navegador em 375px e no desktop (criar, editar, buscar professor, erros ao lado do campo, toast "Turma salva com sucesso!")
     - Arquivos: `resources/js/components/admin/class-group-form-dialog.tsx`, `resources/js/components/admin/professor-picker-dialog.tsx`, `resources/js/pages/admin/class-groups/index.tsx`
