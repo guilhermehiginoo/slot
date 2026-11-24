@@ -26,7 +26,7 @@ export function CourseList({ courses, onArchive }: Props) {
                 ))}
             </ul>
 
-            <div className="hidden overflow-hidden rounded-xl border md:block">
+            <div className="hidden md:block">
                 <table className="w-full text-sm">
                     <thead className="bg-muted/50 text-left text-xs text-muted-foreground uppercase">
                         <tr>
@@ -39,22 +39,22 @@ export function CourseList({ courses, onArchive }: Props) {
                     <tbody className="divide-y">
                         {courses.map((course) => (
                             <tr key={course.id}>
-                                <td className="px-4 py-3 font-semibold">
+                                <td className="px-4 py-4 font-semibold">
                                     {course.code}
                                 </td>
                                 <td
                                     className={
                                         course.archived_at === null
-                                            ? 'px-4 py-3'
-                                            : 'px-4 py-3 text-muted-foreground'
+                                            ? 'px-4 py-4'
+                                            : 'px-4 py-4 text-muted-foreground'
                                     }
                                 >
                                     {course.name}
                                 </td>
-                                <td className="px-4 py-3">
+                                <td className="px-4 py-4">
                                     <CourseStatusBadge course={course} />
                                 </td>
-                                <td className="px-4 py-3">
+                                <td className="px-4 py-4">
                                     <CourseActions
                                         course={course}
                                         onArchive={onArchive}

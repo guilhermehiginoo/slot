@@ -22,6 +22,27 @@ export function Pagination({ page, label }: Props) {
         return null;
     }
 
+    if (label !== undefined) {
+        return (
+            <nav
+                aria-label="Paginação"
+                className="flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
+            >
+                <span className="text-sm text-muted-foreground">
+                    Exibindo {page.from}–{page.to} de {page.total} {label}
+                </span>
+                <div className="grid grid-cols-2 gap-2">
+                    <PageButton href={page.prev_page_url} size="lg">
+                        Anterior
+                    </PageButton>
+                    <PageButton href={page.next_page_url} size="lg">
+                        Próximo
+                    </PageButton>
+                </div>
+            </nav>
+        );
+    }
+
     return (
         <nav
             aria-label="Paginação"
@@ -33,9 +54,7 @@ export function Pagination({ page, label }: Props) {
             </PageButton>
 
             <span className="text-sm text-muted-foreground">
-                {label === undefined
-                    ? `Página ${page.current_page} de ${page.last_page}`
-                    : `Exibindo ${page.from}–${page.to} de ${page.total} ${label}`}
+                Página {page.current_page} de {page.last_page}
             </span>
 
             <PageButton href={page.next_page_url}>
@@ -49,20 +68,22 @@ export function Pagination({ page, label }: Props) {
 function PageButton({
     href,
     children,
+    size = 'sm',
 }: {
     href: string | null;
     children: React.ReactNode;
+    size?: 'sm' | 'lg';
 }) {
     if (href === null) {
         return (
-            <Button variant="outline" size="sm" disabled>
+            <Button variant="outline" size={size} disabled>
                 {children}
             </Button>
         );
     }
 
     return (
-        <Button variant="outline" size="sm" asChild>
+        <Button variant="outline" size={size} asChild>
             <Link href={href} preserveState>
                 {children}
             </Link>

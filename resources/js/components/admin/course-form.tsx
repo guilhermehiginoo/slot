@@ -54,7 +54,11 @@ export function CourseForm({ form, course }: Props) {
                                 Cancelar
                             </Link>
                         </Button>
-                        <Button type="submit" disabled={processing}>
+                        <Button
+                            type="submit"
+                            className="bg-blue-600 text-white hover:bg-blue-700"
+                            disabled={processing}
+                        >
                             Salvar disciplina
                         </Button>
                     </div>

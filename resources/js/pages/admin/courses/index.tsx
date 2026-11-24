@@ -5,7 +5,6 @@ import CourseController from '@/actions/App/Http/Controllers/Admin/CourseControl
 import { ArchiveCourseDialog } from '@/components/admin/archive-course-dialog';
 import { CourseList } from '@/components/admin/course-list';
 import { EmptyState } from '@/components/empty-state';
-import Heading from '@/components/heading';
 import { Pagination } from '@/components/pagination';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -23,7 +22,11 @@ export default function CoursesIndex({ courses, filters }: Props) {
     const [archiving, setArchiving] = useState<AdminCourse | null>(null);
 
     const newCourseButton = (
-        <Button asChild>
+        <Button
+            size="lg"
+            className="bg-blue-600 text-white hover:bg-blue-700"
+            asChild
+        >
             <Link href={CourseController.create()}>
                 <Plus />
                 Nova disciplina
@@ -37,18 +40,23 @@ export default function CoursesIndex({ courses, filters }: Props) {
 
             <div className="flex flex-1 flex-col gap-6 p-4">
                 <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                    <Heading
-                        title="Disciplinas"
-                        description="Gerencie as disciplinas disponíveis para monitoria."
-                    />
+                    <header className="space-y-1">
+                        <h1 className="text-3xl font-bold tracking-tight">
+                            Disciplinas
+                        </h1>
+                        <p className="text-sm text-muted-foreground">
+                            Gerencie as disciplinas disponíveis para monitoria.
+                        </p>
+                    </header>
                     {newCourseButton}
                 </div>
 
                 <Form
                     {...CourseController.index.form()}
                     options={{ preserveState: true, replace: true }}
-                    className="flex gap-2 md:max-w-xl"
+                    className="relative md:max-w-xl"
                 >
+                    <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-blue-600" />
                     <Label htmlFor="search" className="sr-only">
                         Buscar por código ou nome
                     </Label>
@@ -58,11 +66,8 @@ export default function CoursesIndex({ courses, filters }: Props) {
                         type="search"
                         defaultValue={filters.search ?? ''}
                         placeholder="Buscar por código ou nome"
+                        className="h-11 pl-9"
                     />
-                    <Button type="submit" variant="secondary">
-                        <Search />
-                        <span className="sr-only md:not-sr-only">Buscar</span>
-                    </Button>
                 </Form>
 
                 {courses.total === 0 && filters.search === null && (
@@ -81,13 +86,16 @@ export default function CoursesIndex({ courses, filters }: Props) {
                 )}
 
                 {courses.total > 0 && (
-                    <CourseList
-                        courses={courses.data}
-                        onArchive={setArchiving}
-                    />
+                    <div className="flex flex-col gap-4 md:gap-0 md:overflow-hidden md:rounded-xl md:border">
+                        <CourseList
+                            courses={courses.data}
+                            onArchive={setArchiving}
+                        />
+                        <div className="md:border-t md:px-4 md:py-3">
+                            <Pagination page={courses} label="disciplinas" />
+                        </div>
+                    </div>
                 )}
-
-                <Pagination page={courses} label="disciplinas" />
             </div>
 
             <ArchiveCourseDialog
