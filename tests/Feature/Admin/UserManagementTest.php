@@ -24,7 +24,7 @@ class UserManagementTest extends TestCase
         $student = User::factory()->create();
 
         $this->actingAs($student)
-            ->get('/admin/users')
+            ->get('/admin/usuarios')
             ->assertForbidden();
     }
 

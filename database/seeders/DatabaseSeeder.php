@@ -26,5 +26,7 @@ class DatabaseSeeder extends Seeder
             'name'  => 'Aluno',
             'email' => 'student@slot.test',
         ]);
+
+        $this->call(CourseSeeder::class);
     }
 }

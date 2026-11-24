@@ -13,7 +13,8 @@ Board: [Jira](https://slotgestao.atlassian.net/jira/software/projects/SLOT/board
 ## Idioma
 
 - Português: specs, planos, tasks, docs, mensagens de commit, descrição de PR e todo texto que o usuário vê na tela.
-- Inglês: código. Nomes de classes, métodos, variáveis, rotas, tabelas, colunas e arquivos.
+- Inglês: código. Nomes de classes, métodos, variáveis, nomes de rota, tabelas, colunas e arquivos.
+- Português: o caminho das URLs que o usuário vê (`/admin/disciplinas`, `/configuracoes/perfil`). Só o caminho: o nome da rota, o controller e o parâmetro continuam em inglês (`admin.courses.index`, `{course}`). As rotas do Fortify (`/login`, `/register`) ficam como o pacote define.
 - Termos do domínio no código: disciplina = `Course`, turma = `ClassGroup`, horário = `Slot`, agendamento = `Booking`, reserva de sala = `RoomReservation`, atendimento = `Session`.
 
 ## Comentários
