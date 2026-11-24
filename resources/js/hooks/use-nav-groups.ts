@@ -9,7 +9,7 @@ const platformGroup: NavGroup = {
     label: 'Plataforma',
     items: [
         {
-            title: 'Dashboard',
+            title: 'Visão geral',
             href: dashboard(),
             icon: LayoutGrid,
         },
