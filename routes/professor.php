@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Professor\{ClassGroupController, MonitorInvitationController};
+use App\Http\Controllers\Professor\{ClassGroupController, ClassMonitorController, MonitorInvitationController};
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])
@@ -14,4 +14,10 @@ Route::middleware(['auth', 'verified'])
 
         Route::post('turmas/{classGroup}/convites', [MonitorInvitationController::class, 'store'])
             ->name('class-groups.invitations.store');
+
+        Route::delete('convites/{monitorInvitation}', [MonitorInvitationController::class, 'destroy'])
+            ->name('invitations.destroy');
+
+        Route::delete('turmas/{classGroup}/monitores/{monitor}', [ClassMonitorController::class, 'destroy'])
+            ->name('class-groups.monitors.destroy');
     });
