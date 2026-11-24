@@ -14,7 +14,7 @@ export function CourseList({ courses, onArchive }: Props) {
                 {courses.map((course) => (
                     <li
                         key={course.id}
-                        className="flex flex-col gap-3 rounded-xl border p-4"
+                        className="flex flex-col gap-3 rounded-xl border bg-card p-4"
                     >
                         <div className="flex items-center justify-between gap-2">
                             <span className="font-semibold">{course.code}</span>

@@ -22,11 +22,7 @@ export default function CoursesIndex({ courses, filters }: Props) {
     const [archiving, setArchiving] = useState<AdminCourse | null>(null);
 
     const newCourseButton = (
-        <Button
-            size="lg"
-            className="bg-blue-600 text-white hover:bg-blue-700"
-            asChild
-        >
+        <Button size="lg" asChild>
             <Link href={CourseController.create()}>
                 <Plus />
                 Nova disciplina
@@ -56,7 +52,7 @@ export default function CoursesIndex({ courses, filters }: Props) {
                     options={{ preserveState: true, replace: true }}
                     className="relative md:max-w-xl"
                 >
-                    <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-blue-600" />
+                    <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-primary" />
                     <Label htmlFor="search" className="sr-only">
                         Buscar por código ou nome
                     </Label>
@@ -66,7 +62,7 @@ export default function CoursesIndex({ courses, filters }: Props) {
                         type="search"
                         defaultValue={filters.search ?? ''}
                         placeholder="Buscar por código ou nome"
-                        className="h-11 pl-9"
+                        className="h-11 bg-card pl-9"
                     />
                 </Form>
 
@@ -86,7 +82,7 @@ export default function CoursesIndex({ courses, filters }: Props) {
                 )}
 
                 {courses.total > 0 && (
-                    <div className="flex flex-col gap-4 md:gap-0 md:overflow-hidden md:rounded-xl md:border">
+                    <div className="flex flex-col gap-4 md:gap-0 md:overflow-hidden md:rounded-xl md:border md:bg-card">
                         <CourseList
                             courses={courses.data}
                             onArchive={setArchiving}

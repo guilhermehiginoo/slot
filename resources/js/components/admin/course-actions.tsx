@@ -15,7 +15,7 @@ export function CourseActions({ course, onArchive }: Props) {
         <div className="grid grid-cols-2 gap-2 md:flex md:gap-4">
             <Button
                 variant="outline"
-                className="h-11 md:h-auto md:border-0 md:bg-transparent md:p-0 md:font-semibold md:text-blue-600 md:shadow-none md:hover:underline"
+                className="h-11 md:h-auto md:border-0 md:bg-transparent md:p-0 md:font-semibold md:text-primary md:shadow-none md:hover:underline"
                 asChild
             >
                 <Link href={CourseController.edit(course.id)}>Editar</Link>

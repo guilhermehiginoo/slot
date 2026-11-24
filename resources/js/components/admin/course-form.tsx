@@ -24,6 +24,7 @@ export function CourseForm({ form, course }: Props) {
                             name="code"
                             defaultValue={course?.code}
                             placeholder="Ex.: IMD0030"
+                            className="bg-card"
                             aria-describedby="code-hint"
                             required
                         />
@@ -43,6 +44,7 @@ export function CourseForm({ form, course }: Props) {
                             name="name"
                             defaultValue={course?.name}
                             placeholder="Ex.: Linguagem de Programação I"
+                            className="bg-card"
                             required
                         />
                         <InputError message={errors.name} />
@@ -54,11 +56,7 @@ export function CourseForm({ form, course }: Props) {
                                 Cancelar
                             </Link>
                         </Button>
-                        <Button
-                            type="submit"
-                            className="bg-blue-600 text-white hover:bg-blue-700"
-                            disabled={processing}
-                        >
+                        <Button type="submit" disabled={processing}>
                             Salvar disciplina
                         </Button>
                     </div>
