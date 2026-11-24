@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Admin;
 
-use App\Actions\Admin\CreateClassGroup;
+use App\Actions\Admin\{CreateClassGroup, UpdateClassGroup};
 use App\Enums\Role;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Admin\SaveClassGroupRequest;
@@ -57,6 +57,15 @@ class ClassGroupController extends Controller
     public function store(SaveClassGroupRequest $request, CreateClassGroup $createClassGroup): RedirectResponse
     {
         $createClassGroup->handle($request->validated());
+
+        Inertia::flash('toast', ['type' => 'success', 'message' => 'Turma salva com sucesso!']);
+
+        return to_route('admin.class-groups.index');
+    }
+
+    public function update(SaveClassGroupRequest $request, ClassGroup $classGroup, UpdateClassGroup $updateClassGroup): RedirectResponse
+    {
+        $updateClassGroup->handle($classGroup, $request->validated());
 
         Inertia::flash('toast', ['type' => 'success', 'message' => 'Turma salva com sucesso!']);
 

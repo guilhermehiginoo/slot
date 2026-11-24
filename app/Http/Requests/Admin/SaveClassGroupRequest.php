@@ -4,6 +4,7 @@ namespace App\Http\Requests\Admin;
 
 use App\Enums\Role;
 use App\Models\ClassGroup;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\Str;
@@ -13,7 +14,20 @@ class SaveClassGroupRequest extends FormRequest
 {
     public function authorize(): bool
     {
+        $classGroup = $this->editedClassGroup();
+
+        if ($classGroup) {
+            return Gate::allows('update', $classGroup);
+        }
+
         return Gate::allows('create', ClassGroup::class);
+    }
+
+    private function editedClassGroup(): ?ClassGroup
+    {
+        $classGroup = $this->route('classGroup');
+
+        return $classGroup instanceof ClassGroup ? $classGroup : null;
     }
 
     protected function prepareForValidation(): void
@@ -33,7 +47,9 @@ class SaveClassGroupRequest extends FormRequest
         return [
             'course_id' => [
                 'required',
-                Rule::exists('courses', 'id')->whereNull('archived_at'),
+                Rule::exists('courses', 'id')->where(fn (Builder $query) => $query
+                    ->whereNull('archived_at')
+                    ->when($this->editedClassGroup(), fn (Builder $query, ClassGroup $classGroup) => $query->orWhere('id', $classGroup->course_id))),
             ],
             'semester' => ['required', 'regex:/^\d{4}\.[12]$/'],
             'number'   => [
@@ -42,7 +58,8 @@ class SaveClassGroupRequest extends FormRequest
                 'regex:/^T\d{2}$/',
                 Rule::unique('class_groups', 'number')
                     ->where('course_id', $this->input('course_id'))
-                    ->where('semester', $this->input('semester')),
+                    ->where('semester', $this->input('semester'))
+                    ->ignore($this->editedClassGroup()),
             ],
             'professors'   => ['required', 'array', 'min:1'],
             'professors.*' => [

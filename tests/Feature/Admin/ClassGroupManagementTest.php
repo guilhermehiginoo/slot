@@ -346,4 +346,109 @@ class ClassGroupManagementTest extends TestCase
 
         $this->assertDatabaseCount('class_groups', 0);
     }
+
+    #[TestDox('Cenário: Admin edita uma turma')]
+    public function test_admin_edits_a_class_group()
+    {
+        $admin      = User::factory()->admin()->create();
+        $lp1        = Course::factory()->create(['code' => 'IMD0030']);
+        $ana        = User::factory()->professor()->create(['name' => 'Ana Costa']);
+        $carlos     = User::factory()->professor()->create(['name' => 'Carlos Alves']);
+        $classGroup = ClassGroup::factory()->for($lp1)->hasAttached($ana, [], 'professors')->create();
+
+        $this->actingAs($admin)
+            ->patch(route('admin.class-groups.update', $classGroup), $this->classGroupData($lp1, $ana, $carlos))
+            ->assertSessionHasNoErrors()
+            ->assertRedirect(route('admin.class-groups.index'))
+            ->assertInertiaFlash('toast.message', 'Turma salva com sucesso!');
+
+        $this->actingAs($admin)
+            ->get(route('admin.class-groups.index'))
+            ->assertInertia(fn (Assert $page) => $page
+                ->has('classGroups.data', 1)
+                ->where('classGroups.data.0.professors', [
+                    ['id' => $ana->id, 'name' => 'Ana Costa'],
+                    ['id' => $carlos->id, 'name' => 'Carlos Alves'],
+                ]));
+    }
+
+    public function test_editing_without_changing_the_number_is_allowed()
+    {
+        $admin      = User::factory()->admin()->create();
+        $lp1        = Course::factory()->create();
+        $ana        = User::factory()->professor()->create();
+        $classGroup = ClassGroup::factory()->for($lp1)->hasAttached($ana, [], 'professors')->create();
+
+        $this->actingAs($admin)
+            ->patch(route('admin.class-groups.update', $classGroup), ['schedule' => '24T34'] + $this->classGroupData($lp1, $ana))
+            ->assertSessionHasNoErrors();
+
+        $this->assertSame('24T34', $classGroup->fresh()->schedule);
+    }
+
+    public function test_editing_cannot_take_the_number_of_another_class_group()
+    {
+        $admin = User::factory()->admin()->create();
+        $lp1   = Course::factory()->create();
+        $ana   = User::factory()->professor()->create();
+        ClassGroup::factory()->for($lp1)->create(['number' => 'T01']);
+        $classGroup = ClassGroup::factory()->for($lp1)->create(['number' => 'T02']);
+
+        $this->actingAs($admin)
+            ->patch(route('admin.class-groups.update', $classGroup), $this->classGroupData($lp1, $ana))
+            ->assertSessionHasErrors(['number' => 'Esta turma já existe neste semestre']);
+
+        $this->assertSame('T02', $classGroup->fresh()->number);
+    }
+
+    public function test_a_class_group_of_an_archived_course_keeps_its_course_when_edited()
+    {
+        $admin      = User::factory()->admin()->create();
+        $archived   = Course::factory()->archived()->create();
+        $other      = Course::factory()->archived()->create();
+        $ana        = User::factory()->professor()->create();
+        $classGroup = ClassGroup::factory()->for($archived)->create();
+
+        $this->actingAs($admin)
+            ->patch(route('admin.class-groups.update', $classGroup), ['schedule' => '24T34'] + $this->classGroupData($archived, $ana))
+            ->assertSessionHasNoErrors();
+
+        $this->assertSame('24T34', $classGroup->fresh()->schedule);
+
+        $this->actingAs($admin)
+            ->patch(route('admin.class-groups.update', $classGroup), $this->classGroupData($other, $ana))
+            ->assertSessionHasErrors('course_id');
+
+        $this->assertSame($archived->id, $classGroup->fresh()->course_id);
+    }
+
+    public function test_editing_removes_a_professor()
+    {
+        $admin      = User::factory()->admin()->create();
+        $lp1        = Course::factory()->create();
+        $ana        = User::factory()->professor()->create();
+        $carlos     = User::factory()->professor()->create();
+        $classGroup = ClassGroup::factory()->for($lp1)->hasAttached([$ana, $carlos], [], 'professors')->create();
+
+        $this->actingAs($admin)
+            ->patch(route('admin.class-groups.update', $classGroup), $this->classGroupData($lp1, $carlos))
+            ->assertSessionHasNoErrors();
+
+        $this->assertSame([$carlos->id], $classGroup->professors()->pluck('users.id')->all());
+    }
+
+    public function test_non_admins_cannot_edit_class_groups()
+    {
+        $lp1        = Course::factory()->create();
+        $ana        = User::factory()->professor()->create();
+        $classGroup = ClassGroup::factory()->for($lp1)->create(['schedule' => '35M12']);
+
+        foreach ([User::factory()->create(), $ana] as $user) {
+            $this->actingAs($user)
+                ->patch(route('admin.class-groups.update', $classGroup), ['schedule' => '24T34'] + $this->classGroupData($lp1, $ana))
+                ->assertForbidden();
+        }
+
+        $this->assertSame('35M12', $classGroup->fresh()->schedule);
+    }
 }

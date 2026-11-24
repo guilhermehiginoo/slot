@@ -6,7 +6,7 @@
 - [x] T2 · O admin cria uma turma com número normalizado, semestre validado, só professores e só disciplina ativa
     - Teste: `tests/Feature/Admin/ClassGroupManagementTest` (Cenários: Admin cria uma turma; Turma repetida; Só professores dão aula; O número é normalizado; Semestre inválido; Disciplina arquivada não recebe turma nova), mais obrigatórios e "Selecione ao menos um professor", horário acima de 50, número "T1" e "A01", mesma turma em outro semestre e 403 em criar
     - Arquivos: `app/Http/Requests/Admin/SaveClassGroupRequest.php`, `app/Actions/Admin/CreateClassGroup.php`, `app/Http/Controllers/Admin/ClassGroupController.php`
-- [ ] T3 · O admin edita uma turma, inclusive de disciplina arquivada, trocando os professores
+- [x] T3 · O admin edita uma turma, inclusive de disciplina arquivada, trocando os professores
     - Teste: `tests/Feature/Admin/ClassGroupManagementTest` (Cenário: Admin edita uma turma), mais editar sem mudar o número, editar turma de disciplina arquivada, remover professor e 403 em editar
     - Arquivos: `app/Http/Requests/Admin/SaveClassGroupRequest.php`, `app/Actions/Admin/UpdateClassGroup.php`, `app/Http/Controllers/Admin/ClassGroupController.php`
 - [ ] T4 · O seeder cria 2 professores e 4 turmas em 2026.2, sem duplicar ao rodar de novo
