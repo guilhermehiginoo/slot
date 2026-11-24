@@ -2,10 +2,22 @@
 
 namespace App\Policies;
 
+use App\Enums\Role;
 use App\Models\{ClassGroup, User};
 
 class ClassGroupPolicy
 {
+    public function viewTaught(User $user): bool
+    {
+        return $user->role === Role::Professor;
+    }
+
+    public function view(User $user, ClassGroup $classGroup): bool
+    {
+        return $user->role === Role::Professor
+            && $classGroup->professors()->whereKey($user->id)->exists();
+    }
+
     public function viewAny(User $user): bool
     {
         return $user->isAdmin();

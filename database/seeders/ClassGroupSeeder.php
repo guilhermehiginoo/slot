@@ -13,11 +13,12 @@ class ClassGroupSeeder extends Seeder
 
     public function run(): void
     {
-        $ana    = $this->professor('Ana Costa', 'ana.costa@slot.test');
-        $carlos = $this->professor('Carlos Alves', 'carlos.alves@slot.test');
+        $ana       = $this->professor('Ana Costa', 'ana.costa@slot.test');
+        $carlos    = $this->professor('Carlos Alves', 'carlos.alves@slot.test');
+        $professor = $this->professor('Professor', 'professor@slot.test');
 
         $classGroups = [
-            ['IMD0030', 'T01', '35M12', [$ana, $carlos]],
+            ['IMD0030', 'T01', '35M12', [$ana, $carlos, $professor]],
             ['IMD0030', 'T02', '24T34', [$carlos]],
             ['IMD0012', 'T01', '246M34', [$ana]],
             ['IMD0029', 'T01', '35T12', [$carlos]],

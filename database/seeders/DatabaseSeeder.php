@@ -27,6 +27,6 @@ class DatabaseSeeder extends Seeder
             'email' => 'student@slot.test',
         ]);
 
-        $this->call([CourseSeeder::class, ClassGroupSeeder::class]);
+        $this->call([CourseSeeder::class, ClassGroupSeeder::class, MonitorSeeder::class]);
     }
 }

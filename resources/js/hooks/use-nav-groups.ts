@@ -3,6 +3,7 @@ import { GraduationCap, LayoutGrid, School, Users } from 'lucide-react';
 import ClassGroupController from '@/actions/App/Http/Controllers/Admin/ClassGroupController';
 import CourseController from '@/actions/App/Http/Controllers/Admin/CourseController';
 import UserController from '@/actions/App/Http/Controllers/Admin/UserController';
+import ProfessorClassGroupController from '@/actions/App/Http/Controllers/Professor/ClassGroupController';
 import { dashboard } from '@/routes';
 import type { NavGroup, Role } from '@/types';
 
@@ -45,7 +46,18 @@ const groupsByRole: Record<Role, NavGroup[]> = {
             ],
         },
     ],
-    professor: [],
+    professor: [
+        {
+            label: 'Acadêmico',
+            items: [
+                {
+                    title: 'Minhas turmas',
+                    href: ProfessorClassGroupController.index(),
+                    icon: School,
+                },
+            ],
+        },
+    ],
     student: [],
 };
 
