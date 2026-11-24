@@ -151,4 +151,199 @@ class ClassGroupManagementTest extends TestCase
 
         $this->assertEquals([$previous->id], ClassGroup::currentSemester()->pluck('id')->all());
     }
+
+    /**
+     * @return array<string, mixed>
+     */
+    private function classGroupData(Course $course, User ...$professors): array
+    {
+        return [
+            'course_id'  => $course->id,
+            'semester'   => '2026.2',
+            'number'     => 'T01',
+            'professors' => array_map(fn (User $professor) => $professor->id, $professors),
+            'schedule'   => '35M12',
+        ];
+    }
+
+    #[TestDox('Cenário: Admin cria uma turma')]
+    public function test_admin_creates_a_class_group()
+    {
+        $admin = User::factory()->admin()->create();
+        $lp1   = Course::factory()->create(['code' => 'IMD0030']);
+        $ana   = User::factory()->professor()->create(['name' => 'Ana Costa']);
+
+        $this->actingAs($admin)
+            ->post(route('admin.class-groups.store'), $this->classGroupData($lp1, $ana))
+            ->assertSessionHasNoErrors()
+            ->assertRedirect(route('admin.class-groups.index'))
+            ->assertInertiaFlash('toast.message', 'Turma salva com sucesso!');
+
+        $this->actingAs($admin)
+            ->get(route('admin.class-groups.index'))
+            ->assertInertia(fn (Assert $page) => $page
+                ->has('classGroups.data', 1)
+                ->where('classGroups.data.0.course.code', 'IMD0030')
+                ->where('classGroups.data.0.number', 'T01')
+                ->where('classGroups.data.0.schedule', '35M12')
+                ->where('classGroups.data.0.professors', [['id' => $ana->id, 'name' => 'Ana Costa']]));
+    }
+
+    #[TestDox('Cenário: Turma repetida')]
+    public function test_course_semester_and_number_must_be_unique()
+    {
+        $admin = User::factory()->admin()->create();
+        $lp1   = Course::factory()->create();
+        $ana   = User::factory()->professor()->create();
+        ClassGroup::factory()->for($lp1)->create(['semester' => '2026.2', 'number' => 'T01']);
+
+        $this->actingAs($admin)
+            ->post(route('admin.class-groups.store'), $this->classGroupData($lp1, $ana))
+            ->assertSessionHasErrors(['number' => 'Esta turma já existe neste semestre']);
+
+        $this->assertDatabaseCount('class_groups', 1);
+    }
+
+    public function test_the_same_class_group_can_exist_in_another_semester()
+    {
+        $admin = User::factory()->admin()->create();
+        $lp1   = Course::factory()->create();
+        $ana   = User::factory()->professor()->create();
+        ClassGroup::factory()->for($lp1)->create(['semester' => '2026.1', 'number' => 'T01']);
+
+        $this->actingAs($admin)
+            ->post(route('admin.class-groups.store'), $this->classGroupData($lp1, $ana))
+            ->assertSessionHasNoErrors();
+
+        $this->assertDatabaseCount('class_groups', 2);
+    }
+
+    #[TestDox('Cenário: Só professores dão aula')]
+    public function test_only_professors_can_teach_a_class_group()
+    {
+        $admin   = User::factory()->admin()->create();
+        $lp1     = Course::factory()->create();
+        $ana     = User::factory()->professor()->create(['name' => 'Ana Costa']);
+        $student = User::factory()->create();
+
+        $this->actingAs($admin)
+            ->get(route('admin.class-groups.index'))
+            ->assertInertia(fn (Assert $page) => $page
+                ->where('professors', [['id' => $ana->id, 'name' => 'Ana Costa']]));
+
+        $this->actingAs($admin)
+            ->post(route('admin.class-groups.store'), $this->classGroupData($lp1, $student))
+            ->assertSessionHasErrors('professors.0');
+
+        $this->assertDatabaseCount('class_groups', 0);
+    }
+
+    #[TestDox('Cenário: O número é normalizado')]
+    public function test_the_number_is_normalized()
+    {
+        $admin = User::factory()->admin()->create();
+        $lp1   = Course::factory()->create();
+        $ana   = User::factory()->professor()->create();
+
+        $this->actingAs($admin)
+            ->post(route('admin.class-groups.store'), ['number' => 't01 '] + $this->classGroupData($lp1, $ana))
+            ->assertSessionHasNoErrors();
+
+        $this->assertDatabaseHas('class_groups', ['number' => 'T01']);
+        $this->assertDatabaseCount('class_groups', 1);
+    }
+
+    public function test_the_number_must_be_t_followed_by_two_digits()
+    {
+        $admin = User::factory()->admin()->create();
+        $lp1   = Course::factory()->create();
+        $ana   = User::factory()->professor()->create();
+
+        foreach (['T1', 'A01'] as $number) {
+            $this->actingAs($admin)
+                ->post(route('admin.class-groups.store'), ['number' => $number] + $this->classGroupData($lp1, $ana))
+                ->assertSessionHasErrors(['number' => 'O número da turma deve ser T seguido de 2 dígitos']);
+        }
+
+        $this->assertDatabaseCount('class_groups', 0);
+    }
+
+    #[TestDox('Cenário: Semestre inválido')]
+    public function test_the_semester_must_end_in_1_or_2()
+    {
+        $admin = User::factory()->admin()->create();
+        $lp1   = Course::factory()->create();
+        $ana   = User::factory()->professor()->create();
+
+        $this->actingAs($admin)
+            ->post(route('admin.class-groups.store'), ['semester' => '2026.3'] + $this->classGroupData($lp1, $ana))
+            ->assertSessionHasErrors(['semester' => 'O semestre deve estar no formato ano.1 ou ano.2']);
+
+        $this->assertDatabaseCount('class_groups', 0);
+    }
+
+    #[TestDox('Cenário: Disciplina arquivada não recebe turma nova')]
+    public function test_archived_courses_do_not_get_new_class_groups()
+    {
+        $admin    = User::factory()->admin()->create();
+        $archived = Course::factory()->archived()->create(['code' => 'IMD0030']);
+        $ana      = User::factory()->professor()->create();
+
+        $this->actingAs($admin)
+            ->get(route('admin.class-groups.index'))
+            ->assertInertia(fn (Assert $page) => $page->has('courses', 0));
+
+        $this->actingAs($admin)
+            ->post(route('admin.class-groups.store'), $this->classGroupData($archived, $ana))
+            ->assertSessionHasErrors('course_id');
+
+        $this->assertDatabaseCount('class_groups', 0);
+    }
+
+    public function test_all_fields_are_required()
+    {
+        $admin = User::factory()->admin()->create();
+
+        $this->actingAs($admin)
+            ->post(route('admin.class-groups.store'), [])
+            ->assertSessionHasErrors([
+                'course_id'  => 'Selecione a disciplina.',
+                'semester'   => 'Informe o semestre.',
+                'number'     => 'Informe o número da turma.',
+                'professors' => 'Selecione ao menos um professor',
+                'schedule'   => 'Informe o código de horário.',
+            ]);
+
+        $this->assertDatabaseCount('class_groups', 0);
+    }
+
+    public function test_the_schedule_is_limited_to_50_characters()
+    {
+        $admin = User::factory()->admin()->create();
+        $lp1   = Course::factory()->create();
+        $ana   = User::factory()->professor()->create();
+
+        $this->actingAs($admin)
+            ->post(route('admin.class-groups.store'), ['schedule' => str_repeat('a', 51)] + $this->classGroupData($lp1, $ana))
+            ->assertSessionHasErrors(['schedule' => 'O código de horário deve ter no máximo 50 caracteres.']);
+
+        $this->assertDatabaseCount('class_groups', 0);
+    }
+
+    public function test_non_admins_cannot_create_class_groups()
+    {
+        $lp1  = Course::factory()->create();
+        $ana  = User::factory()->professor()->create();
+        $data = $this->classGroupData($lp1, $ana);
+
+        $this->actingAs(User::factory()->create())
+            ->post(route('admin.class-groups.store'), $data)
+            ->assertForbidden();
+
+        $this->actingAs($ana)
+            ->post(route('admin.class-groups.store'), $data)
+            ->assertForbidden();
+
+        $this->assertDatabaseCount('class_groups', 0);
+    }
 }

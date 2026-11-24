@@ -21,7 +21,7 @@ Route::middleware(['auth', 'verified', 'can:viewAny,' . User::class])
             ->names('courses.archive')
             ->parameters(['disciplinas' => 'course']);
         Route::resource('turmas', ClassGroupController::class)
-            ->only(['index'])
+            ->only(['index', 'store'])
             ->names('class-groups')
             ->parameters(['turmas' => 'classGroup']);
     });

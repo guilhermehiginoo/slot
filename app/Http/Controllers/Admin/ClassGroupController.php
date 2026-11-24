@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Admin;
 
+use App\Actions\Admin\CreateClassGroup;
 use App\Enums\Role;
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Admin\SaveClassGroupRequest;
 use App\Models\{ClassGroup, Course, User};
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
-use Illuminate\Http\Request;
+use Illuminate\Http\{RedirectResponse, Request};
 use Illuminate\Support\Facades\Gate;
 use Inertia\{Inertia, Response};
 
@@ -50,5 +52,14 @@ class ClassGroupController extends Controller
             'semesters'      => ClassGroup::query()->distinct()->pluck('semester')
                 ->push($currentSemester)->unique()->sortDesc()->values(),
         ]);
+    }
+
+    public function store(SaveClassGroupRequest $request, CreateClassGroup $createClassGroup): RedirectResponse
+    {
+        $createClassGroup->handle($request->validated());
+
+        Inertia::flash('toast', ['type' => 'success', 'message' => 'Turma salva com sucesso!']);
+
+        return to_route('admin.class-groups.index');
     }
 }
