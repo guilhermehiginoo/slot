@@ -2,7 +2,7 @@
 
 Card: https://slotgestao.atlassian.net/browse/SLOT-10
 Tipo: História · Branch: `feature/SLOT-10-convidar-remover-monitores` · Base: `develop`
-Aprovado por:
+Aprovado por: Guilherme Higino
 
 ## Objetivo
 
