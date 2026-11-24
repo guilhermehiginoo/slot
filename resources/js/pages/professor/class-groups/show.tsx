@@ -1,20 +1,27 @@
 import { Head } from '@inertiajs/react';
 import ClassGroupController from '@/actions/App/Http/Controllers/Professor/ClassGroupController';
+import { InviteMonitorDialog } from '@/components/professor/invite-monitor-dialog';
 import { PeopleSection } from '@/components/professor/people-section';
+import { RemoveMonitorDialog } from '@/components/professor/remove-monitor-dialog';
+import { RevokeInvitationButton } from '@/components/professor/revoke-invitation-button';
 import { Badge } from '@/components/ui/badge';
 import { formatDate } from '@/lib/dates';
+import { invitationStatusLabels } from '@/lib/invitation-status';
 import type {
     ClassGroupDetails,
+    ClassGroupInvitation,
     ClassMonitor,
+    MonitorCandidate,
     PendingApplication,
-    PendingInvitation,
 } from '@/types';
 
 type Props = {
     classGroup: ClassGroupDetails;
     monitors: ClassMonitor[];
-    invitations: PendingInvitation[];
+    invitations: ClassGroupInvitation[];
     applications: PendingApplication[];
+    search: string;
+    candidates: MonitorCandidate[];
 };
 
 export default function ProfessorClassGroupShow({
@@ -22,6 +29,8 @@ export default function ProfessorClassGroupShow({
     monitors,
     invitations,
     applications,
+    search,
+    candidates,
 }: Props) {
     const title = `${classGroup.course.code} · ${classGroup.number}`;
 
@@ -54,6 +63,11 @@ export default function ProfessorClassGroupShow({
                             </Badge>
                         </li>
                     </ul>
+                    <InviteMonitorDialog
+                        classGroupId={classGroup.id}
+                        search={search}
+                        candidates={candidates}
+                    />
                 </header>
 
                 <PeopleSection
@@ -64,20 +78,31 @@ export default function ProfessorClassGroupShow({
                         id: monitor.id,
                         name: monitor.name,
                         details: [formatDate(monitor.appointed_at)],
+                        action: (
+                            <RemoveMonitorDialog
+                                classGroupId={classGroup.id}
+                                monitor={monitor}
+                            />
+                        ),
                     }))}
                 />
 
                 <PeopleSection
-                    title="Convites pendentes"
+                    title="Convites"
                     columns={['Enviado em', 'Status']}
-                    emptyMessage="Nenhum convite pendente."
+                    emptyMessage="Nenhum convite enviado."
                     rows={invitations.map((invitation) => ({
                         id: invitation.id,
                         name: invitation.student.name,
                         details: [
                             formatDate(invitation.created_at),
-                            'Pendente',
+                            invitationStatusLabels[invitation.status],
                         ],
+                        action: invitation.status === 'pending' && (
+                            <RevokeInvitationButton
+                                invitationId={invitation.id}
+                            />
+                        ),
                     }))}
                 />
 

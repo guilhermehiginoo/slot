@@ -1,3 +1,5 @@
+import type { MonitorInvitationStatus } from './monitoring';
+
 export type CourseSummary = {
     code: string;
     name: string;
@@ -31,9 +33,10 @@ export type ClassMonitor = {
     appointed_at: string;
 };
 
-export type PendingInvitation = {
+export type ClassGroupInvitation = {
     id: number;
     student: PersonSummary;
+    status: MonitorInvitationStatus;
     created_at: string;
 };
 
