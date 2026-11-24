@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Admin\{CourseArchiveController, CourseController, UserController};
+use App\Http\Controllers\Admin\{ClassGroupController, CourseArchiveController, CourseController, UserController};
 use App\Models\User;
 use Illuminate\Support\Facades\Route;
 
@@ -20,4 +20,8 @@ Route::middleware(['auth', 'verified', 'can:viewAny,' . User::class])
             ->only('store')
             ->names('courses.archive')
             ->parameters(['disciplinas' => 'course']);
+        Route::resource('turmas', ClassGroupController::class)
+            ->only(['index'])
+            ->names('class-groups')
+            ->parameters(['turmas' => 'classGroup']);
     });

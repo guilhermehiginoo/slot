@@ -1,6 +1,6 @@
 # Tasks · SLOT-8
 
-- [ ] T1 · O admin lista as turmas filtradas por disciplina e semestre; os demais recebem 403; scope do semestre atual
+- [x] T1 · O admin lista as turmas filtradas por disciplina e semestre; os demais recebem 403; scope do semestre atual
     - Teste: `tests/Feature/Admin/ClassGroupManagementTest` (Cenários: Filtrar por disciplina e semestre; Quem não é admin não acessa as turmas), mais ordem e 15 por página, opções de semestre, `hasClassGroups`, visitante vai ao login e `currentSemester()` trocando o config (R12)
     - Arquivos: `config/slot.php`, `.env.example`, migrations `create_class_groups_table` e `create_class_group_user_table`, `app/Models/ClassGroup.php`, `database/factories/ClassGroupFactory.php`, `app/Policies/ClassGroupPolicy.php`, `routes/admin.php`, `app/Http/Controllers/Admin/ClassGroupController.php`
 - [ ] T2 · O admin cria uma turma com número normalizado, semestre validado, só professores e só disciplina ativa
