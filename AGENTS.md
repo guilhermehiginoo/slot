@@ -16,6 +16,14 @@ Board: [Jira](https://slotgestao.atlassian.net/jira/software/projects/SLOT/board
 - Inglês: código. Nomes de classes, métodos, variáveis, rotas, tabelas, colunas e arquivos.
 - Termos do domínio no código: disciplina = `Course`, turma = `ClassGroup`, horário = `Slot`, agendamento = `Booking`, reserva de sala = `RoomReservation`, atendimento = `Session`.
 
+## Comentários
+
+Código não leva comentário explicativo. Nomes claros de classes, métodos e variáveis dizem o que o código faz, os testes com `#[TestDox]` dizem o comportamento, e o porquê fica na spec e no plano do card.
+
+- Ficam só as anotações de tipo que o PHPStan e o TypeScript precisam: `@property`, `@param`, `@return array<...>`, `@var`, `@throws`, `@extends`, `@use`.
+- Saem os docblocks que repetem o nome do método (`Run the migrations.`), os `//` que explicam uma linha e os comentários com número de card.
+- Se o código só fica claro com um comentário, renomeie ou extraia um método. Se o motivo é uma regra de negócio, ela vai na spec.
+
 ## Fluxo SDD
 
 Toda mudança de código nasce de um card do Jira e passa por spec, plano e tasks antes de virar código. Os comandos ficam em `.claude/skills/` e os artefatos de cada card em `specs/SLOT-N/`, commitados junto com o código.

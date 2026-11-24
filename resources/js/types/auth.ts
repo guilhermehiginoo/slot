@@ -1,7 +1,10 @@
+export type Role = 'admin' | 'professor' | 'student';
+
 export type User = {
     id: number;
     name: string;
     email: string;
+    role: Role;
     avatar?: string;
     email_verified_at: string | null;
     created_at: string;
