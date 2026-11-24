@@ -1,5 +1,5 @@
 import { Form, Head } from '@inertiajs/react';
-import { Plus, Search } from 'lucide-react';
+import { Plus } from 'lucide-react';
 import { useState } from 'react';
 import CourseController from '@/actions/App/Http/Controllers/Admin/CourseController';
 import { ArchiveCourseDialog } from '@/components/admin/archive-course-dialog';
@@ -7,6 +7,7 @@ import { CourseFormDialog } from '@/components/admin/course-form-dialog';
 import { CourseList } from '@/components/admin/course-list';
 import { EmptyState } from '@/components/empty-state';
 import { Pagination } from '@/components/pagination';
+import { SearchIcon } from '@/components/search-icon';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -61,7 +62,7 @@ export default function CoursesIndex({ courses, filters }: Props) {
                     options={{ preserveState: true, replace: true }}
                     className="relative md:max-w-xl"
                 >
-                    <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-primary" />
+                    <SearchIcon className="pointer-events-none absolute top-1/2 left-3.5 h-[15px] w-3.5 -translate-y-1/2 text-primary" />
                     <Label htmlFor="search" className="sr-only">
                         Buscar por código ou nome
                     </Label>
@@ -71,7 +72,7 @@ export default function CoursesIndex({ courses, filters }: Props) {
                         type="search"
                         defaultValue={filters.search ?? ''}
                         placeholder="Buscar por código ou nome"
-                        className="h-11 bg-card pl-9"
+                        className="h-11 bg-card pl-10"
                     />
                 </Form>
 

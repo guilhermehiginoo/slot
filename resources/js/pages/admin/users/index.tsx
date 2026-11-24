@@ -1,9 +1,9 @@
 import { Form, Head, usePage } from '@inertiajs/react';
-import { Search } from 'lucide-react';
 import UserController from '@/actions/App/Http/Controllers/Admin/UserController';
 import { UserRoleForm } from '@/components/admin/user-role-form';
 import { EmptyState } from '@/components/empty-state';
 import { Pagination } from '@/components/pagination';
+import { SearchIcon } from '@/components/search-icon';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import type { AdminUser, Paginated } from '@/types';
@@ -37,7 +37,7 @@ export default function UsersIndex({ users, filters }: Props) {
                     options={{ preserveState: true, replace: true }}
                     className="relative md:max-w-xl"
                 >
-                    <Search className="pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2 text-primary" />
+                    <SearchIcon className="pointer-events-none absolute top-1/2 left-3.5 h-[15px] w-3.5 -translate-y-1/2 text-primary" />
                     <Label htmlFor="search" className="sr-only">
                         Buscar por nome ou e-mail
                     </Label>
@@ -47,7 +47,7 @@ export default function UsersIndex({ users, filters }: Props) {
                         type="search"
                         defaultValue={filters.search ?? ''}
                         placeholder="Buscar por nome ou e-mail"
-                        className="h-11 bg-card pl-9"
+                        className="h-11 bg-card pl-10"
                     />
                 </Form>
 
