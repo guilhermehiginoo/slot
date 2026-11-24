@@ -103,7 +103,7 @@ Cenário: Quem não é admin não acessa o catálogo
 - Reativar uma disciplina arquivada.
 - Esconder arquivadas nas buscas (SLOT-13) e bloquear novos horários nelas (SLOT-11): esses cards precisam respeitar o estado "arquivada" que este card cria.
 - Busca sem acento (SLOT-13) e o item "Turmas" do menu (SLOT-8).
-- Refazer o visual do menu ("Visão geral", "Espaço administrativo", rodapé "Semestre 2026.2") que aparece no protótipo.
+- Reorganizar o menu como no protótipo ("Visão geral", "Espaço administrativo", rodapé "Semestre 2026.2"). A identidade visual entra neste card (ver Decisões), a estrutura do menu não.
 - Excluir uma disciplina de vez.
 
 ## Decisões
@@ -115,6 +115,7 @@ Cenário: Quem não é admin não acessa o catálogo
 - Lista do admin → mostra arquivadas com selo, 15 por página, busca por código e nome (Renan)
 - Nome → obrigatório, até 255 caracteres, pode repetir (Renan)
 - Seeder → disciplinas reais do início do BTI (Renan)
+- Identidade visual do protótipo (logo do Slot com "IMD / UFRN", favicon, fonte Sora e cores azul e marinho no tema do app inteiro) → entra neste card (Guilherme)
 
 ## Suposições
 
