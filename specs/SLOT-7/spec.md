@@ -3,7 +3,7 @@
 Card: https://slotgestao.atlassian.net/browse/SLOT-7
 Tipo: História · Branch: `feature/SLOT-7-catalogo-disciplinas` · Base: `develop`
 Protótipo: https://www.figma.com/design/nfTNXwoHBdJ2If6mGditTw?node-id=2-2
-Aprovado por:
+Aprovado por: Guilherme Higino
 
 ## Objetivo
 
