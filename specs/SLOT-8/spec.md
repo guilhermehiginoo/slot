@@ -78,12 +78,12 @@ Cenário: Quem não é admin não acessa as turmas
 
 ## Tela (protótipo do Figma)
 
-- **Lista:** breadcrumb "Administração / Turmas", título "Turmas", subtítulo "Gerencie as turmas e seus professores no semestre.", botão "Nova turma" e os filtros Disciplina e Semestre. Colunas Disciplina ("IMD0030 · Linguagem de Programação I"), Turma, Semestre, Professores ("Ana Costa e Carlos Alves"), Horário e Ações ("Editar turma"). Rodapé "Exibindo X–Y de Z turmas" com Anterior e Próximo.
-- **Mobile (375px):** cada turma vira um card com os mesmos dados e o botão "Editar turma".
-- **Criar e editar:** modal no meio da tela, sem sair da lista. "Nova turma" ("Vincule a disciplina aos professores deste semestre.") e "Editar turma" ("Atualize os dados da turma selecionada."). Campos Disciplina ("Selecione a disciplina"), Semestre (dica "Formato: ano.1 ou ano.2"), Número da turma ("Ex.: T01"), Professores ("Selecione um ou mais professores") e Código de horário ("Ex.: 35M12", dica "Código exibido aos alunos."). Botões "Cancelar" e "Salvar turma". Erros ao lado do campo.
-- **Selecionar professores (modal):** "Selecionar professores", "Somente professores aparecem nesta lista.", "Selecione uma ou mais pessoas para esta turma.", busca por nome, lista com o estado "selecionado(a)", botões "Aplicar seleção" e "Cancelar".
-- **Mensagem:** "Turma salva com sucesso!" (criar e editar).
-- **Estados vazios:** sem turmas no filtro, "Nenhuma turma encontrada" e "Tente outro semestre ou disciplina.". Sem nenhuma turma cadastrada, "Nenhuma turma cadastrada" e "Comece cadastrando a primeira turma do semestre." com o botão "Nova turma".
+- **Lista:** breadcrumb "Administração / Turmas", título "Turmas", subtítulo "Gerencie as turmas e seus professores no semestre.", botão "Nova turma" e os filtros Disciplina e Semestre. Colunas Disciplina ("IMD0030 · Linguagem de Programação I"), Turma, Semestre, Professores ("Ana Costa e Carlos Alves"), Horário e Ações ("Editar turma"). Rodapé "Exibindo X–Y de Z turmas" com Anterior e Próximo. Com algum filtro diferente do padrão, aparece o botão secundário "Limpar filtros" acima da tabela, que volta para "Todas as disciplinas" e o semestre atual.
+- **Mobile (375px):** o botão "Nova turma" ocupa a largura toda, acima dos filtros empilhados. Cada turma vira um card: título "IMD0030 · T01" com selo do semestre, nome da disciplina, professores, linha "2026.2 · 35M12" e o botão "Editar turma" na largura toda.
+- **Criar e editar:** modal no meio da tela, sem sair da lista. "Nova turma" ("Vincule a disciplina aos professores deste semestre.") e "Editar turma", os dois com o subtítulo "Vincule a disciplina aos professores deste semestre.". No desktop, os campos ficam em duas colunas (Disciplina e Semestre, Número e Professores, Código de horário); no celular, em uma coluna. Campos Disciplina ("Selecione a disciplina"), Semestre (dica "Formato: ano.1 ou ano.2"), Número da turma ("Ex.: T01"), Professores ("Selecione um ou mais professores"; com seleção, mostra os nomes juntos por " + ", como "Ana Costa + Bruno Lima") e Código de horário ("Ex.: 35M12", dica "Código exibido aos alunos."). Botões "Cancelar" e "Salvar turma". Erros embaixo do campo: "Selecione a disciplina.", "Informe o semestre.", "Informe o número da turma.", "Selecione ao menos um professor" e os de R4, R6 e R7.
+- **Selecionar professores (modal):** "Selecionar professores", "Somente professores aparecem nesta lista.", "Selecione uma ou mais pessoas para esta turma.", busca por nome, lista com um botão por professor que alterna a seleção (marcado visualmente, sem o texto "selecionada/selecionado" do protótipo), botões "Aplicar seleção" e "Cancelar".
+- **Mensagem:** toast "Turma salva com sucesso!" (criar e editar), como em disciplinas.
+- **Estados vazios:** sem turmas no filtro, "Nenhuma turma encontrada" e "Altere a disciplina ou o semestre para tentar novamente." com o botão "Limpar filtros". Sem nenhuma turma cadastrada, "Nenhuma turma cadastrada" e "Cadastre a primeira turma para vincular professores e monitores." com o botão "Nova turma".
 - **Menu:** item "Turmas" no grupo "Acadêmico", abaixo de "Disciplinas".
 
 ## Critérios de aceite
@@ -114,8 +114,7 @@ Todas por Guilherme, aceitando as recomendações da entrevista:
 
 ## Suposições
 
-- Textos que o protótipo não mostra (subtítulo de "Editar turma", estados vazios, mensagens de erro, "Turma salva com sucesso!") seguem o padrão do catálogo de disciplinas.
-- O protótipo não mostra sala no formulário; isso bate com deixar a sala para a SLOT-21.
+- Os textos da tela seguem o Figma (página "Sprint 2 · SLOT-8 · Turmas"), conferido depois da aprovação. Do protótipo, ficam de fora: o campo "Sala (opcional)" e a sala no card mobile (SLOT-21), o card "Informações da turma" (vira o modal), o "Prof.ª" e o "selecionada/selecionado" (o sistema não sabe o gênero de cada pessoa) e o rodapé "1 turma encontrada" (fica "Exibindo 1–1 de 1 turmas").
 - O menu do protótipo ("Espaço administrativo", rodapé "Semestre 2026.2") não é adotado, como no SLOT-7.
 - Professores aparecem na lista em ordem alfabética, juntos por vírgula e "e".
 - A busca do modal de professores filtra a lista já carregada na tela, sem ir ao servidor.
