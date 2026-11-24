@@ -7,14 +7,14 @@
 
 ## Backend
 
-| Rota                                                   | Controller@método                                     | Autorização                                  |
-| ------------------------------------------------------ | ----------------------------------------------------- | -------------------------------------------- |
-| `GET /professor/turmas/{classGroup}?busca=`            | `Professor\ClassGroupController@show` (+ `candidates`) | `view` na turma                              |
-| `POST /professor/turmas/{classGroup}/convites`         | `Professor\MonitorInvitationController@store`         | `manageMonitors` na turma (R1)               |
-| `DELETE /professor/convites/{monitorInvitation}`       | `Professor\MonitorInvitationController@destroy`       | `revoke` no convite (R1, R5)                 |
-| `DELETE /professor/turmas/{classGroup}/monitores/{monitor}` | `Professor\ClassMonitorController@destroy`       | `manageMonitors` na turma (R1, R10)          |
-| `GET /visao-geral`                                     | `DashboardController@index`                           | `auth`                                       |
-| `PATCH /convites/{monitorInvitation}`                  | `MonitorInvitationController@update` (`status`)       | `respond` no convite (R6)                    |
+| Rota                                                        | Controller@método                                      | Autorização                         |
+| ----------------------------------------------------------- | ------------------------------------------------------ | ----------------------------------- |
+| `GET /professor/turmas/{classGroup}?busca=`                 | `Professor\ClassGroupController@show` (+ `candidates`) | `view` na turma                     |
+| `POST /professor/turmas/{classGroup}/convites`              | `Professor\MonitorInvitationController@store`          | `manageMonitors` na turma (R1)      |
+| `DELETE /professor/convites/{monitorInvitation}`            | `Professor\MonitorInvitationController@destroy`        | `revoke` no convite (R1, R5)        |
+| `DELETE /professor/turmas/{classGroup}/monitores/{monitor}` | `Professor\ClassMonitorController@destroy`             | `manageMonitors` na turma (R1, R10) |
+| `GET /visao-geral`                                          | `DashboardController@index`                            | `auth`                              |
+| `PATCH /convites/{monitorInvitation}`                       | `MonitorInvitationController@update` (`status`)        | `respond` no convite (R6)           |
 
 - `ClassGroupPolicy::manageMonitors` = `view`. `MonitorInvitationPolicy`: `revoke` = professor da turma; `respond` = o aluno convidado.
 - FormRequests: `Professor\InviteMonitorRequest` (`user_id` existe, é aluno, não é monitor da turma, sem convite pendente — R2, R3) e `RespondMonitorInvitationRequest` (`status` em `accepted|declined`).
