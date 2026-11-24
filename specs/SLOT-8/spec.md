@@ -3,7 +3,7 @@
 Card: https://slotgestao.atlassian.net/browse/SLOT-8
 Tipo: História · Branch: `feature/SLOT-8-turmas` · Base: `develop`
 Protótipo: https://www.figma.com/design/nfTNXwoHBdJ2If6mGditTw?node-id=10-2653
-Aprovado por:
+Aprovado por: Guilherme Higino
 
 ## Objetivo
 
