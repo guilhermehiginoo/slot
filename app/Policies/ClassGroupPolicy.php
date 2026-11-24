@@ -18,6 +18,11 @@ class ClassGroupPolicy
             && $classGroup->professors()->whereKey($user->id)->exists();
     }
 
+    public function manageMonitors(User $user, ClassGroup $classGroup): bool
+    {
+        return $this->view($user, $classGroup);
+    }
+
     public function viewAny(User $user): bool
     {
         return $user->isAdmin();

@@ -126,7 +126,7 @@ class ProfessorClassGroupsTest extends TestCase
             ->assertOk();
     }
 
-    public function test_the_class_group_page_lists_monitors_pending_invitations_and_pending_applications()
+    public function test_the_class_group_page_lists_monitors_invitations_and_pending_applications()
     {
         $ana = User::factory()->professor()->create(['name' => 'Ana Costa']);
         $lp1 = Course::factory()->create(['code' => 'IMD0030', 'name' => 'Linguagem de Programação I']);
@@ -144,9 +144,9 @@ class ProfessorClassGroupsTest extends TestCase
         $pedro = User::factory()->create(['name' => 'Pedro Rocha']);
         $older = MonitorInvitation::factory()->for($t01)->for($pedro, 'student')->create(['created_at' => '2026-11-19 08:00:00']);
         $newer = MonitorInvitation::factory()->for($t01)->for($lucas, 'student')->create(['created_at' => '2026-11-21 08:00:00']);
-        MonitorInvitation::factory()->for($t01)->declined()->create();
+        MonitorInvitation::factory()->for($t01)->declined()->create(['created_at' => '2026-11-10 08:00:00']);
         MonitorInvitation::factory()->for($t01)->accepted()->create();
-        MonitorInvitation::factory()->for($t01)->revoked()->create();
+        MonitorInvitation::factory()->for($t01)->revoked()->create(['created_at' => '2026-11-10 08:00:00']);
         MonitorInvitation::factory()->for($other)->create();
 
         $beatriz = User::factory()->create(['name' => 'Beatriz Lima']);
@@ -176,10 +176,9 @@ class ProfessorClassGroupsTest extends TestCase
                     ['id' => $joao->id, 'name' => 'João Silva', 'appointed_at' => '2026-11-18T09:00:00+00:00'],
                     ['id' => $marina->id, 'name' => 'Marina Santos', 'appointed_at' => '2026-11-20T10:00:00+00:00'],
                 ])
-                ->where('invitations', [
-                    ['id' => $newer->id, 'student' => ['id' => $lucas->id, 'name' => 'Lucas Almeida'], 'created_at' => '2026-11-21T08:00:00+00:00'],
-                    ['id' => $older->id, 'student' => ['id' => $pedro->id, 'name' => 'Pedro Rocha'], 'created_at' => '2026-11-19T08:00:00+00:00'],
-                ])
+                ->has('invitations', 4)
+                ->where('invitations.0', ['id' => $newer->id, 'student' => ['id' => $lucas->id, 'name' => 'Lucas Almeida'], 'status' => 'pending', 'created_at' => '2026-11-21T08:00:00+00:00'])
+                ->where('invitations.1', ['id' => $older->id, 'student' => ['id' => $pedro->id, 'name' => 'Pedro Rocha'], 'status' => 'pending', 'created_at' => '2026-11-19T08:00:00+00:00'])
                 ->where('applications', [
                     ['id' => $first->id, 'student' => ['id' => $beatriz->id, 'name' => 'Beatriz Lima'], 'message' => 'Tirei 10 na disciplina.', 'created_at' => '2026-11-17T08:00:00+00:00'],
                     ['id' => $second->id, 'student' => ['id' => $rafa->id, 'name' => 'Rafaela Dias'], 'message' => null, 'created_at' => '2026-11-22T08:00:00+00:00'],

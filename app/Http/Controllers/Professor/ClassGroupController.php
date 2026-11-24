@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Professor;
 
+use App\Enums\{MonitorInvitationStatus, Role};
 use App\Http\Controllers\Controller;
 use App\Models\{ClassGroup, ClassMonitor, Course, MonitorApplication, MonitorInvitation, User};
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -38,7 +40,7 @@ class ClassGroupController extends Controller
         ]);
     }
 
-    public function show(ClassGroup $classGroup): Response
+    public function show(Request $request, ClassGroup $classGroup): Response
     {
         Gate::authorize('view', $classGroup);
 
@@ -60,8 +62,8 @@ class ClassGroupController extends Controller
             ]);
 
         $invitations = $classGroup->monitorInvitations()
-            ->pending()
-            ->select(['id', 'user_id', 'created_at'])
+            ->whereNot('status', MonitorInvitationStatus::Accepted)
+            ->select(['id', 'user_id', 'status', 'created_at'])
             ->with('student:id,name')
             ->latest()
             ->latest('id')
@@ -69,8 +71,11 @@ class ClassGroupController extends Controller
             ->map(fn (MonitorInvitation $invitation) => [
                 'id'         => $invitation->id,
                 'student'    => $invitation->student->only(['id', 'name']),
+                'status'     => $invitation->status,
                 'created_at' => $invitation->created_at?->toIso8601String(),
             ]);
+
+        $search = $request->string('busca')->trim()->value();
 
         $applications = $classGroup->monitorApplications()
             ->pending()
@@ -98,6 +103,30 @@ class ClassGroupController extends Controller
             'monitors'     => $monitors,
             'invitations'  => $invitations,
             'applications' => $applications,
+            'search'       => $search,
+            'candidates'   => mb_strlen($search) < 2 ? [] : $this->candidates($classGroup, $search),
         ]);
+    }
+
+    /**
+     * @return array<int, array{id: int, name: string, email: string}>
+     */
+    private function candidates(ClassGroup $classGroup, string $search): array
+    {
+        return User::query()
+            ->select(['id', 'name', 'email'])
+            ->where('role', Role::Student)
+            ->where(fn (Builder $query) => $query
+                ->whereLike('name', "%{$search}%")
+                ->orWhereLike('email', "%{$search}%"))
+            ->whereDoesntHave('monitoredClassGroups', fn (Builder $query) => $query->whereKey($classGroup->id))
+            ->whereDoesntHave('monitorInvitations', fn (Builder $query) => $query
+                ->where('class_group_id', $classGroup->id)
+                ->where('status', MonitorInvitationStatus::Pending))
+            ->orderBy('name')
+            ->limit(10)
+            ->get()
+            ->map(fn (User $user) => ['id' => $user->id, 'name' => $user->name, 'email' => $user->email])
+            ->all();
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\Professor\ClassGroupController;
+use App\Http\Controllers\Professor\{ClassGroupController, MonitorInvitationController};
 use Illuminate\Support\Facades\Route;
 
 Route::middleware(['auth', 'verified'])
@@ -11,4 +11,7 @@ Route::middleware(['auth', 'verified'])
             ->only(['index', 'show'])
             ->names('class-groups')
             ->parameters(['turmas' => 'classGroup']);
+
+        Route::post('turmas/{classGroup}/convites', [MonitorInvitationController::class, 'store'])
+            ->name('class-groups.invitations.store');
     });
