@@ -421,7 +421,7 @@ Percorrer os prédios do IMD (primeiro o CIVT, depois o nPITI) e listar toda sal
 
 `feature/` · **Prioridade:** Must · **Pontos:** 5
 
-Como **aluno**, quero buscar uma disciplina pelo código ou pelo nome, para encontrar rápido as turmas e os monitores dela.
+Como **aluno**, quero buscar uma disciplina pelo código ou pelo nome, para encontrar rápido as turmas, os professores e os monitores dela e entender do que ela trata.
 
 **Cenários**
 
@@ -439,6 +439,16 @@ Cenário: Abrir uma disciplina
   Então vejo as turmas dela no semestre atual
   E para cada turma: número, professores, horário e monitores
 
+Cenário: Descrição da disciplina
+  Dado que o admin escreveu uma descrição para IMD0030
+  Quando abro IMD0030
+  Então vejo a descrição da disciplina
+
+Cenário: Professores que já deram a disciplina
+  Dado que IMD0030 teve turmas em semestres anteriores
+  Quando abro IMD0030
+  Então vejo os professores dessas turmas, sem nomes repetidos
+
 Cenário: Nenhum resultado
   Quando busco "xyz"
   Então vejo "Nenhuma disciplina encontrada" e uma dica para buscar pelo código ou pelo nome
@@ -450,6 +460,8 @@ Cenário: Nenhum resultado
 - [ ] A busca sem acentos funciona no SQLite (por exemplo, com uma coluna normalizada `search_name` preenchida ao salvar).
 - [ ] Resultados paginados, disciplinas arquivadas escondidas.
 - [ ] A busca fica disponível no menu lateral para todo usuário logado.
+- [ ] A disciplina ganha uma descrição opcional (até 500 caracteres), que o admin escreve no modal de criar e editar do catálogo (SLOT-7) e o aluno lê na página da disciplina.
+- [ ] A página da disciplina lista os professores que já deram a disciplina em semestres anteriores (depende das turmas da SLOT-8).
 
 ### SLOT-14 · Aluno vê os horários disponíveis
 
