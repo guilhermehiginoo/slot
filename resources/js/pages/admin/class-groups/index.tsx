@@ -5,6 +5,7 @@ import ClassGroupController from '@/actions/App/Http/Controllers/Admin/ClassGrou
 import { ClassGroupFilters } from '@/components/admin/class-group-filters';
 import { ClassGroupFormDialog } from '@/components/admin/class-group-form-dialog';
 import { ClassGroupList } from '@/components/admin/class-group-list';
+import AppLogoIcon from '@/components/app-logo-icon';
 import { EmptyState } from '@/components/empty-state';
 import { Pagination } from '@/components/pagination';
 import { Button } from '@/components/ui/button';
@@ -55,6 +56,8 @@ export default function ClassGroupsIndex({
         </Button>
     );
 
+    const emptyStateIcon = <AppLogoIcon className="mb-2 size-10" />;
+
     const filtered =
         filters.course !== null || filters.semester !== currentSemester;
 
@@ -93,6 +96,7 @@ export default function ClassGroupsIndex({
 
                 {!hasClassGroups && (
                     <EmptyState
+                        icon={emptyStateIcon}
                         title="Nenhuma turma cadastrada"
                         description="Cadastre a primeira turma para vincular professores e monitores."
                         action={newClassGroupButton}
@@ -101,6 +105,7 @@ export default function ClassGroupsIndex({
 
                 {hasClassGroups && classGroups.total === 0 && (
                     <EmptyState
+                        icon={emptyStateIcon}
                         title="Nenhuma turma encontrada"
                         description="Altere a disciplina ou o semestre para tentar novamente."
                         action={clearFiltersButton}
