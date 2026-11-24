@@ -1,8 +1,9 @@
-import { Form, Head, Link } from '@inertiajs/react';
+import { Form, Head } from '@inertiajs/react';
 import { Plus, Search } from 'lucide-react';
 import { useState } from 'react';
 import CourseController from '@/actions/App/Http/Controllers/Admin/CourseController';
 import { ArchiveCourseDialog } from '@/components/admin/archive-course-dialog';
+import { CourseFormDialog } from '@/components/admin/course-form-dialog';
 import { CourseList } from '@/components/admin/course-list';
 import { EmptyState } from '@/components/empty-state';
 import { Pagination } from '@/components/pagination';
@@ -20,13 +21,18 @@ type Props = {
 
 export default function CoursesIndex({ courses, filters }: Props) {
     const [archiving, setArchiving] = useState<AdminCourse | null>(null);
+    const [formOpen, setFormOpen] = useState(false);
+    const [editing, setEditing] = useState<AdminCourse | null>(null);
+
+    const openForm = (course: AdminCourse | null) => {
+        setEditing(course);
+        setFormOpen(true);
+    };
 
     const newCourseButton = (
-        <Button size="lg" asChild>
-            <Link href={CourseController.create()}>
-                <Plus />
-                Nova disciplina
-            </Link>
+        <Button size="lg" onClick={() => openForm(null)}>
+            <Plus />
+            Nova disciplina
         </Button>
     );
 
@@ -85,6 +91,7 @@ export default function CoursesIndex({ courses, filters }: Props) {
                     <div className="flex flex-col gap-4 md:gap-0 md:overflow-hidden md:rounded-xl md:border md:bg-card">
                         <CourseList
                             courses={courses.data}
+                            onEdit={openForm}
                             onArchive={setArchiving}
                         />
                         <div className="md:border-t md:px-4 md:py-3">
@@ -93,6 +100,12 @@ export default function CoursesIndex({ courses, filters }: Props) {
                     </div>
                 )}
             </div>
+
+            <CourseFormDialog
+                open={formOpen}
+                course={editing}
+                onClose={() => setFormOpen(false)}
+            />
 
             <ArchiveCourseDialog
                 course={archiving}

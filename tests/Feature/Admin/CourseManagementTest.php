@@ -215,28 +215,6 @@ class CourseManagementTest extends TestCase
         $this->assertDatabaseCount('courses', 0);
     }
 
-    public function test_admin_opens_the_create_and_edit_pages()
-    {
-        $admin  = User::factory()->admin()->create();
-        $course = Course::factory()->create(['code' => 'IMD0030', 'name' => 'Linguagem de Programação I']);
-
-        $this->actingAs($admin)
-            ->get(route('admin.courses.create'))
-            ->assertOk()
-            ->assertInertia(fn (Assert $page) => $page->component('admin/courses/create'));
-
-        $this->actingAs($admin)
-            ->get(route('admin.courses.edit', $course))
-            ->assertOk()
-            ->assertInertia(fn (Assert $page) => $page
-                ->component('admin/courses/edit')
-                ->where('course', [
-                    'id'   => $course->id,
-                    'code' => 'IMD0030',
-                    'name' => 'Linguagem de Programação I',
-                ]));
-    }
-
     #[TestDox('Cenário: Admin edita uma disciplina')]
     public function test_admin_edits_a_course()
     {
@@ -306,8 +284,6 @@ class CourseManagementTest extends TestCase
         $course = Course::factory()->create(['code' => 'IMD0030', 'name' => 'Original']);
 
         foreach ([User::factory()->create(), User::factory()->professor()->create()] as $user) {
-            $this->actingAs($user)->get(route('admin.courses.create'))->assertForbidden();
-            $this->actingAs($user)->get(route('admin.courses.edit', $course))->assertForbidden();
             $this->actingAs($user)
                 ->patch(route('admin.courses.update', $course), ['code' => 'IMD0030', 'name' => 'Mudou'])
                 ->assertForbidden();

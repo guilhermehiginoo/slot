@@ -22,7 +22,7 @@ export function ArchiveCourseDialog({ course, onClose }: Props) {
             open={course !== null}
             onOpenChange={(open) => !open && onClose()}
         >
-            <DialogContent>
+            <DialogContent className="bg-card">
                 <DialogTitle>
                     A disciplina deixará de aparecer nas buscas e não aceitará
                     novos horários. O histórico será mantido.

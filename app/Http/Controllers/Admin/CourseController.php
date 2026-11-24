@@ -36,13 +36,6 @@ class CourseController extends Controller
         ]);
     }
 
-    public function create(): Response
-    {
-        Gate::authorize('create', Course::class);
-
-        return Inertia::render('admin/courses/create');
-    }
-
     public function store(SaveCourseRequest $request, CreateCourse $createCourse): RedirectResponse
     {
         $createCourse->handle(
@@ -53,15 +46,6 @@ class CourseController extends Controller
         Inertia::flash('toast', ['type' => 'success', 'message' => 'Disciplina salva com sucesso!']);
 
         return to_route('admin.courses.index');
-    }
-
-    public function edit(Course $course): Response
-    {
-        Gate::authorize('update', $course);
-
-        return Inertia::render('admin/courses/edit', [
-            'course' => $course->only(['id', 'code', 'name']),
-        ]);
     }
 
     public function update(SaveCourseRequest $request, Course $course, UpdateCourse $updateCourse): RedirectResponse

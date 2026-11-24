@@ -4,10 +4,11 @@ import type { AdminCourse } from '@/types';
 
 type Props = {
     courses: AdminCourse[];
+    onEdit: (course: AdminCourse) => void;
     onArchive: (course: AdminCourse) => void;
 };
 
-export function CourseList({ courses, onArchive }: Props) {
+export function CourseList({ courses, onEdit, onArchive }: Props) {
     return (
         <>
             <ul className="flex flex-col gap-3 md:hidden">
@@ -21,7 +22,11 @@ export function CourseList({ courses, onArchive }: Props) {
                             <CourseStatusBadge course={course} />
                         </div>
                         <p className="text-sm">{course.name}</p>
-                        <CourseActions course={course} onArchive={onArchive} />
+                        <CourseActions
+                            course={course}
+                            onEdit={onEdit}
+                            onArchive={onArchive}
+                        />
                     </li>
                 ))}
             </ul>
@@ -57,6 +62,7 @@ export function CourseList({ courses, onArchive }: Props) {
                                 <td className="px-4 py-4">
                                     <CourseActions
                                         course={course}
+                                        onEdit={onEdit}
                                         onArchive={onArchive}
                                     />
                                 </td>

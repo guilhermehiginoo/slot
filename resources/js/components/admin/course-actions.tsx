@@ -1,14 +1,13 @@
-import { Link } from '@inertiajs/react';
-import CourseController from '@/actions/App/Http/Controllers/Admin/CourseController';
 import { Button } from '@/components/ui/button';
 import type { AdminCourse } from '@/types';
 
 type Props = {
     course: AdminCourse;
+    onEdit: (course: AdminCourse) => void;
     onArchive: (course: AdminCourse) => void;
 };
 
-export function CourseActions({ course, onArchive }: Props) {
+export function CourseActions({ course, onEdit, onArchive }: Props) {
     const archived = course.archived_at !== null;
 
     return (
@@ -16,9 +15,9 @@ export function CourseActions({ course, onArchive }: Props) {
             <Button
                 variant="outline"
                 className="h-11 md:h-auto md:border-0 md:bg-transparent md:p-0 md:font-semibold md:text-primary md:shadow-none md:hover:underline"
-                asChild
+                onClick={() => onEdit(course)}
             >
-                <Link href={CourseController.edit(course.id)}>Editar</Link>
+                Editar
             </Button>
             <Button
                 variant="outline"
