@@ -108,12 +108,12 @@ export default function ClassGroupsIndex({
                 )}
 
                 {classGroups.total > 0 && (
-                    <div className="flex flex-col gap-4 md:gap-0 md:overflow-hidden md:rounded-xl md:border md:bg-card">
+                    <div className="flex flex-col gap-4 xl:gap-0 xl:overflow-hidden xl:rounded-xl xl:border xl:bg-card">
                         <ClassGroupList
                             classGroups={classGroups.data}
                             onEdit={openForm}
                         />
-                        <div className="md:border-t md:px-4 md:py-3">
+                        <div className="xl:border-t xl:px-4 xl:py-3">
                             <Pagination page={classGroups} label="turmas" />
                         </div>
                     </div>

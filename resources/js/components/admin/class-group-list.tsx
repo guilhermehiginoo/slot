@@ -23,7 +23,7 @@ type Props = {
 export function ClassGroupList({ classGroups, onEdit }: Props) {
     return (
         <>
-            <ul className="flex flex-col gap-3 md:hidden">
+            <ul className="grid gap-3 md:grid-cols-2 xl:hidden">
                 {classGroups.map((classGroup) => (
                     <li
                         key={classGroup.id}
@@ -53,7 +53,7 @@ export function ClassGroupList({ classGroups, onEdit }: Props) {
                 ))}
             </ul>
 
-            <div className="hidden md:block">
+            <div className="hidden xl:block">
                 <table className="w-full text-sm">
                     <thead className="bg-muted/50 text-left text-xs text-muted-foreground uppercase">
                         <tr>

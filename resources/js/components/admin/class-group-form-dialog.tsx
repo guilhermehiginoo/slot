@@ -215,7 +215,7 @@ function ClassGroupFields({
                 </div>
             </div>
 
-            <DialogFooter className="gap-2">
+            <DialogFooter className="grid grid-cols-2 gap-2 sm:flex">
                 <DialogClose asChild>
                     <Button type="button" variant="outline">
                         Cancelar
