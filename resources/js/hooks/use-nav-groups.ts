@@ -19,22 +19,22 @@ const platformGroup: NavGroup = {
 const groupsByRole: Record<Role, NavGroup[]> = {
     admin: [
         {
-            label: 'Administração',
-            items: [
-                {
-                    title: 'Usuários',
-                    href: UserController.index(),
-                    icon: Users,
-                },
-            ],
-        },
-        {
             label: 'Acadêmico',
             items: [
                 {
                     title: 'Disciplinas',
                     href: CourseController.index(),
                     icon: GraduationCap,
+                },
+            ],
+        },
+        {
+            label: 'Administração',
+            items: [
+                {
+                    title: 'Usuários',
+                    href: UserController.index(),
+                    icon: Users,
                 },
             ],
         },
