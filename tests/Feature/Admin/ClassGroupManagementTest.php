@@ -122,6 +122,18 @@ class ClassGroupManagementTest extends TestCase
                 ->where('semesters', ['2027.1', '2026.2', '2025.1']));
     }
 
+    public function test_the_filtered_semester_is_an_option_even_without_class_groups()
+    {
+        $admin = User::factory()->admin()->create();
+        ClassGroup::factory()->create(['semester' => '2026.2']);
+
+        $this->actingAs($admin)
+            ->get(route('admin.class-groups.index', ['semester' => '2025.1']))
+            ->assertInertia(fn (Assert $page) => $page
+                ->where('filters.semester', '2025.1')
+                ->where('semesters', ['2026.2', '2025.1']));
+    }
+
     public function test_has_class_groups_separates_the_empty_states()
     {
         $admin = User::factory()->admin()->create();

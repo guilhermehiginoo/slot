@@ -51,7 +51,7 @@ class ClassGroupController extends Controller
             'courses'         => Course::query()->select(['id', 'code', 'name'])->whereNull('archived_at')->orderBy('code')->get(),
             'professors'      => User::query()->select(['id', 'name'])->where('role', Role::Professor)->orderBy('name')->get(),
             'semesters'       => ClassGroup::query()->distinct()->pluck('semester')
-                ->push($currentSemester)->unique()->sortDesc()->values(),
+                ->push($currentSemester, $semester)->unique()->sortDesc()->values(),
         ]);
     }
 
