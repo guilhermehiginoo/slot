@@ -6,12 +6,19 @@ import type { Paginated } from '@/types';
 type Props = {
     page: Pick<
         Paginated<unknown>,
-        'current_page' | 'last_page' | 'prev_page_url' | 'next_page_url'
+        | 'current_page'
+        | 'last_page'
+        | 'prev_page_url'
+        | 'next_page_url'
+        | 'from'
+        | 'to'
+        | 'total'
     >;
+    label?: string;
 };
 
-export function Pagination({ page }: Props) {
-    if (page.last_page <= 1) {
+export function Pagination({ page, label }: Props) {
+    if (page.total === 0 || (label === undefined && page.last_page <= 1)) {
         return null;
     }
 
@@ -26,7 +33,9 @@ export function Pagination({ page }: Props) {
             </PageButton>
 
             <span className="text-sm text-muted-foreground">
-                Página {page.current_page} de {page.last_page}
+                {label === undefined
+                    ? `Página ${page.current_page} de ${page.last_page}`
+                    : `Exibindo ${page.from}–${page.to} de ${page.total} ${label}`}
             </span>
 
             <PageButton href={page.next_page_url}>

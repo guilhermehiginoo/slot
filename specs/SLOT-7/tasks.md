@@ -16,6 +16,6 @@
 - [x] T6 · O admin arquiva uma disciplina; arquivar de novo mantém a data
     - Teste: `tests/Feature/Admin/CourseManagementTest` (Cenário: Admin arquiva uma disciplina) e 403 para os demais
     - Arquivos: `routes/admin.php`, `app/Http/Controllers/Admin/CourseArchiveController.php`, `app/Actions/Admin/ArchiveCourse.php`
-- [ ] T7 · Telas: lista com tabela no desktop e cards no celular, busca, paginação "Exibindo X–Y de Z", estados vazios, formulários de criar e editar, diálogo de arquivar e item "Disciplinas" no menu
+- [x] T7 · Telas: lista com tabela no desktop e cards no celular, busca, paginação "Exibindo X–Y de Z", estados vazios, formulários de criar e editar, diálogo de arquivar e item "Disciplinas" no menu
     - Teste: `npm run types:check` e conferência no navegador em 375px e no desktop (Cenário: Cancelar o arquivamento, à mão)
-    - Arquivos: `resources/js/pages/admin/courses/`, `resources/js/components/admin/course-*.tsx`, `resources/js/components/empty-state.tsx`, `resources/js/components/pagination.tsx`, `resources/js/types/admin.ts`, `resources/js/hooks/use-nav-groups.ts`
+    - Arquivos: `resources/js/pages/admin/courses/`, `resources/js/components/admin/course-*.tsx`, `resources/js/components/admin/archive-course-dialog.tsx`, `resources/js/components/empty-state.tsx`, `resources/js/components/pagination.tsx`, `resources/js/types/admin.ts`, `resources/js/hooks/use-nav-groups.ts`
