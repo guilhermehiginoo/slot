@@ -315,4 +315,43 @@ class CourseManagementTest extends TestCase
 
         $this->assertSame('Original', $course->fresh()->name);
     }
+
+    #[TestDox('Cenário: Admin arquiva uma disciplina')]
+    public function test_admin_archives_a_course()
+    {
+        $admin  = User::factory()->admin()->create();
+        $course = Course::factory()->create(['code' => 'IMD0030']);
+
+        $this->actingAs($admin)
+            ->from(route('admin.courses.index', ['search' => 'IMD', 'page' => 1]))
+            ->post(route('admin.courses.archive.store', $course))
+            ->assertRedirect(route('admin.courses.index', ['search' => 'IMD', 'page' => 1]))
+            ->assertInertiaFlash('toast.message', 'Disciplina arquivada com sucesso!');
+
+        $this->assertTrue($course->fresh()->isArchived());
+    }
+
+    public function test_archiving_twice_keeps_the_original_date()
+    {
+        $admin      = User::factory()->admin()->create();
+        $course     = Course::factory()->create(['archived_at' => now()->subDay()]);
+        $archivedAt = $course->fresh()->archived_at;
+
+        $this->actingAs($admin)->post(route('admin.courses.archive.store', $course));
+
+        $this->assertEquals($archivedAt, $course->fresh()->archived_at);
+    }
+
+    public function test_non_admins_cannot_archive_courses()
+    {
+        $course = Course::factory()->create();
+
+        foreach ([User::factory()->create(), User::factory()->professor()->create()] as $user) {
+            $this->actingAs($user)
+                ->post(route('admin.courses.archive.store', $course))
+                ->assertForbidden();
+        }
+
+        $this->assertFalse($course->fresh()->isArchived());
+    }
 }

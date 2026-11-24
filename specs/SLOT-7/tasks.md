@@ -13,7 +13,7 @@
 - [x] T5 · O admin abre o formulário de criar e edita uma disciplina, arquivada ou não
     - Teste: `tests/Feature/Admin/CourseManagementTest` (Cenários: Admin edita uma disciplina; Salvar sem mudar o código), editar arquivada e 403 para os demais
     - Arquivos: `routes/admin.php`, `app/Http/Controllers/Admin/CourseController.php`, `app/Actions/Admin/UpdateCourse.php`
-- [ ] T6 · O admin arquiva uma disciplina; arquivar de novo mantém a data
+- [x] T6 · O admin arquiva uma disciplina; arquivar de novo mantém a data
     - Teste: `tests/Feature/Admin/CourseManagementTest` (Cenário: Admin arquiva uma disciplina) e 403 para os demais
     - Arquivos: `routes/admin.php`, `app/Http/Controllers/Admin/CourseArchiveController.php`, `app/Actions/Admin/ArchiveCourse.php`
 - [ ] T7 · Telas: lista com tabela no desktop e cards no celular, busca, paginação "Exibindo X–Y de Z", estados vazios, formulários de criar e editar, diálogo de arquivar e item "Disciplinas" no menu
