@@ -18,7 +18,7 @@ class CourseManagementTest extends TestCase
         $this->get(route('admin.courses.index'))->assertRedirect(route('login'));
 
         $this->actingAs(User::factory()->create())
-            ->get('/admin/courses')
+            ->get('/admin/disciplinas')
             ->assertForbidden();
 
         $this->actingAs(User::factory()->professor()->create())

@@ -77,7 +77,7 @@ Cenário: Estados vazios
 
 Cenário: Quem não é admin não acessa o catálogo
   Dado que estou logado como aluno
-  Quando abro /admin/courses
+  Quando abro /admin/disciplinas
   Então recebo um erro 403
 ```
 

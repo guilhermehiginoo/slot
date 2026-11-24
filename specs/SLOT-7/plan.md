@@ -12,12 +12,12 @@
 
 ## Backend
 
-| Rota                                   | Controller@método                     | FormRequest               | Action          | Autorização                        |
-| -------------------------------------- | ------------------------------------- | ------------------------- | --------------- | ---------------------------------- |
-| `GET /admin/courses`                   | `Admin\CourseController@index`        | —                         | —               | grupo + `Gate::authorize(viewAny)` |
-| `POST /admin/courses`                  | `Admin\CourseController@store`        | `Admin\SaveCourseRequest` | `CreateCourse`  | grupo + `authorize()` (create)     |
-| `PATCH /admin/courses/{course}`        | `Admin\CourseController@update`       | `Admin\SaveCourseRequest` | `UpdateCourse`  | grupo + `authorize()` (update)     |
-| `POST /admin/courses/{course}/archive` | `Admin\CourseArchiveController@store` | —                         | `ArchiveCourse` | `Gate::authorize(archive)`         |
+| Rota                                            | Controller@método                     | FormRequest               | Action          | Autorização                        |
+| ----------------------------------------------- | ------------------------------------- | ------------------------- | --------------- | ---------------------------------- |
+| `GET /admin/disciplinas`                        | `Admin\CourseController@index`        | —                         | —               | grupo + `Gate::authorize(viewAny)` |
+| `POST /admin/disciplinas`                       | `Admin\CourseController@store`        | `Admin\SaveCourseRequest` | `CreateCourse`  | grupo + `authorize()` (create)     |
+| `PATCH /admin/disciplinas/{course}`             | `Admin\CourseController@update`       | `Admin\SaveCourseRequest` | `UpdateCourse`  | grupo + `authorize()` (update)     |
+| `POST /admin/disciplinas/{course}/arquivamento` | `Admin\CourseArchiveController@store` | —                         | `ArchiveCourse` | `Gate::authorize(archive)`         |
 
 - Rotas no grupo que já existe em `routes/admin.php` (`auth`, `verified` e `can:viewAny,User`, prefixo `admin`, nomes `admin.*`), o que dá R1:
 

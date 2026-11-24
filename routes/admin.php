@@ -8,7 +8,16 @@ Route::middleware(['auth', 'verified', 'can:viewAny,' . User::class])
     ->prefix('admin')
     ->name('admin.')
     ->group(function () {
-        Route::resource('users', UserController::class)->only(['index', 'update']);
-        Route::resource('courses', CourseController::class)->only(['index', 'store', 'update']);
-        Route::resource('courses.archive', CourseArchiveController::class)->only('store');
+        Route::resource('usuarios', UserController::class)
+            ->only(['index', 'update'])
+            ->names('users')
+            ->parameters(['usuarios' => 'user']);
+        Route::resource('disciplinas', CourseController::class)
+            ->only(['index', 'store', 'update'])
+            ->names('courses')
+            ->parameters(['disciplinas' => 'course']);
+        Route::resource('disciplinas.arquivamento', CourseArchiveController::class)
+            ->only('store')
+            ->names('courses.archive')
+            ->parameters(['disciplinas' => 'course']);
     });
