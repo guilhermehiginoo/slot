@@ -44,7 +44,7 @@ export default function CoursesIndex({ courses, filters }: Props) {
         <>
             <Head title="Disciplinas" />
 
-            <div className="flex flex-1 flex-col gap-6 p-4">
+            <div className="flex flex-1 flex-col gap-6 p-4 md:px-11">
                 <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
                     <header className="space-y-1">
                         <h1 className="text-3xl font-bold tracking-tight">

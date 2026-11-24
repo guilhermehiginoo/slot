@@ -22,7 +22,7 @@ export default function UsersIndex({ users, filters }: Props) {
         <>
             <Head title="Usuários" />
 
-            <div className="flex flex-1 flex-col gap-6 p-4">
+            <div className="flex flex-1 flex-col gap-6 p-4 md:px-11">
                 <header className="space-y-1">
                     <h1 className="text-3xl font-bold tracking-tight">
                         Usuários
