@@ -15,16 +15,14 @@
 | Rota                                   | Controller@método                     | FormRequest               | Action          | Autorização                        |
 | -------------------------------------- | ------------------------------------- | ------------------------- | --------------- | ---------------------------------- |
 | `GET /admin/courses`                   | `Admin\CourseController@index`        | —                         | —               | grupo + `Gate::authorize(viewAny)` |
-| `GET /admin/courses/create`            | `Admin\CourseController@create`       | —                         | —               | `Gate::authorize(create)`          |
 | `POST /admin/courses`                  | `Admin\CourseController@store`        | `Admin\SaveCourseRequest` | `CreateCourse`  | grupo + `authorize()` (create)     |
-| `GET /admin/courses/{course}/edit`     | `Admin\CourseController@edit`         | —                         | —               | `Gate::authorize(update)`          |
 | `PATCH /admin/courses/{course}`        | `Admin\CourseController@update`       | `Admin\SaveCourseRequest` | `UpdateCourse`  | grupo + `authorize()` (update)     |
 | `POST /admin/courses/{course}/archive` | `Admin\CourseArchiveController@store` | —                         | `ArchiveCourse` | `Gate::authorize(archive)`         |
 
 - Rotas no grupo que já existe em `routes/admin.php` (`auth`, `verified` e `can:viewAny,User`, prefixo `admin`, nomes `admin.*`), o que dá R1:
 
 ```php
-Route::resource('courses', CourseController::class)->except(['show', 'destroy']);
+Route::resource('courses', CourseController::class)->only(['index', 'store', 'update']);
 Route::resource('courses.archive', CourseArchiveController::class)->only('store');
 ```
 
@@ -38,7 +36,7 @@ Route::resource('courses.archive', CourseArchiveController::class)->only('store'
 - Actions em `App\Actions\Admin\`, como a `UpdateUserRole`:
     - `CreateCourse::handle(array $data): Course` e `UpdateCourse::handle(Course $course, array $data): Course`.
     - `ArchiveCourse::handle(Course $course): void`: grava `archived_at = now()` com `forceFill`; se já está arquivada, não faz nada e a data original fica (R7). Uma tabela só, sem transação.
-- `CourseController`: cada método autoriza, valida, chama a Action e responde. `store` e `update` redirecionam para `admin.courses.index` com o toast "Disciplina salva com sucesso!" (`Inertia::flash`, como no `UserController`). `create` e `edit` só renderizam; `edit` leva `course` com `id`, `code` e `name`.
+- `CourseController`: cada método autoriza, valida, chama a Action e responde. `store` e `update` redirecionam para `admin.courses.index` com o toast "Disciplina salva com sucesso!" (`Inertia::flash`, como no `UserController`).
 - `CourseArchiveController@store` chama a Action e volta com `back()`, que mantém a busca e a página, com o toast "Disciplina arquivada com sucesso!".
 
 ## Queries
@@ -54,10 +52,9 @@ Route::resource('courses.archive', CourseArchiveController::class)->only('store'
 - `components/admin/course-actions.tsx`: botão Editar (link do Wayfinder) e Arquivar, que abre o diálogo; em disciplina arquivada, o segundo botão vira "Arquivada" desabilitado. Área de toque de 44px no celular.
 - `components/admin/course-list.tsx`: de `md:` em diante, um `<table>` simples (não existe `ui/table`) com Código, Nome, Status e Ações; no celular, cada disciplina vira um card com código e selo (`Badge` "Ativa" ou "Arquivada"), nome e ações.
 - `components/admin/archive-course-dialog.tsx`: confirmação com os textos da spec. Usa `<Form>` com `CourseArchiveController.store.form(course.id)`, botões "Arquivar disciplina" e "Cancelar", e fecha no `onSuccess`. Usa o `Dialog` que já existe em `components/ui/`, sem primitivo novo.
-- `components/admin/course-form.tsx`: Código e Nome com `Label`, `Input` e `InputError`, a dica "Identificador oficial da disciplina no IMD." e os botões "Cancelar" (link para a lista) e "Salvar disciplina". Recebe a ação (store ou update) por props, para servir às duas páginas.
+- `components/admin/course-form-dialog.tsx`: modal com Código e Nome (`Label`, `Input` e `InputError`), a dica "Identificador oficial da disciplina no IMD." e os botões "Cancelar" (fecha o modal) e "Salvar disciplina". Sem disciplina, envia para `store`; com disciplina, para `update`. Fecha no `onSuccess`.
 - Páginas em `pages/admin/courses/`:
     - `index.tsx`: título, "+ Nova disciplina", busca no mesmo formato da tela de usuários, lista, paginação e estados vazios; guarda no estado a disciplina que está sendo arquivada.
-    - `create.tsx` e `edit.tsx`: `Heading` e `CourseForm`, com `breadcrumbs` no layout.
 - Menu: item "Disciplinas" abaixo de "Usuários" no grupo "Administração" de `hooks/use-nav-groups.ts`, com o ícone `GraduationCap` e `CourseController.index()`.
 - Depois de criar as rotas, rodar `php artisan wayfinder:generate --with-form`: os arquivos de `@/actions` não vão para o Git e o `types:check` falha sem eles.
 - Celular (375px): sem rolagem horizontal; nos formulários, "Salvar disciplina" e "Cancelar" empilhados em largura total, como no protótipo.

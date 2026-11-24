@@ -85,7 +85,7 @@ Cenário: Quem não é admin não acessa o catálogo
 
 - **Lista:** breadcrumb "Administração / Disciplinas", título "Disciplinas", subtítulo "Gerencie as disciplinas disponíveis para monitoria.", botão "+ Nova disciplina" e busca "Buscar por código ou nome". Colunas Código, Nome, Status (Ativa ou Arquivada) e Ações (Editar e Arquivar; na arquivada, o segundo botão aparece desabilitado como "Arquivada"). Rodapé "Exibindo X–Y de Z disciplinas" com Anterior e Próximo.
 - **Mobile (375px):** cada disciplina vira um card com código e selo de status, nome e os botões Editar e Arquivar.
-- **Criar e editar:** página própria, não modal. "Nova disciplina" ("Cadastre uma disciplina no catálogo acadêmico.") e "Editar disciplina" ("Atualize os dados da disciplina selecionada."). Campos Código (placeholder "Ex.: IMD0030", dica "Identificador oficial da disciplina no IMD.") e Nome (placeholder "Ex.: Linguagem de Programação I"). Botões "Cancelar" e "Salvar disciplina". Erros ao lado do campo.
+- **Criar e editar:** modal no meio da tela, aberto pelo "+ Nova disciplina" e pelo "Editar" da lista, sem sair dela. "Nova disciplina" ("Cadastre uma disciplina no catálogo acadêmico.") e "Editar disciplina" ("Atualize os dados da disciplina selecionada."). Campos Código (placeholder "Ex.: IMD0030", dica "Identificador oficial da disciplina no IMD.") e Nome (placeholder "Ex.: Linguagem de Programação I"). Botões "Cancelar" e "Salvar disciplina". Erros ao lado do campo.
 - **Confirmar arquivamento (modal):** "A disciplina deixará de aparecer nas buscas e não aceitará novos horários. O histórico será mantido.", com "IMD0030 — Linguagem de Programação I" e "Não será possível criar novos agendamentos para esta disciplina." Botões "Arquivar disciplina" e "Cancelar".
 - **Mensagens:** "Disciplina salva com sucesso!" (criar e editar) e "Disciplina arquivada com sucesso!".
 - **Estados vazios:** sem disciplinas, "Nenhuma disciplina cadastrada" e "Comece cadastrando a primeira disciplina do catálogo." com o botão "+ Nova disciplina". Busca sem resultado, "Nenhuma disciplina encontrada" e "Tente buscar por outro código ou nome."
@@ -116,6 +116,7 @@ Cenário: Quem não é admin não acessa o catálogo
 - Nome → obrigatório, até 255 caracteres, pode repetir (Renan)
 - Seeder → disciplinas reais do início do BTI (Renan)
 - Menu → "Disciplinas" em um grupo "Acadêmico" separado de "Usuários" (Guilherme)
+- Criar e editar → modal no meio da tela em vez de página própria, diferente do protótipo (Guilherme)
 - Identidade visual do protótipo (logo do Slot com "IMD / UFRN", favicon, fonte Sora e cores azul e marinho no tema do app inteiro) → entra neste card (Guilherme)
 
 ## Suposições
