@@ -2,7 +2,6 @@
 
 Card: https://slotgestao.atlassian.net/browse/SLOT-13
 Tipo: História · Branch: `feature/SLOT-13-buscar-disciplinas-turmas` · Base: `develop`
-Protótipo: https://www.figma.com/design/nfTNXwoHBdJ2If6mGditTw?node-id=11-8761
 Aprovado por:
 
 ## Objetivo
@@ -22,7 +21,7 @@ O aluno procura ajuda pela disciplina, não pela turma. Ele ganha uma busca por 
 - R9: A página lista as turmas do semestre atual (`slot.current_semester`), em ordem de número. Cada turma mostra o número, os professores, o código de horário e os monitores, só com os nomes e em ordem alfabética.
 - R10: A página lista os professores das turmas de semestres anteriores ao atual, sem nomes repetidos e em ordem alfabética. Turmas de semestres futuros não contam. Um professor do semestre atual pode aparecer nas duas seções.
 - R11: As turmas e os professores anteriores na página da disciplina não são paginados (exceção registrada em Decisões).
-- R12: O menu lateral ganha o item "Buscar disciplinas", com ícone de lupa, no grupo Plataforma, para todos os papéis.
+- R12: O menu lateral ganha o item "Buscar disciplinas" para todos os papéis, logo depois de "Visão geral" quando ela existir.
 - R13: Nenhum e-mail aparece na busca nem na página da disciplina.
 
 ## Cenários
@@ -91,6 +90,7 @@ Cenário: Nenhum resultado
 - Botão para solicitar ser monitor no card da turma (SLOT-19).
 - Busca de pessoas e perfis; aqui os nomes não são links (SLOT-23).
 - Markdown ou formatação rica na descrição.
+- Deixar o menu lateral e o cabeçalho mobile iguais ao protótipo da SLOT-31 (card próprio).
 
 ## Decisões
 
@@ -101,7 +101,7 @@ Todas por Guilherme Higino:
 - Arquivada por link direto → 404 para todos (R6)
 - Professores anteriores → só semestres anteriores, sem repetição (R10)
 - Paginação da página → nenhuma: listas pequenas, presas a uma disciplina (R11)
-- Menu → "Buscar disciplinas" em Plataforma (R12)
+- Menu → "Buscar disciplinas" para todos (R12)
 - Pessoas na turma → só o nome (R9, R13)
 - Descrição → texto puro (R8)
 
