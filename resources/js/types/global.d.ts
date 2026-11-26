@@ -13,6 +13,7 @@ declare module '@inertiajs/core' {
             auth: Auth;
             sidebarOpen: boolean;
             canManageSlots: boolean;
+            currentSemester: string;
             [key: string]: unknown;
         };
     }

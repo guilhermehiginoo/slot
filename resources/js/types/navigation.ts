@@ -17,3 +17,7 @@ export type NavGroup = {
     label: string;
     items: NavItem[];
 };
+
+export type NavSpace = {
+    groups: NavGroup[];
+};
