@@ -42,7 +42,8 @@ class SaveCourseRequest extends FormRequest
                 'regex:/^[A-Z]{3}\d{4}$/',
                 Rule::unique('courses', 'code')->ignore($this->route('course')),
             ],
-            'name' => ['required', 'string', 'max:255'],
+            'name'        => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string', 'max:500'],
         ];
     }
 
@@ -52,11 +53,12 @@ class SaveCourseRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'code.required' => 'Informe o código da disciplina.',
-            'code.regex'    => 'O código deve ter 3 letras seguidas de 4 dígitos',
-            'code.unique'   => 'Este código já está em uso',
-            'name.required' => 'Informe o nome da disciplina.',
-            'name.max'      => 'O nome deve ter no máximo 255 caracteres.',
+            'code.required'   => 'Informe o código da disciplina.',
+            'code.regex'      => 'O código deve ter 3 letras seguidas de 4 dígitos',
+            'code.unique'     => 'Este código já está em uso',
+            'name.required'   => 'Informe o nome da disciplina.',
+            'name.max'        => 'O nome deve ter no máximo 255 caracteres.',
+            'description.max' => 'A descrição deve ter no máximo 500 caracteres.',
         ];
     }
 }

@@ -20,7 +20,7 @@ class CourseController extends Controller
         $search = $request->string('search')->trim()->value() ?: null;
 
         $courses = Course::query()
-            ->select(['id', 'code', 'name', 'archived_at'])
+            ->select(['id', 'code', 'name', 'description', 'archived_at'])
             ->when($search, fn (Builder $query, string $search) => $query->where(
                 fn (Builder $query) => $query
                     ->whereLike('code', "%{$search}%")
@@ -41,6 +41,7 @@ class CourseController extends Controller
         $createCourse->handle(
             $request->string('code')->value(),
             $request->string('name')->value(),
+            $request->input('description'),
         );
 
         Inertia::flash('toast', ['type' => 'success', 'message' => 'Disciplina salva com sucesso!']);
@@ -54,6 +55,7 @@ class CourseController extends Controller
             $course,
             $request->string('code')->value(),
             $request->string('name')->value(),
+            $request->input('description'),
         );
 
         Inertia::flash('toast', ['type' => 'success', 'message' => 'Disciplina salva com sucesso!']);

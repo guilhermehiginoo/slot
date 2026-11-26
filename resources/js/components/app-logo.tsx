@@ -7,12 +7,12 @@ export default function AppLogo() {
 
     return (
         <>
-            <AppLogoIcon className="size-8! shrink-0" />
-            <div className="ml-1 grid flex-1 text-left text-sm">
-                <span className="truncate leading-tight font-semibold">
+            <AppLogoIcon className="size-[42px] shrink-0" />
+            <div className="grid flex-1 text-left">
+                <span className="text-[33px] leading-10 font-bold text-[#071a4b] dark:text-sidebar-accent-foreground">
                     {name}
                 </span>
-                <span className="truncate text-xs text-muted-foreground">
+                <span className="text-[11px] leading-5 font-medium text-[#61718f] dark:text-sidebar-foreground">
                     IMD / UFRN
                 </span>
             </div>

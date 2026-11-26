@@ -12,6 +12,7 @@ import {
 } from '@/components/ui/dialog';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
 import type { AdminCourse } from '@/types';
 
 type Props = {
@@ -76,6 +77,21 @@ export function CourseFormDialog({ open, course, onClose }: Props) {
                                     required
                                 />
                                 <InputError message={errors.name} />
+                            </div>
+
+                            <div className="grid gap-2">
+                                <Label htmlFor="description">
+                                    Descrição (opcional)
+                                </Label>
+                                <Textarea
+                                    id="description"
+                                    name="description"
+                                    defaultValue={course?.description ?? ''}
+                                    placeholder="Do que a disciplina trata, em poucas linhas."
+                                    maxLength={500}
+                                    rows={4}
+                                />
+                                <InputError message={errors.description} />
                             </div>
 
                             <DialogFooter className="gap-2">

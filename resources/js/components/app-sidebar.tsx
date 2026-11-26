@@ -1,38 +1,48 @@
 import { Link } from '@inertiajs/react';
+import { X } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
+import { Button } from '@/components/ui/button';
 import {
     Sidebar,
     SidebarContent,
     SidebarFooter,
     SidebarHeader,
-    SidebarMenu,
-    SidebarMenuButton,
-    SidebarMenuItem,
+    useSidebar,
 } from '@/components/ui/sidebar';
-import { useNavGroups } from '@/hooks/use-nav-groups';
+import { useNavSpace } from '@/hooks/use-nav-space';
 import { dashboard } from '@/routes';
 
 export function AppSidebar() {
-    const navGroups = useNavGroups();
+    const { groups } = useNavSpace();
+    const { isMobile, setOpenMobile } = useSidebar();
 
     return (
-        <Sidebar collapsible="icon" variant="inset">
-            <SidebarHeader>
-                <SidebarMenu>
-                    <SidebarMenuItem>
-                        <SidebarMenuButton size="lg" asChild>
-                            <Link href={dashboard()} prefetch>
-                                <AppLogo />
-                            </Link>
-                        </SidebarMenuButton>
-                    </SidebarMenuItem>
-                </SidebarMenu>
+        <Sidebar collapsible="offcanvas" className="border-sidebar-border">
+            <SidebarHeader className="flex-row items-start justify-between gap-3 px-3.5 pt-6 pb-0">
+                <Link
+                    href={dashboard()}
+                    prefetch
+                    className="flex items-center gap-3"
+                >
+                    <AppLogo />
+                </Link>
+                {isMobile && (
+                    <Button
+                        variant="ghost"
+                        size="icon"
+                        className="size-11 [&_svg]:size-5!"
+                        onClick={() => setOpenMobile(false)}
+                        aria-label="Fechar menu"
+                    >
+                        <X />
+                    </Button>
+                )}
             </SidebarHeader>
 
-            <SidebarContent>
-                {navGroups.map((group) => (
+            <SidebarContent className="gap-8 px-3.5 pt-6">
+                {groups.map((group) => (
                     <NavMain
                         key={group.label}
                         label={group.label}
@@ -41,7 +51,7 @@ export function AppSidebar() {
                 ))}
             </SidebarContent>
 
-            <SidebarFooter>
+            <SidebarFooter className="px-3.5 pb-6">
                 <NavUser />
             </SidebarFooter>
         </Sidebar>

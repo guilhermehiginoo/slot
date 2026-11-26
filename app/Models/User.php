@@ -62,6 +62,14 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * @return BelongsToMany<ClassGroup, $this>
+     */
+    public function taughtClassGroups(): BelongsToMany
+    {
+        return $this->belongsToMany(ClassGroup::class);
+    }
+
+    /**
      * @return BelongsToMany<ClassGroup, $this, ClassMonitor>
      */
     public function monitoredClassGroups(): BelongsToMany

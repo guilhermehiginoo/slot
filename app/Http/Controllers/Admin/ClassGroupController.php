@@ -48,7 +48,7 @@ class ClassGroupController extends Controller
             'filters'         => ['course' => $course, 'semester' => $semester],
             'currentSemester' => $currentSemester,
             'hasClassGroups'  => ClassGroup::query()->exists(),
-            'courses'         => Course::query()->select(['id', 'code', 'name'])->whereNull('archived_at')->orderBy('code')->get(),
+            'courses'         => Course::query()->select(['id', 'code', 'name'])->active()->orderBy('code')->get(),
             'professors'      => User::query()->select(['id', 'name'])->where('role', Role::Professor)->orderBy('name')->get(),
             'semesters'       => ClassGroup::query()->distinct()->pluck('semester')
                 ->push($currentSemester, $semester)->unique()->sortDesc()->values(),

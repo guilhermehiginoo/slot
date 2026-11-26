@@ -1,0 +1,3577 @@
+[
+    {
+        "code": "IMD0001",
+        "name": "Inovação Tecnológica",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0002",
+        "name": "Inovação Tecnológica",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0003",
+        "name": "Processo e Qualidade de Software",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0004",
+        "name": "Gerência de Projetos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0005",
+        "name": "Inovação Tecnológica",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0006",
+        "name": "Gestão de Projetos de Software",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0007",
+        "name": "Técnicas Lúdicas para Engajamento de Usuários",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0008",
+        "name": "Engenharia de Requisitos Aplicada",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0009",
+        "name": "Análise e Projeto de Software",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0010",
+        "name": "Arquitetura de Software",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0011",
+        "name": "Circuitos Lógicos",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0011.0",
+        "name": "Circuitos Lógicos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0011.1",
+        "name": "Laboratório de Circuitos Lógicos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0012",
+        "name": "Introdução às Técnicas de Programação",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0012.0",
+        "name": "Introdução às Técnicas de Programação",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0012.1",
+        "name": "Práticas de Técnicas de Programação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0013",
+        "name": "Elementos de Matemática para Computação",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0013.0",
+        "name": "Elementos de Matemática para Computação",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0013.1",
+        "name": "Práticas de Elementos de Matemática para Computação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0014",
+        "name": "Introdução ao Cálculo",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0015",
+        "name": "Tecnologia da Informação e Sociedade",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0016",
+        "name": "Práticas de Leitura e Escrita em Português I",
+        "workload_hours": 45
+    },
+    {
+        "code": "IMD0017",
+        "name": "Práticas de Leitura e Escrita em Português I",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0018",
+        "name": "Práticas de Leitura em Inglês",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0019",
+        "name": "Resolução de Problemas Matemáticos para TI",
+        "workload_hours": 180
+    },
+    {
+        "code": "IMD0020",
+        "name": "Tecnologia da Informação e Sociedade",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0021",
+        "name": "Organização e Arquitetura de Computadores",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0022",
+        "name": "Estrutura de Dados Básicas I",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0023",
+        "name": "Fundamentos Matemáticos da Computação",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0023.0",
+        "name": "Fundamentos Matemáticos da Computação",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0023.1",
+        "name": "Práticas de Fundamentos Matemáticos da Computação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0024",
+        "name": "Cálculo Diferencial e Integral I",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0025",
+        "name": "Laboratório de Programação I",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0026",
+        "name": "Práticas de Leitura e Escrita em Português II",
+        "workload_hours": 45
+    },
+    {
+        "code": "IMD0027",
+        "name": "Práticas de Leitura e Escrita em Português II",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0028",
+        "name": "Fundamentos Matemáticos da Computação I",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0029",
+        "name": "Estrutura de Dados Básicas I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0030",
+        "name": "Linguagem de Programação I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0031",
+        "name": "Redes de Computadores",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0032",
+        "name": "Estruturas de Dados Básicas II",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0033",
+        "name": "Probabilidade",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0034",
+        "name": "Vetores e Geometria Analítica",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0035",
+        "name": "Desenvolvimento para Dispositivos Móveis III (Windows Phone)",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0036",
+        "name": "Sistemas Operacionais",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0037",
+        "name": "Práticas de Leitura e Escrita em Inglês",
+        "workload_hours": 45
+    },
+    {
+        "code": "IMD0038",
+        "name": "Fundamentos Matemáticos da Computação II",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0039",
+        "name": "Estruturas de Dados Básicas II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0040",
+        "name": "Linguagem de Programação II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0041",
+        "name": "Introdução a Organização e Arquitetura de Computadores",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0042",
+        "name": "Introdução a Sistemas Operacionais",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0043",
+        "name": "Redes de Computadores",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0044",
+        "name": "Momento 3: Fazer e Compreender no Coletivo da Escola",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0045",
+        "name": "Núcleo de Base 1: Aprender na Cultura Digital;",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0046",
+        "name": "Núcleo de Base 2: Currículo e Tecnologia",
+        "workload_hours": 45
+    },
+    {
+        "code": "IMD0047",
+        "name": "Formação de Educadores na Cultura Digital",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0048",
+        "name": "Gestão",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0049",
+        "name": "Tecnologias Assistivas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0050",
+        "name": "A Prática Docente na Educação Infantil e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0051",
+        "name": "A Prática Docente no Ensino Fundamental I e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0052",
+        "name": "Educação Física e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0053",
+        "name": "Artes e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0054",
+        "name": "Aprendizagem de Língua Estrangeira e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0055",
+        "name": "Aprendizagem de Língua Portuguesa no Ensino Fundamental e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0056",
+        "name": "Aprendizagem de História no Ensino Fundamental e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0057",
+        "name": "Aprendizagem de Geografia no Ensino Fundamental e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0058",
+        "name": "Aprendizagem de Língua Portuguesa no Ensino Médio e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0059",
+        "name": "Aprendizagem de Química no Ensino Médio e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0060",
+        "name": "Aprendizagem de Filosofia e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0061",
+        "name": "Aprendizagem de História no Ensino Médio e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0062",
+        "name": "Aprendizagem de Geografia no Ensino Médio e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0063",
+        "name": "Linguagens do Nosso Tempo",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0064",
+        "name": "Tecnologias Digitais na Análise e Representação da Informação",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0065",
+        "name": "Jogos Digitais e Aprendizagem",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0066",
+        "name": "Ética na Cultura Digital",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0067",
+        "name": "Momento 3: Fazer e Compreender no Coletivo da Escola",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0068",
+        "name": "Aprendizagem de Matemática no Ensino Fundamental e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0069",
+        "name": "Aprendizagem de Matemática no Ensino Médio e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0070",
+        "name": "Aprendizagem de Ciências no Ensino Fundamental e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0071",
+        "name": "Aprendizagem de Biologia no Ensino Médio e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0072",
+        "name": "Momento 2: Aprender na Cultura Digital",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0073",
+        "name": "Aprendizagem de Física no Ensino Médio e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0074",
+        "name": "Aprendizagem de Sociologia no Ensino Médio e Tdic",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0075",
+        "name": "Desenvolvimento de WEB Services",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0076",
+        "name": "Fundamentos de Big Data e Business Intelligence",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0077",
+        "name": "Fundamentos de Big Data e Business Intelligence",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0078",
+        "name": "Nuvens Computacionais: Infraestrutura e Serviços",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0079",
+        "name": "Programação Científica para Big Data",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0080",
+        "name": "Análise Estatística para Big Data",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0081",
+        "name": "Aprendizagem de Máquina para Big Data",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0082",
+        "name": "Mineração de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0083",
+        "name": "Computação de Alto-Desempenho para Big Data",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0084",
+        "name": "Técnicas de Visualização de Big Data",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0085",
+        "name": "Plataformas Computacionais para Big Data",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0086",
+        "name": "Armazenamento de Big Data",
+        "workload_hours": 45
+    },
+    {
+        "code": "IMD0087",
+        "name": "Linguagens de Script para Big Data",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0088",
+        "name": "Fundamentos de Big Data e Business Intelligence",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0089",
+        "name": "Nuvens Computacionais: Infraestrutura e Serviços para Big Data",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0090",
+        "name": "Análise Estatística para Big Data",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0091",
+        "name": "Técnicas de Visualização de Big Data",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0092",
+        "name": "Inovação Tecnológica: Processos e Avaliação de Impacto",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0093",
+        "name": "Estudos da Estrutura do Poder Judiciário e Suas Tecnologias",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0094",
+        "name": "Banco de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0095",
+        "name": "Business Intelligence e Mineração de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0096",
+        "name": "Gestão de Projetos de Software",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0097",
+        "name": "Gestão de Projetos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0098",
+        "name": "Gestão de Projetos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0099",
+        "name": "Governança de TI",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0100",
+        "name": "Tópicos Especiais em Tecnologia da Informação I",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0101",
+        "name": "Tópicos Especiais em Tecnologia da Informação II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0102",
+        "name": "Tópicos Especiais em Tecnologia da Informação III",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0103",
+        "name": "Tópicos Especiais em Tecnologia da Informação IV",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0104",
+        "name": "Tópicos Especiais em Tecnologia da Informação V",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0105",
+        "name": "Tópicos Especiais em Tecnologia da Informação VI",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0106",
+        "name": "Tópicos Especiais em Tecnologia da Informação VII",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0107",
+        "name": "Tópicos Especiais em Tecnologia da Informação VIII",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0108",
+        "name": "Gerenciamento de Versão de Software",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0109",
+        "name": "Tópicos Especiais em Tecnologia da Informação X",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0110",
+        "name": "Desenvolvimento WEB 1",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0111",
+        "name": "Datacenters",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0112",
+        "name": "Práticas de Leitura e Escrita em Português III",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0113",
+        "name": "Introdução a Redes de Computadores",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0114",
+        "name": "Serviços para a Internet",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0115",
+        "name": "Telefonia Ip e Redes sem Fio",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0116",
+        "name": "Computação em Nuvem",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0117",
+        "name": "Segurança em Redes",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0118",
+        "name": "Administração de Redes de Computadores",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0119",
+        "name": "Aprendizado Baseado em Projeto 1",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0120",
+        "name": "Aprendizado Baseado em Projeto 2",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0121",
+        "name": "Aprendizado Baseado em Projeto 3",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0122",
+        "name": "Aprendizado Baseado em Projeto 4",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0123",
+        "name": "Aprendizado Baseado em Projeto 5",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0124",
+        "name": "Aprendizado Baseado em Projeto 6",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0125",
+        "name": "Administração de Redes de Computadores",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0126",
+        "name": "Introdução a IoT e Sistemas Embarcados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0127",
+        "name": "Instrumentação para IoT",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0128",
+        "name": "Plataformas para IoT I: Microcontroladores",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0129",
+        "name": "Plataformas para IoT II: Microprocessadores e Computadores Embarcados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0130",
+        "name": "Metodologías de Projeto em Sistemas Embarcados para IoT",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0131",
+        "name": "Projeto com Plataformas para IoT",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0132",
+        "name": "Arquitetura, Comunicação e Infraestrutura de IoT",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0133",
+        "name": "Sistema Operacional Embarcado",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0134",
+        "name": "Programação WEB Aplicada a Sistemas de IoT",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0135",
+        "name": "Programação de Dispositivos Móveis Aplicada a Sistemas de IoT",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0136",
+        "name": "Prototipagem Eletromecânica e Integração de Sistemas Embarcados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0137",
+        "name": "Empreendedorismo e Inovação em Projetos IoT",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0138",
+        "name": "Estudos da Estrutura do Controle Externo e Suas Tecnologias",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0139",
+        "name": "Realidade Virtual e Aumentada",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0140",
+        "name": "Banco da Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0141",
+        "name": "Inovação Tecnológica: Processos e Avaliação de Impacto",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0142",
+        "name": "Tópicos Especiais em Estrutura Organizacional da Área Fim",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0143",
+        "name": "Gestão de Projetos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0144",
+        "name": "Engenharia de Requisitos Aplicada",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0145",
+        "name": "Arquitetura e Projeto de Software",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0146",
+        "name": "Desenvolvimento WEB",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0147",
+        "name": "Gerência de Configuração e Teste de Software",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0148",
+        "name": "Desenvolvimento para Dispositivos Móveis",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0149",
+        "name": "Etl e Modelagem Dimensional de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0150",
+        "name": "Mineração de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0151",
+        "name": "Aprendizado de Máquina",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0152",
+        "name": "Administração de Redes de Computadores",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0153",
+        "name": "Gestão de Redes e Serviços Corporativos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0154",
+        "name": "Computação em Nuvem",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0155",
+        "name": "Datacenters",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0156",
+        "name": "Segurança em Redes",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0157",
+        "name": "Tópicos Especiais em Redes de Computadores e Infraestrutura 1",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0158",
+        "name": "Tópicos Especiais em Redes de Computadores e Infraestrutura 2",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0159",
+        "name": "Tópicos Especiais em Redes de Computadores e Infraestrutura 3",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0160",
+        "name": "Tópicos Especiais em Redes de Computadores e Infraestrutura 3",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0161",
+        "name": "Aprendizado Baseado em Projeto 1",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0162",
+        "name": "Aprendizado Baseado em Projeto 2",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0163",
+        "name": "Aprendizado Baseado em Projeto 3",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0164",
+        "name": "Aprendizado Baseado em Projeto 4",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0165",
+        "name": "Gestão de Projetos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0166",
+        "name": "Ambientes de Inovação e Proteção da Propriedade Intelectual",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0167",
+        "name": "Gestão de Processos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0168",
+        "name": "Marcos Regulatórios da Inovação e Desenvolvimento Tecnológico",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0169",
+        "name": "Estruturas e Tecnologias dos Sistemas de Justiça",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0170",
+        "name": "Pesquisa em Tecnologias Jurídicas",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0171",
+        "name": "Empreendedorismo e Inovação no Sistema Jurídico",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0172",
+        "name": "Transferência de Tecnologia em Ambientes de Inovação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0173",
+        "name": "Tributação de Tecnologias Disruptivas",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0174",
+        "name": "Dilemas Éticos das Inovações Tecnológicas",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0175",
+        "name": "Direito Administrativo Disruptivo",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0176",
+        "name": "Contratos em Ambientes de Inovação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0177",
+        "name": "Trabalho de Conclusão de Curso",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0178",
+        "name": "Tópicos Especiais em Desenvolvimento de Software 1",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0179",
+        "name": "Tópicos Especiais em Desenvolvimento de Software 2",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0180",
+        "name": "Tópicos Especiais em Desenvolvimento de Software 3",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0181",
+        "name": "Tópicos Especiais da Estrutura Organizacional da Área Fim",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0182",
+        "name": "Desenvolvimento WEB",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0183",
+        "name": "Gerência de Configuração e Teste de Software",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0184",
+        "name": "Apresentação e Análise Estatística de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0185",
+        "name": "Etl e Modelagem Dimensional de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0186",
+        "name": "Mineração de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0187",
+        "name": "Processamento de Linguagem Natural",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0188",
+        "name": "Aprendizado de Máquina",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0189",
+        "name": "Tópicos Especiais em Business Inteligence e Analytics 1",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0190",
+        "name": "Tópicos Especiais em Business Inteligence e Analytics",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0191",
+        "name": "Tópicos Especiais em Business Inteligence e Analytics 3",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0192",
+        "name": "Aprendizado Baseado em Projeto",
+        "workload_hours": 540
+    },
+    {
+        "code": "IMD0193",
+        "name": "Aprendizado Baseado em Projeto 1",
+        "workload_hours": 270
+    },
+    {
+        "code": "IMD0194",
+        "name": "Aprendizado Baseado em Projeto 2",
+        "workload_hours": 270
+    },
+    {
+        "code": "IMD0195",
+        "name": "Aprendizado Baseado em Projeto",
+        "workload_hours": 540
+    },
+    {
+        "code": "IMD0196",
+        "name": "Aprendizado Baseado em Projetos",
+        "workload_hours": 540
+    },
+    {
+        "code": "IMD0197",
+        "name": "Aprendizado Baseado em Projetos",
+        "workload_hours": 540
+    },
+    {
+        "code": "IMD0198",
+        "name": "Fisiologia do Sono: Sono Normal",
+        "workload_hours": 1
+    },
+    {
+        "code": "IMD0199",
+        "name": "Bases Neurais do Ciclo Sono/Vigilia",
+        "workload_hours": 1
+    },
+    {
+        "code": "IMD0200",
+        "name": "Particularidades do Sono nas Diferentes Faixas Etárias: Lactente, Criança e Adolesc",
+        "workload_hours": 50
+    },
+    {
+        "code": "IMD0201",
+        "name": "Fisiologia do Sono: Sono Normal",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0202",
+        "name": "Bases Neurais do Ciclo Sono/Vigilia",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0203",
+        "name": "Particularidades do Sono nas Diferentes Faixas Etárias: Adulto e Idoso;",
+        "workload_hours": 120
+    },
+    {
+        "code": "IMD0204",
+        "name": "Bases Neurais do Ciclo Sono/Vigilia",
+        "workload_hours": 45
+    },
+    {
+        "code": "IMD0205",
+        "name": "Particularidades do Sono nas Diferentes Faixas Etárias: Adulto e Idoso;",
+        "workload_hours": 50
+    },
+    {
+        "code": "IMD0206",
+        "name": "Insonia",
+        "workload_hours": 50
+    },
+    {
+        "code": "IMD0207",
+        "name": "Actigrafia",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0208",
+        "name": "Polissonografia: Teste de Multiplas Latências do Sono e Manutenção da Vigilia",
+        "workload_hours": 45
+    },
+    {
+        "code": "IMD0209",
+        "name": "Insonia: Tratamento Não Farmacológico",
+        "workload_hours": 45
+    },
+    {
+        "code": "IMD0210",
+        "name": "Polissonografia: Teste de Multiplas Latências do Sono e Manutenção da Vigilia",
+        "workload_hours": 100
+    },
+    {
+        "code": "IMD0211",
+        "name": "Programação Funcional",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0212",
+        "name": "Inglês Nível Básico",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0213",
+        "name": "Polissonografia: Teste de Multiplas Latências do Sono e Manutenção da Vigilia",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD0214",
+        "name": "Classificação Internacional dos Distúrbios do Sono",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD0215",
+        "name": "Classificação Internacional dos Distúrbios do Sono",
+        "workload_hours": 10
+    },
+    {
+        "code": "IMD0216",
+        "name": "Classificação Internacional dos Distúrbios do Sono",
+        "workload_hours": 5
+    },
+    {
+        "code": "IMD0217",
+        "name": "Classificação Internacional dos Distúrbios do Sono",
+        "workload_hours": 8
+    },
+    {
+        "code": "IMD0218",
+        "name": "Impacto na Cognição",
+        "workload_hours": 1
+    },
+    {
+        "code": "IMD0219",
+        "name": "Apneia do Sono no Adulto",
+        "workload_hours": 1
+    },
+    {
+        "code": "IMD0220",
+        "name": "Bases Neurais do Ciclo Sono/Vigilia",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD0221",
+        "name": "Tratamento Fonoterápico",
+        "workload_hours": 5
+    },
+    {
+        "code": "IMD0222",
+        "name": "Abordagem do Profissional de Educação Física nos Distúrbios do Sono;",
+        "workload_hours": 5
+    },
+    {
+        "code": "IMD0223",
+        "name": "Tratamento Cirurgico",
+        "workload_hours": 5
+    },
+    {
+        "code": "IMD0224",
+        "name": "Tratamento Odontológico",
+        "workload_hours": 5
+    },
+    {
+        "code": "IMD0225",
+        "name": "Narcolepsia: Fisiopatologia /Diagnostico e Tratamento",
+        "workload_hours": 10
+    },
+    {
+        "code": "IMD0226",
+        "name": "Sono na Mulher",
+        "workload_hours": 5
+    },
+    {
+        "code": "IMD0227",
+        "name": "Casos Clinicos Sobre Insonia / Hiperssonias e Disturbios do Movimento.",
+        "workload_hours": 8
+    },
+    {
+        "code": "IMD0228",
+        "name": "Particularidades do Sono nas Diferentes Faixas Etárias: Adulto e Idoso;",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD0229",
+        "name": "Transtornos do Movimento",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD0230",
+        "name": "Tópicos Especiais em Sistemas Embarcados a",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0231",
+        "name": "Tópicos Especiais em Sistemas Embarcados B",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0232",
+        "name": "Tópicos Especiais em Sistemas Embarcados C",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0233",
+        "name": "Tópicos Especiais em Sistemas Embarcados D",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0234",
+        "name": "Tópicos Especiais em Sistemas Embarcados e",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0235",
+        "name": "Tópicos Especiais em Sistemas Embarcados F",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0236",
+        "name": "Tópicos Especiais em Sistemas Embarcados G",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0237",
+        "name": "Hipersonia: Doenças Médicas e Psiquiátricas",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD0238",
+        "name": "Hipersonia: Doenças Médicas e Psiquiátricas",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD0239",
+        "name": "Sono e Aprendizagem",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD0240",
+        "name": "Tópicos Especiais em Sistemas de Informação de Gestão a",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0241",
+        "name": "Tópicos Especiais em Sistemas de Informação de Gestão B",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0242",
+        "name": "Tópicos Especiais em Sistemas de Informação de Gestão C",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0243",
+        "name": "Tópicos Especiais em Sistemas de Informação de Gestão D",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0244",
+        "name": "Tópicos Especiais em Sistemas de Informação de Gestão e",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0245",
+        "name": "Tópicos Especiais em Sistemas de Informação de Gestão F",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0246",
+        "name": "Tópicos Especiais em Sistemas de Informação de Gestão G",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0247",
+        "name": "Sdr da Hipoventilação  Obesidade",
+        "workload_hours": 2
+    },
+    {
+        "code": "IMD0248",
+        "name": "Sdr da Hipoventilação  Obesidade",
+        "workload_hours": 1
+    },
+    {
+        "code": "IMD0249",
+        "name": "Inovação em Saúde",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0250",
+        "name": "Tópicos Especiais em Informática Educacional a",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0251",
+        "name": "Tópicos Especiais em Informática Educacional B",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0252",
+        "name": "Tópicos Especiais em Informática Educacional C",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0253",
+        "name": "Tópicos Especiais em Informática Educacional D",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0254",
+        "name": "Tópicos Especiais em Informática Educacional e",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0255",
+        "name": "Tópicos Especiais em Informática Educacional F",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0256",
+        "name": "Tópicos Especiais em Informática Educacional G",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0257",
+        "name": "Aprendizado Baseado em Projetos Teste",
+        "workload_hours": 540
+    },
+    {
+        "code": "IMD0258",
+        "name": "Aprendizado Baseado em Projetos Teste",
+        "workload_hours": 540
+    },
+    {
+        "code": "IMD0259",
+        "name": "Topicos Especiais- Gerência e Testes",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0260",
+        "name": "Tópicos Especiais em Bioinformática a",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0261",
+        "name": "Tópicos Especiais em Bioinformática B",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0262",
+        "name": "Tópicos Especiais em Bioinformática C",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0263",
+        "name": "Tópicos Especiais em Bioinformática D",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0264",
+        "name": "Tópicos Especiais em Bioinformática e",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0265",
+        "name": "Tópicos Especiais em Bioinformática F",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0266",
+        "name": "Tópicos Especiais em Bioinformática G",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0267",
+        "name": "Tópicos Especiais em Bi -",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0268",
+        "name": "Tópicos Especiais em Bi",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0269",
+        "name": "Tópicos Especiais - TI em Saúde",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0270",
+        "name": "Tópicos Especiais em Redes de Computadores a",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0271",
+        "name": "Aprendizado Baseado em Projetos Teste",
+        "workload_hours": 540
+    },
+    {
+        "code": "IMD0272",
+        "name": "Aprendizado Baseado em Projetos Teste",
+        "workload_hours": 540
+    },
+    {
+        "code": "IMD0273",
+        "name": "Tópicos Especiais em Redes de Computadores D",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0274",
+        "name": "Atividades Práticas na Instituição Parceira",
+        "workload_hours": 1440
+    },
+    {
+        "code": "IMD0275",
+        "name": "Atividades Práticas na Instituição Parceira",
+        "workload_hours": 1500
+    },
+    {
+        "code": "IMD0276",
+        "name": "Atividades Práticas na Instituição Parceira",
+        "workload_hours": 1500
+    },
+    {
+        "code": "IMD0277",
+        "name": "Gestão de Tecnologia e Inovação 1: Introdução aos Sistemas Tecnológicos Inovadores",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0278",
+        "name": "Políticas e Marco Normativo de Ciência, Tecnologia e Inovação",
+        "workload_hours": 45
+    },
+    {
+        "code": "IMD0280",
+        "name": "Tópicos Especiais em Produção de Jogos Digitais a",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0281",
+        "name": "Tópicos Especiais em Produção de Jogos Digitais B",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0282",
+        "name": "Tópicos Especiais em Produção de Jogos Digitais C",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0283",
+        "name": "Tópicos Especiais em Produção de Jogos Digitais D",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0284",
+        "name": "Tecnologias Emergentes 1: Indústrias 4.0",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0285",
+        "name": "Transferência de Tecnologia e Marketing de P & D",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0286",
+        "name": "Gestão de Tecnologia e Inovação 2: Gestão da Inovação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0287",
+        "name": "Programação em Tempo Real para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0288",
+        "name": "Aprendizado de Máquina Embarcado",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0289",
+        "name": "Fundamentos de Eletrônica para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0290",
+        "name": "Tópicos Especiais em Internet das Coisas a",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0291",
+        "name": "Tópicos Especiais em Internet das Coisas B",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0292",
+        "name": "Tópicos Especiais em Internet das Coisas C",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0293",
+        "name": "Tópicos Especiais em Internet das Coisas D",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0294",
+        "name": "Metodologias de Resolução de Problemas Tecnológicos e de Gestão",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0295",
+        "name": "Sociologia da Inovação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0296",
+        "name": "Projeto de IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0297",
+        "name": "Ccna1 - Introduction To Networks",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0298",
+        "name": "Ccna2 - Switching Routing, And Wireless Essentials",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0299",
+        "name": "Ccna3 - Enterprise Networking, Security And Automation",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0300",
+        "name": "Manufatura Avançada e Sustentabilidade",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0301",
+        "name": "Especificação e Modelagem de Sistemas Embarcados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0302",
+        "name": "Circuitos Eletrônicos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0303",
+        "name": "Redes de Sensores",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0304",
+        "name": "Projeto de Sistemas Operacionais",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0305",
+        "name": "Projeto Integrado I",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0306",
+        "name": "Projeto de Sistemas Digitais I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0307",
+        "name": "Sistemas Híbridos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0308",
+        "name": "Aprendizado Baseado em Projeto 2",
+        "workload_hours": 270
+    },
+    {
+        "code": "IMD0309",
+        "name": "Instrumentação Eletroeletrônica",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0310",
+        "name": "Gerenciamento de Fluxo de Projetos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0311",
+        "name": "Projeto Integrado II",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0312",
+        "name": "Desenvolvimento em Plataformas Específicas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0313",
+        "name": "Testes de Circuitos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0314",
+        "name": "Sensores Inteligentes",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0315",
+        "name": "Controle Digital",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0316",
+        "name": "Prototipação de Circuitos Impressos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0317",
+        "name": "Projeto Integrado III",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0318",
+        "name": "Gestão de Projetos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0319",
+        "name": "Teoria de Circuitos Elétricos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0320",
+        "name": "Circuitos Eletrônicos",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0321",
+        "name": "Projetos Baseados em Microcontroladores",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0322",
+        "name": "Sistemas Digitais Reconfiguráveis",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0323",
+        "name": "Metodologias de Projetos em Sistemas Embarcados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0324",
+        "name": "Computação em Nuvem",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0325",
+        "name": "Introdução a Sistemas de Controle",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0326",
+        "name": "Processamento Digital de Sinais",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0327",
+        "name": "Tópicos Especiais em Estrutura Organizacional da Área Fim",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0328",
+        "name": "Técnicas de Prototipação e Montagem de Circuitos e Sistemas Eletrônicos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0329",
+        "name": "Gerência de Configuração e Teste de Software",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0330",
+        "name": "Redes de Comunicação em Sistemas Embarcados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0331",
+        "name": "Desenvolvimento em Plataformas Embarcadas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0332",
+        "name": "Arquiteturas Avançadas de Computadores",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0333",
+        "name": "Projeto de Software e Testes em Sistemas Embarcados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0334",
+        "name": "Sensores Inteligentes",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0335",
+        "name": "Tópicos Especiais I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0336",
+        "name": "Tópicos Especiais II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0337",
+        "name": "TI Verde",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0339",
+        "name": "Introdução a Computação Móvel e Ubíqua",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0340",
+        "name": "Design e Usabilidade em Aplicações Móveis",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0341",
+        "name": "Desenvolvimento de Aplicativos Nativos para Android",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0342",
+        "name": "Serviços WEB e Computação na Nuvem para Dispositivos Móveis",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0343",
+        "name": "Redes Móveis",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0344",
+        "name": "Desenvolvimento de Aplicativos Nativos para Ios",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0345",
+        "name": "Desenvolvimento de Jogos para Dispositivos Móveis",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0346",
+        "name": "Arquitetura e Projeto de Software para Dispositivos Móveis",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0347",
+        "name": "Gerência de Configuração e Testes de Aplicativos Móveis",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0348",
+        "name": "Inovação e Geração de Novos Negócios",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0349",
+        "name": "Metodologias Ágeis",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0350",
+        "name": "Desenvolvimento de Aplicativos Nativos com Tecnologias Cross-Platform",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0351",
+        "name": "Educação Inovadora",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0352",
+        "name": "Aprendizagem Criativa",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0353",
+        "name": "Aprendizagem Híbrida e Móvel",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0354",
+        "name": "Aprendizagem Invertida",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0355",
+        "name": "Aprendizagem Colaborativa",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0356",
+        "name": "Aprendizagem Baseada em Problemas e Projetos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0357",
+        "name": "Aprendizagem Baseada em Jogos Digitais",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0358",
+        "name": "Storytelling na Educação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0359",
+        "name": "Design Thinking na Educação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0360",
+        "name": "Gamificação na Educação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0361",
+        "name": "Pensamento Computacional na Educação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0362",
+        "name": "Cultura Maker na Educação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0364",
+        "name": "Princípios de Legislação e Ética Aplicados à Tecnologia da Informação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0365",
+        "name": "Design e Avaliação de Experiência de Usuário",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0366",
+        "name": "DevOps",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0367",
+        "name": "Estudos da Estrutura do Poder Judiciário e Suas Tecnologias",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0368",
+        "name": "Tópicos Especiais em Business Intelligence e Analytics 3 - Princípios de Legislação é",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0369",
+        "name": "Inovação Tecnológica: Processos e Avaliação de Impacto",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0370",
+        "name": "Gestão de Projetos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0371",
+        "name": "Banco de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0372",
+        "name": "Engenharia de Requisitos Aplicada",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0373",
+        "name": "Arquitetura e Projeto de Software",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0374",
+        "name": "Desenvolvimento WEB",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0375",
+        "name": "Gerência de Configuração e Teste de Software",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0376",
+        "name": "Desenvolvimento para Dispositivos Móveis",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0377",
+        "name": "Tópicos Especiais em Desenvolvimento de Software 1 (Interface C Usuário)",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0378",
+        "name": "Tópicos Especiais em Desenvolvimento de Software 2",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0379",
+        "name": "Administração de Redes de Computadores",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0380",
+        "name": "Gestão de Redes e Serviços Corporativos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0381",
+        "name": "Computação em Nuvem",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0382",
+        "name": "Datacenters",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0383",
+        "name": "Segurança em Redes",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0384",
+        "name": "Tópicos Especiais em Redes de Computadores e Infraestrutura 1",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0385",
+        "name": "Tópicos Especiais em Redes de Computadores e Infraestrutura 2",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0386",
+        "name": "Apresentação e Análise Estatística de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0387",
+        "name": "Etl e Modelagem Dimensional de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0388",
+        "name": "Mineração de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0389",
+        "name": "Processamento de Linguagem Natural",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0390",
+        "name": "Aprendizado de Máquina",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0391",
+        "name": "Tópicos Especiais em Business Intelligence e Analytics 1",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0392",
+        "name": "Tópicos Especiais em Business Intelligence e Analytics 2",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0393",
+        "name": "Aprendizado Baseado em Projeto",
+        "workload_hours": 540
+    },
+    {
+        "code": "IMD0395",
+        "name": "Inovação Tecnológica: Processos e Avaliação de Impacto",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0396",
+        "name": "Era Digital e os Dados",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0397",
+        "name": "Estatística para Ciência de Dados",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0398",
+        "name": "Excel para Análise de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0399",
+        "name": "Banco de Dados SQL e NoSQL",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0400",
+        "name": "Visualização de Dados Nocode",
+        "workload_hours": 15
+    },
+    {
+        "code": "IMD0401",
+        "name": "Banco de Dados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0402",
+        "name": "Design de Software I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0403",
+        "name": "Programação com Banco de Dados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0404",
+        "name": "Desenvolvimento de Sistemas WEB I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0405",
+        "name": "Conceitos e Ferramentas Bi",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0406",
+        "name": "Protocolo e Serviços de Internet",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0407",
+        "name": "Design de Software II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0408",
+        "name": "Processos de Software",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0409",
+        "name": "Desenvolvimento de Sistemas WEB II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0410",
+        "name": "Programação Concorrente e Distribuída",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0411",
+        "name": "Introdução à Governança e Gestão de TI",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0412",
+        "name": "Introdução ao Teste de Software",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0413",
+        "name": "Desenvolvimento para Ambiente Desktop",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0414",
+        "name": "Sistema de Informação Distribuído",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0415",
+        "name": "Gestão de Infraestrutura de TI",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0416",
+        "name": "Segurança da Informação",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0417",
+        "name": "Gestão de Projetos de Software",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0418",
+        "name": "Tópicos Especiais em Inteligência Artificial I",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0419",
+        "name": "Computação em Nuvem",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0420",
+        "name": "Tópicos Avançados em Governança de TI",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0421",
+        "name": "Gestão da Mudança Organizacional",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0422",
+        "name": "Sistemas de Inteligência Empresarial",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0423",
+        "name": "Design de Software I",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0424",
+        "name": "Segurança no Desenvolvimento de Software",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0425",
+        "name": "Infraestrutura WEB",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0500",
+        "name": "Introdução à Inteligência Artificial para Educadores",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0501",
+        "name": "Fundamentos Pedagógicos para a Informática Educacional",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0502",
+        "name": "Processo de Desenvolvimento de Software Educacional",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0503",
+        "name": "Levantamento e Modelagem de Requisitos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0504",
+        "name": "Relações Entre Comunicação, Mídia e Educação",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0505",
+        "name": "Design da Interação Humano-Computador",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0506",
+        "name": "Sistemas Colaborativos de Apoio à Aprendizagem",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0507",
+        "name": "Tecnologias Educacionais",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0508",
+        "name": "Educação a Distância",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD0509",
+        "name": "Desenvolvimento para Dispositivos Móveis",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0510",
+        "name": "Acessibilidade Digital",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0511",
+        "name": "Inteligência Artificial Aplicada à Educação",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0512",
+        "name": "Avaliação da Interação Humano-Computador",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0513",
+        "name": "Empreendedorismo",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0515",
+        "name": "Tópicos Especiais em Informática Educacional I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0516",
+        "name": "Tópicos Especiais em Informática Educacional II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0517",
+        "name": "Fundamentos Pedagógicos para a Informática Educacional I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0518",
+        "name": "Fundamentos Pedagógicos para a Informática Educacional II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0519",
+        "name": "Aprendizagem Baseada em Projetos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0520",
+        "name": "Design Instrucional para TI",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0521",
+        "name": "Fundamentos de Jogos Digitais",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0522",
+        "name": "Jogos Digitais Como Ferramenta Pedagógica",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0523",
+        "name": "Tecnologias Educacionais",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0524",
+        "name": "Educação a Distância",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0525",
+        "name": "Análise Computacional da Aprendizagem",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0526",
+        "name": "Avaliação de Software Educacional",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0527",
+        "name": "Introdução à Interação Humano-Computador",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0530",
+        "name": "Software Livre, Educação e Cultura",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0531",
+        "name": "Práticas Educacionais Inovadoras com Tecnologias Digitais",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0534",
+        "name": "Estatísticas Educacionais e Indicadores",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0601",
+        "name": "Bioestatística",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0602",
+        "name": "Ferramentas para Análise de Sequências",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0603",
+        "name": "Tecnologias em Larga Escala I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0605",
+        "name": "Seminários em Bioinformática",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0607",
+        "name": "Modelagem e Simulação Computacional",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0608",
+        "name": "Laboratório de Modelagem e Simulação Computacional",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0609",
+        "name": "Programação em Bioinformática",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0610",
+        "name": "Métodos de Bioinformática para Análise de Sequências Biológicas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0611",
+        "name": "Aprendizado de Máquina em Bioinformática",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0701",
+        "name": "Administração de Sistemas Operacionais para Redes",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0702",
+        "name": "Serviços de Rede e Transporte",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0703",
+        "name": "Segurança de Redes",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0704",
+        "name": "Administração de Serviços de Redes para Internet",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0705",
+        "name": "Princípios de Legislação Aplicáveis à Tecnologia da Informação e Comunicação de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0707",
+        "name": "Tecnologias de Comunicação de Dados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0708",
+        "name": "Programação em Hardware de Redes",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0710",
+        "name": "Redes de Próxima Geração",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0711",
+        "name": "Redes Móveis",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0712",
+        "name": "Gerência de Redes",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0713",
+        "name": "Redes Multimidia",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0718",
+        "name": "Forense Computacional",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0725",
+        "name": "Desenvolvimento de Projetos de Redes de Computadores",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0801",
+        "name": "Mecânicas e Balanceamento de Jogos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0802",
+        "name": "Design de Níveis de Jogos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0803",
+        "name": "Jogos Sérios e Simulações",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0811",
+        "name": "Motores de Jogos Digitais",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0812",
+        "name": "Jogos em Rede Multiusuários",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0814",
+        "name": "Inteligência Artificial para Jogos II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0821",
+        "name": "Técnicas Avançadas para Motores de Jogos Digitais",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0822",
+        "name": "Projeto de Inovação Tecnológica",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0900",
+        "name": "Módulo Básico",
+        "workload_hours": 400
+    },
+    {
+        "code": "IMD0901",
+        "name": "Introdução às Tecnologias da Informação",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0902",
+        "name": "Introdução a Internet das Coisas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0903",
+        "name": "Dispositivos para Internet das Coisas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0904",
+        "name": "Plataformas de Hardware para Internet das Coisas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0905",
+        "name": "Ciência de Dados I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0906",
+        "name": "Programacao Orientada a Objetos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0907",
+        "name": "Tecnologias de Comunicação para Internet das Coisas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0908",
+        "name": "Computação Elástica para Internet das Coisas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0909",
+        "name": "Arquitetura de Computadores",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD0910",
+        "name": "Segurança e Privacidade em Internet das Coisas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0911",
+        "name": "Banco de Dados",
+        "workload_hours": 80
+    },
+    {
+        "code": "IMD0912",
+        "name": "Metodologia de Projeto de IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0913",
+        "name": "Blockchain e Aplicações Descentralizadas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0914",
+        "name": "Autoria WEB",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD0915",
+        "name": "Desenvolvimento WEB",
+        "workload_hours": 120
+    },
+    {
+        "code": "IMD0916",
+        "name": "Sistemas de Conectividade",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0917",
+        "name": "Infra-Estrutura de Redes",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD0918",
+        "name": "Redes de Computadores",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0919",
+        "name": "Segurança em Redes",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0920",
+        "name": "Tecnologia da Informação na Saúde",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0921",
+        "name": "Circuitos Eletronicos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0922",
+        "name": "Tecnicas de Instalacao e Manutencao",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD0923",
+        "name": "Prototipagem e Montagem de Placa de Circuito Impresso",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD0924",
+        "name": "Sistemas Digitais",
+        "workload_hours": 80
+    },
+    {
+        "code": "IMD0925",
+        "name": "Projetos de Sistema Micro-Controlados",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD0926",
+        "name": "Projetos de Sistemas Rf",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD0927",
+        "name": "Automação Industrial",
+        "workload_hours": 80
+    },
+    {
+        "code": "IMD0928",
+        "name": "Sensores e Atuadores",
+        "workload_hours": 80
+    },
+    {
+        "code": "IMD0929",
+        "name": "Controle e Servomecanismos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0930",
+        "name": "Matemática Aplicada",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD0931",
+        "name": "Lógica de Programação",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD0932",
+        "name": "Acionamentos Eletrônicos",
+        "workload_hours": 50
+    },
+    {
+        "code": "IMD0933",
+        "name": "Conceitos de Eletricidade",
+        "workload_hours": 45
+    },
+    {
+        "code": "IMD0934",
+        "name": "Circuitos Eletronicos",
+        "workload_hours": 50
+    },
+    {
+        "code": "IMD0935",
+        "name": "Sistemas Digitais",
+        "workload_hours": 70
+    },
+    {
+        "code": "IMD0936",
+        "name": "Prototipagem e Montagem de Placa de Circuito Impresso",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD0937",
+        "name": "Acionamentos Eletrônicos",
+        "workload_hours": 45
+    },
+    {
+        "code": "IMD0938",
+        "name": "Controle e Servomecanismos",
+        "workload_hours": 50
+    },
+    {
+        "code": "IMD0939",
+        "name": "Sensores e Atuadores",
+        "workload_hours": 70
+    },
+    {
+        "code": "IMD0940",
+        "name": "Automação Industrial",
+        "workload_hours": 75
+    },
+    {
+        "code": "IMD0941",
+        "name": "Design de Jogos Digitais",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1000",
+        "name": "Treinamento Básico para Competições de Programação",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD1001",
+        "name": "Matemática Elementar",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1002",
+        "name": "Análise Combinatória",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1003",
+        "name": "Geometria Euclidiana",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1004",
+        "name": "Pensamento Computacional",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1012",
+        "name": "Introdução às Técnicas de Programação",
+        "workload_hours": 90
+    },
+    {
+        "code": "IMD1037",
+        "name": "Conceitos de Eletricidade",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1038",
+        "name": "Sistemas Digitais",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1039",
+        "name": "Matemática Aplicada a Jogos",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1040",
+        "name": "Introdução a Jogos Digitais",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1041",
+        "name": "Desenvolvimento WEB I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1042",
+        "name": "Desenvolvimento WEB II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1043",
+        "name": "Acionamentos Eletrônicos",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1045",
+        "name": "Circuitos Eletrônicos",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1046",
+        "name": "Instrumentação e Sensores",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1047",
+        "name": "Atuadores",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1048",
+        "name": "Programação de Clps",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1049",
+        "name": "Introdução à Automação Industrial",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1050",
+        "name": "Programação de Sistemas Supervisórios",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1051",
+        "name": "Redes Industriais",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1052",
+        "name": "Controle de Processos",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1053",
+        "name": "Introdução à Mecatrônica",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1054",
+        "name": "Robótica",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1055",
+        "name": "Introdução às Tecnologias Cad e Cam",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1056",
+        "name": "Desenvolvimento de Jogos para Dispositivos Móveis",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1057",
+        "name": "Desenvolvimento de Jogos WEB",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1058",
+        "name": "Criação de Personagens e Narrativas de Jogos",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1059",
+        "name": "Física Aplicada a Jogos I",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1060",
+        "name": "IA para Jogos",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1061",
+        "name": "Modelagem 2D",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1062",
+        "name": "Redes de Computadores I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1063",
+        "name": "Conceitos de Banco de Dados",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1064",
+        "name": "Redes de Computadores II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1065",
+        "name": "Datacenter",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1066",
+        "name": "Desenvolvimento com Motores de Jogos I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1067",
+        "name": "Desenvolvimento com Motores de Jogos II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1070",
+        "name": "Banco de Dados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1071",
+        "name": "Desenvolvimento Front-End I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1072",
+        "name": "Desenvolvimento Front-End II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1073",
+        "name": "Desenvolvimento Back-End",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1074",
+        "name": "Plataformas de Aplicações WEB",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1075",
+        "name": "Desenvolvimento para Dispositivos Móveis",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1076",
+        "name": "Instrumentação Eletrônica",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1077",
+        "name": "Laboratório de Acionamentos Elétricos e Eletrônicos",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1078",
+        "name": "Laboratório de Circuitos Eletrônicos I",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1079",
+        "name": "Laboratório de Circuitos Eletrônicos II",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1080",
+        "name": "Laboratório de Montagem de Pcb",
+        "workload_hours": 10
+    },
+    {
+        "code": "IMD1081",
+        "name": "Laboratório de Pneumática e Hidráulica",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1082",
+        "name": "Laboratório de Programação de Clp",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1083",
+        "name": "Introdução a Internet das Coisas",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1084",
+        "name": "Plataformas Microcontroladas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1085",
+        "name": "Fundamentos de Circuitos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1086",
+        "name": "Sensores e Atuadores para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1087",
+        "name": "Programação para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1088",
+        "name": "Redes Ip",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1089",
+        "name": "Comunicação para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1090",
+        "name": "Eletrônica para IoT",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1091",
+        "name": "Prototipagem para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1092",
+        "name": "Programação em Tempo Real para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1093",
+        "name": "Integração com Serviço de Nuvem",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1094",
+        "name": "Automatização de Ambientes",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1095",
+        "name": "Aplicações IoT",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1096",
+        "name": "Inteligência Artificial Aplicada",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1097",
+        "name": "Programação em Python",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1098",
+        "name": "Introdução à Inteligência Artificial",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1099",
+        "name": "Matemática Aplicada à Inteligência Artificial",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1100",
+        "name": "Aprendizado de Máquina",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1101",
+        "name": "Aprendizado de Máquina",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1102",
+        "name": "Otimização Heurística",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1103",
+        "name": "Processamento de Linguagem Natural",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1104",
+        "name": "Aprendizado Profundo",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1105",
+        "name": "Inteligência Artificial Generativa",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1106",
+        "name": "Libras",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1107",
+        "name": "Processamento de Linguagem Natural",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1108",
+        "name": "Visão Computacional",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1110",
+        "name": "Processamento Digital de Imagens",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1111",
+        "name": "Machine Learning",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1112",
+        "name": "Ética e Dados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1113",
+        "name": "Probabilidade e Inferência",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1114",
+        "name": "Aprendizado Profundo",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1115",
+        "name": "Processamento Digital de Imagens",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1116",
+        "name": "Computação de Alto Desempenho",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1117",
+        "name": "Álgebra Computacional",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1118",
+        "name": "Integração com Serviço de Nuvem",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1119",
+        "name": "Programação em Tempo Real para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1120",
+        "name": "Tópicos Especiais em Inteligência Computacional a",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1121",
+        "name": "Prototipagem para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1122",
+        "name": "Comunicação para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1123",
+        "name": "Automatização de Ambientes",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1124",
+        "name": "Ingles Tecnico I",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1125",
+        "name": "Sistemas Operacionais",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1126",
+        "name": "Arquitetura de Computadores",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1127",
+        "name": "Inteligência Artificial Aplicada",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1128",
+        "name": "Introdução às Tecnologias da Informação",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1129",
+        "name": "Lógica de Programação",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1130",
+        "name": "Bancos de Dados NoSQL",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1131",
+        "name": "Projeto de Análise de Dados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1132",
+        "name": "Inteligência de Negócios",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1133",
+        "name": "Aprendizado de Máquina Aplicado ao Mercado Financeiro",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1134",
+        "name": "Desenvolvimento Front-End I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1135",
+        "name": "Desenvolvimento Front-End II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1136",
+        "name": "Banco de Dados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1137",
+        "name": "Desenvolvimento Back-End",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1138",
+        "name": "Plataformas de Aplicações WEB",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1139",
+        "name": "Desenvolvimento para Dispositivos Móveis",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1140",
+        "name": "Sistemas de Conectividade",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1141",
+        "name": "Redes de Computadores I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1142",
+        "name": "Infra-Estrutura de Redes",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1143",
+        "name": "Segurança em Redes",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1144",
+        "name": "Conceitos de Banco de Dados",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1145",
+        "name": "Redes de Computadores II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1146",
+        "name": "Datacenter",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1147",
+        "name": "Introdução a Jogos Digitais",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1148",
+        "name": "Desenvolvimento com Motores de Jogos I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1149",
+        "name": "Design de Jogos Digitais",
+        "workload_hours": 40
+    },
+    {
+        "code": "IMD1150",
+        "name": "Matemática Aplicada a Jogos",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1151",
+        "name": "Ciências de Dados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1152",
+        "name": "Coleta e Raspagem de Dados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1153",
+        "name": "Análise Visual de Dados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1154",
+        "name": "Modelagem Estatística de Dados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1155",
+        "name": "Desenvolvimento com Motores de Jogos II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1156",
+        "name": "Sensores e Atuadores para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1157",
+        "name": "Redes Ip",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1158",
+        "name": "Plataformas Microcontroladas",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1159",
+        "name": "Introdução a Internet das Coisas",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1160",
+        "name": "Programação para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1161",
+        "name": "Fundamentos de Circuitos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1162",
+        "name": "Eletrônica para IoT",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1163",
+        "name": "Integração com Serviço de Nuvem",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1164",
+        "name": "Programação em Tempo Real para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1165",
+        "name": "Aplicações IoT",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1166",
+        "name": "Prototipagem para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1167",
+        "name": "Comunicação para IoT",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1168",
+        "name": "Automatização de Ambientes",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1169",
+        "name": "Laboratório de Circuitos Elétricos",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1170",
+        "name": "Laboratório de Microcontroladores",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1171",
+        "name": "Laboratório de Sensores para IoT",
+        "workload_hours": 20
+    },
+    {
+        "code": "IMD1202",
+        "name": "O Mundo da Tecnologias da Informação: Ontem, Hoje e Amanhã",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1203",
+        "name": "Interdisciplinaridade e Transversalidade em Tecnologia da Informação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1204",
+        "name": "Pesquisa, Inovação e Empreendedorismo em Tecnologia da Informação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1219",
+        "name": "Vivencia no Ensino Superior",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1301",
+        "name": "Empreendedorismo e Formação Empreendedora",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1302",
+        "name": "Processo Criativo",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1303",
+        "name": "Estudos de Mercado",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1304",
+        "name": "Branding",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1305",
+        "name": "Gestão e Inovação e Atração de Capital",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1306",
+        "name": "Gestão de Projetos e Metodologias Ágeis",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1307",
+        "name": "Lançamento de Startups I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1308",
+        "name": "Lançamento de Startups II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1309",
+        "name": "Transformação Digital",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1310",
+        "name": "Tópicos Especiais em Inovação e Empreendedorismo a",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1311",
+        "name": "Tópicos Especiais em Inovação e Empreendedorismo B",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1312",
+        "name": "Tópicos Especiais em Inovação e Empreendedorismo C",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1313",
+        "name": "Tópicos Especiais em Inovação e Empreendedorismo D",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1314",
+        "name": "Tópicos Especiais em Inovação e Empreendedorismo e",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1315",
+        "name": "Tópicos Especiais em Inovação e Empreendedorismo F",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1316",
+        "name": "Inovação em Saúde",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1317",
+        "name": "Marketing Digital",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1318",
+        "name": "Sistema de Desenvolvimento de Produtos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1319",
+        "name": "Gestão de Desenvolvimento de Serviços",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD1320",
+        "name": "Processo Criativo",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD1321",
+        "name": "Proteção Intelectual",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD2001",
+        "name": "Matemática Básica",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD2002",
+        "name": "Técnicas de Contagem",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD2003",
+        "name": "Pensamento Matemático",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD2004",
+        "name": "Introdução a Análise Estatística de Dados",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD2005",
+        "name": "Fundamentos de Desenvolvimento de Software I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD2006",
+        "name": "Tipos Abstratos de Dados",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD2007",
+        "name": "Fundamentos de Desenvolvimento de Software II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD2008",
+        "name": "Algoritmos e Estruturas de Dados I",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD2009",
+        "name": "Matematica Discreta",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD2010",
+        "name": "Algoritmos e Estruturas de Dados II",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD3001",
+        "name": "Introdução à Inteligência Artificial",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD3002",
+        "name": "Aprendizado de Máquina Supervisionado",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD3003",
+        "name": "Aprendizado de Máquina Não-Supervisionado",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD3004",
+        "name": "IA Generativa",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD3005",
+        "name": "Mlops",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD3006",
+        "name": "Pesquisa e Inovação",
+        "workload_hours": 30
+    },
+    {
+        "code": "IMD3007",
+        "name": "Computação Quântica",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD3008",
+        "name": "Design de Interfaces e Experiência do Usuário (Ui/Ux)",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD3009",
+        "name": "Economia Digital",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD3010",
+        "name": "Liderança e Gestão de Projetos",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD3011",
+        "name": "Datacentric Ai",
+        "workload_hours": 60
+    },
+    {
+        "code": "IMD3012",
+        "name": "IA, Equidade e Direitos",
+        "workload_hours": 60
+    }
+]
