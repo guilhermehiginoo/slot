@@ -15,7 +15,7 @@ import { useNavSpace } from '@/hooks/use-nav-space';
 import { dashboard } from '@/routes';
 
 export function AppSidebar() {
-    const { label, profile, items } = useNavSpace();
+    const { profile, groups } = useNavSpace();
     const { currentSemester } = usePage().props;
     const { isMobile, setOpenMobile } = useSidebar();
 
@@ -42,8 +42,14 @@ export function AppSidebar() {
                 )}
             </SidebarHeader>
 
-            <SidebarContent className="px-3.5 pt-6">
-                <NavMain label={label} items={items} />
+            <SidebarContent className="gap-8 px-3.5 pt-6">
+                {groups.map((group) => (
+                    <NavMain
+                        key={group.label}
+                        label={group.label}
+                        items={group.items}
+                    />
+                ))}
             </SidebarContent>
 
             <SidebarFooter className="gap-4 px-3.5 pb-6">
