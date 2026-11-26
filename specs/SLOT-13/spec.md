@@ -1,7 +1,7 @@
 # SLOT-13 · Buscar disciplinas e turmas
 
 Card: https://slotgestao.atlassian.net/browse/SLOT-13
-Tipo: História · Branch: `feature/SLOT-13-buscar-disciplinas-turmas` · Base: `develop`
+Tipo: História · Branch: `feature/SLOT-13-buscar-disciplinas-turmas` · Base: `enhancement/SLOT-35-menu-prototipo`
 Aprovado por:
 
 ## Objetivo
@@ -21,7 +21,7 @@ O aluno procura ajuda pela disciplina, não pela turma. Ele ganha uma busca por 
 - R9: A página lista as turmas do semestre atual (`slot.current_semester`), em ordem de número. Cada turma mostra o número, os professores, o código de horário e os monitores, só com os nomes e em ordem alfabética.
 - R10: A página lista os professores das turmas de semestres anteriores ao atual, sem nomes repetidos e em ordem alfabética. Turmas de semestres futuros não contam. Um professor do semestre atual pode aparecer nas duas seções.
 - R11: As turmas e os professores anteriores na página da disciplina não são paginados (exceção registrada em Decisões).
-- R12: O menu lateral ganha o item "Buscar disciplinas" para todos os papéis, logo depois de "Visão geral" quando ela existir.
+- R12: O espaço de cada papel no menu lateral (SLOT-35) ganha o item "Buscar disciplinas", logo depois de "Visão geral"; no professor, vem primeiro.
 - R13: Nenhum e-mail aparece na busca nem na página da disciplina.
 
 ## Cenários
@@ -90,7 +90,7 @@ Cenário: Nenhum resultado
 - Botão para solicitar ser monitor no card da turma (SLOT-19).
 - Busca de pessoas e perfis; aqui os nomes não são links (SLOT-23).
 - Markdown ou formatação rica na descrição.
-- Deixar o menu lateral e o cabeçalho mobile iguais ao protótipo da SLOT-31 (card próprio).
+- O visual do menu lateral e do cabeçalho mobile (SLOT-35).
 
 ## Decisões
 
