@@ -42,6 +42,7 @@ class CourseManagementTest extends TestCase
                     ->has('id')
                     ->where('code', 'IMD0012')
                     ->where('name', 'Introdução às Técnicas de Programação')
+                    ->where('description', null)
                     ->where('archived_at', fn ($value) => $value !== null))
                 ->where('courses.data.1.code', 'IMD0030')
                 ->where('courses.data.1.archived_at', null)
@@ -329,5 +330,55 @@ class CourseManagementTest extends TestCase
         }
 
         $this->assertFalse($course->fresh()->isArchived());
+    }
+
+    #[TestDox('Cenário: Admin escreve a descrição')]
+    public function test_saves_description(): void
+    {
+        $admin  = User::factory()->admin()->create();
+        $course = Course::factory()->create(['code' => 'IMD0030', 'name' => 'Linguagem de Programação I']);
+
+        $this->actingAs($admin)
+            ->patch(route('admin.courses.update', $course), [
+                'code'        => 'IMD0030',
+                'name'        => 'Linguagem de Programação I',
+                'description' => 'Introdução à programação em C++.',
+            ])
+            ->assertSessionHasNoErrors();
+
+        $this->assertSame('Introdução à programação em C++.', $course->fresh()->description);
+
+        $this->patch(route('admin.courses.update', $course), [
+            'code'        => 'IMD0030',
+            'name'        => 'Linguagem de Programação I',
+            'description' => '',
+        ]);
+
+        $this->assertNull($course->fresh()->description);
+
+        $this->post(route('admin.courses.store'), [
+            'code'        => 'IMD0040',
+            'name'        => 'Linguagem de Programação II',
+            'description' => 'Orientação a objetos.',
+        ])->assertSessionHasNoErrors();
+
+        $this->assertDatabaseHas('courses', ['code' => 'IMD0040', 'description' => 'Orientação a objetos.']);
+
+        $this->get(route('admin.courses.index'))
+            ->assertInertia(fn (Assert $page) => $page->where('courses.data.1.description', 'Orientação a objetos.'));
+    }
+
+    #[TestDox('Cenário: Descrição longa demais')]
+    public function test_rejects_long_description(): void
+    {
+        $this->actingAs(User::factory()->admin()->create())
+            ->post(route('admin.courses.store'), [
+                'code'        => 'IMD0030',
+                'name'        => 'Linguagem de Programação I',
+                'description' => str_repeat('a', 501),
+            ])
+            ->assertSessionHasErrors(['description' => 'A descrição deve ter no máximo 500 caracteres.']);
+
+        $this->assertDatabaseCount('courses', 0);
     }
 }

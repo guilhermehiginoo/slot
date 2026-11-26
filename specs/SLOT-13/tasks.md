@@ -9,7 +9,7 @@
 - [x] T3 · Descrição e professores anteriores na página da disciplina
     - Teste: `ShowCourseTest::test_shows_description` (Cenário: Descrição da disciplina), `::test_lists_past_professors` (Cenário: Professores que já deram a disciplina); também semestre futuro fora (R10)
     - Arquivos: `User::taughtClassGroups()`, `CourseFactory::withDescription()`, `CourseController@show`, `pages/courses/show.tsx`
-- [ ] T4 · Admin escreve a descrição no modal do catálogo
+- [x] T4 · Admin escreve a descrição no modal do catálogo
     - Teste: `tests/Feature/Admin/CourseManagementTest::test_saves_description` (Cenário: Admin escreve a descrição), `::test_rejects_long_description` (Cenário: Descrição longa demais)
     - Arquivos: `Admin\SaveCourseRequest`, `CreateCourse`, `UpdateCourse`, `Admin\CourseController`, `components/ui/textarea.tsx`, `components/admin/course-form-dialog.tsx`, `types/admin.ts`
 - [ ] T5 · Conferir busca, página da disciplina e modal com 375px e no desktop
