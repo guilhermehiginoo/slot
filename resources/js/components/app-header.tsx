@@ -26,7 +26,7 @@ import {
 import { UserMenuContent } from '@/components/user-menu-content';
 import { useCurrentUrl } from '@/hooks/use-current-url';
 import { useInitials } from '@/hooks/use-initials';
-import { useNavGroups } from '@/hooks/use-nav-groups';
+import { useNavSpace } from '@/hooks/use-nav-space';
 import { cn } from '@/lib/utils';
 import { dashboard } from '@/routes';
 import type { BreadcrumbItem } from '@/types';
@@ -43,7 +43,7 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
     const { auth } = page.props;
     const getInitials = useInitials();
     const { isCurrentUrl, whenCurrentUrl } = useCurrentUrl();
-    const mainNavItems = useNavGroups().flatMap((group) => group.items);
+    const mainNavItems = useNavSpace().items;
 
     return (
         <>
