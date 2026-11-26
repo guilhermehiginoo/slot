@@ -13,7 +13,8 @@ Board: [Jira](https://slotgestao.atlassian.net/jira/software/projects/SLOT/board
 ## Idioma
 
 - Português: specs, planos, tasks, docs, mensagens de commit, descrição de PR e todo texto que o usuário vê na tela.
-- Inglês: código. Nomes de classes, métodos, variáveis, rotas, tabelas, colunas e arquivos.
+- Inglês: código. Nomes de classes, métodos, variáveis, nomes de rota, tabelas, colunas e arquivos.
+- Português: o caminho das URLs que o usuário vê (`/admin/disciplinas`, `/configuracoes/perfil`). Só o caminho: o nome da rota, o controller e o parâmetro continuam em inglês (`admin.courses.index`, `{course}`). As rotas do Fortify (`/login`, `/register`) ficam como o pacote define.
 - Termos do domínio no código: disciplina = `Course`, turma = `ClassGroup`, horário = `Slot`, agendamento = `Booking`, reserva de sala = `RoomReservation`, atendimento = `Session`.
 
 ## Comentários
@@ -149,7 +150,7 @@ O controller só liga as peças. Cada método faz, nesta ordem: autoriza, valida
 - `$fillable` explícito, `casts()` para datas, booleanos e enums, relações com tipo de retorno.
 - Status e papéis em PHP enums (`app/Enums/`), nunca strings soltas.
 - Migrations com `foreignId()->constrained()`, índice em toda coluna usada em `where`, `orderBy` ou `join`, e `unique` onde a regra de negócio exige unicidade (por exemplo, um aluno não pode ter dois agendamentos no mesmo horário).
-- Todo model novo tem factory.
+- Todo model novo tem factory e um seeder com alguns registros realistas, chamado pelo `DatabaseSeeder`, para o app abrir populado em todas as visões. O seeder é idempotente (rodar de novo não duplica nada) e tem teste em `tests/Feature/Database/DatabaseSeederTest`.
 
 ### Performance e N+1
 

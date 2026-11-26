@@ -1,6 +1,16 @@
 import { usePage } from '@inertiajs/react';
-import { LayoutGrid, Users } from 'lucide-react';
+import {
+    CalendarDays,
+    GraduationCap,
+    LayoutGrid,
+    School,
+    Users,
+} from 'lucide-react';
+import ClassGroupController from '@/actions/App/Http/Controllers/Admin/ClassGroupController';
+import CourseController from '@/actions/App/Http/Controllers/Admin/CourseController';
 import UserController from '@/actions/App/Http/Controllers/Admin/UserController';
+import SlotController from '@/actions/App/Http/Controllers/Monitoring/SlotController';
+import ProfessorClassGroupController from '@/actions/App/Http/Controllers/Professor/ClassGroupController';
 import { dashboard } from '@/routes';
 import type { NavGroup, Role } from '@/types';
 
@@ -8,7 +18,7 @@ const platformGroup: NavGroup = {
     label: 'Plataforma',
     items: [
         {
-            title: 'Dashboard',
+            title: 'Visão geral',
             href: dashboard(),
             icon: LayoutGrid,
         },
@@ -17,6 +27,21 @@ const platformGroup: NavGroup = {
 
 const groupsByRole: Record<Role, NavGroup[]> = {
     admin: [
+        {
+            label: 'Acadêmico',
+            items: [
+                {
+                    title: 'Disciplinas',
+                    href: CourseController.index(),
+                    icon: GraduationCap,
+                },
+                {
+                    title: 'Turmas',
+                    href: ClassGroupController.index(),
+                    icon: School,
+                },
+            ],
+        },
         {
             label: 'Administração',
             items: [
@@ -28,12 +53,38 @@ const groupsByRole: Record<Role, NavGroup[]> = {
             ],
         },
     ],
-    professor: [],
+    professor: [
+        {
+            label: 'Acadêmico',
+            items: [
+                {
+                    title: 'Minhas turmas',
+                    href: ProfessorClassGroupController.index(),
+                    icon: School,
+                },
+            ],
+        },
+    ],
     student: [],
 };
 
 export function useNavGroups(): NavGroup[] {
-    const { auth } = usePage().props;
+    const { auth, canManageSlots } = usePage().props;
 
-    return [platformGroup, ...groupsByRole[auth.user.role]];
+    const groups = [platformGroup, ...groupsByRole[auth.user.role]];
+
+    if (canManageSlots) {
+        groups.push({
+            label: 'Minhas monitorias',
+            items: [
+                {
+                    title: 'Meus horários',
+                    href: SlotController.index(),
+                    icon: CalendarDays,
+                },
+            ],
+        });
+    }
+
+    return groups;
 }

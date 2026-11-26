@@ -1,0 +1,21 @@
+# Tasks · SLOT-7
+
+- [x] T1 · Model de disciplina, factory e seeder com as 14 disciplinas do BTI
+    - Teste: `tests/Feature/Database/DatabaseSeederTest`
+    - Arquivos: migration `create_courses_table`, `app/Models/Course.php`, `database/factories/CourseFactory.php`, `database/seeders/CourseSeeder.php`, `database/seeders/DatabaseSeeder.php`
+- [x] T2 · O admin lista e busca disciplinas; os demais recebem 403
+    - Teste: `tests/Feature/Admin/CourseManagementTest` (Cenários: Quem não é admin não acessa o catálogo; Buscar por código ou nome; Estados vazios)
+    - Arquivos: `app/Policies/CoursePolicy.php`, `routes/admin.php`, `app/Http/Controllers/Admin/CourseController.php`
+- [x] T3 · O admin cria uma disciplina com o código normalizado e validado
+    - Teste: `tests/Feature/Admin/CourseManagementTest` (Cenários: Admin cria uma disciplina; O código é normalizado; Código inválido; Código repetido)
+    - Arquivos: `app/Http/Requests/Admin/SaveCourseRequest.php`, `app/Actions/Admin/CreateCourse.php`
+- [x] T4 · Review: corrigir a formatação do Pint que quebrava o CI e registrar a aprovação da spec
+- [x] T5 · O admin abre o formulário de criar e edita uma disciplina, arquivada ou não
+    - Teste: `tests/Feature/Admin/CourseManagementTest` (Cenários: Admin edita uma disciplina; Salvar sem mudar o código), editar arquivada e 403 para os demais
+    - Arquivos: `routes/admin.php`, `app/Http/Controllers/Admin/CourseController.php`, `app/Actions/Admin/UpdateCourse.php`
+- [x] T6 · O admin arquiva uma disciplina; arquivar de novo mantém a data
+    - Teste: `tests/Feature/Admin/CourseManagementTest` (Cenário: Admin arquiva uma disciplina) e 403 para os demais
+    - Arquivos: `routes/admin.php`, `app/Http/Controllers/Admin/CourseArchiveController.php`, `app/Actions/Admin/ArchiveCourse.php`
+- [x] T7 · Telas: lista com tabela no desktop e cards no celular, busca, paginação "Exibindo X–Y de Z", estados vazios, formulários de criar e editar, diálogo de arquivar e item "Disciplinas" no menu
+    - Teste: `npm run types:check` e conferência no navegador em 375px e no desktop (Cenário: Cancelar o arquivamento, à mão)
+    - Arquivos: `resources/js/pages/admin/courses/`, `resources/js/components/admin/course-*.tsx`, `resources/js/components/admin/archive-course-dialog.tsx`, `resources/js/components/empty-state.tsx`, `resources/js/components/pagination.tsx`, `resources/js/types/admin.ts`, `resources/js/hooks/use-nav-groups.ts`
