@@ -42,8 +42,9 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
-            'canManageSlots' => fn () => $request->user()?->can('viewAny', Slot::class) ?? false,
-            'sidebarOpen'    => !$request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
+            'canManageSlots'  => fn () => $request->user()?->can('viewAny', Slot::class) ?? false,
+            'currentSemester' => config('slot.current_semester'),
+            'sidebarOpen'     => !$request->hasCookie('sidebar_state') || $request->cookie('sidebar_state') === 'true',
         ];
     }
 }
