@@ -10,7 +10,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('visao-geral', [DashboardController::class, 'index'])->name('dashboard');
 
     Route::resource('disciplinas', CourseController::class)
-        ->only(['index'])
+        ->only(['index', 'show'])
         ->names('courses')
         ->parameters(['disciplinas' => 'course:code']);
 

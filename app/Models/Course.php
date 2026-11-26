@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Attributes\{Fillable, Scope};
 use Illuminate\Database\Eloquent\{Builder, Model};
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\{Carbon, Str};
 
 /**
@@ -50,6 +51,14 @@ class Course extends Model
             'name'        => $value,
             'search_name' => self::normalize($value),
         ]);
+    }
+
+    /**
+     * @return HasMany<ClassGroup, $this>
+     */
+    public function classGroups(): HasMany
+    {
+        return $this->hasMany(ClassGroup::class);
     }
 
     public function isArchived(): bool
