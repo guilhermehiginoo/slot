@@ -1,6 +1,6 @@
 <?php
 
-use App\Http\Controllers\{DashboardController, MonitorInvitationController};
+use App\Http\Controllers\{CourseController, DashboardController, MonitorInvitationController};
 use App\Http\Controllers\Monitoring\SlotController;
 use Illuminate\Support\Facades\Route;
 
@@ -8,6 +8,11 @@ Route::inertia('/', 'welcome')->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('visao-geral', [DashboardController::class, 'index'])->name('dashboard');
+
+    Route::resource('disciplinas', CourseController::class)
+        ->only(['index'])
+        ->names('courses')
+        ->parameters(['disciplinas' => 'course:code']);
 
     Route::prefix('monitorias/horarios')->name('monitor.slots.')->group(function () {
         Route::get('/', [SlotController::class, 'index'])->name('index');

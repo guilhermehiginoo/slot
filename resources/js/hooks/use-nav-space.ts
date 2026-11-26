@@ -1,6 +1,7 @@
 import { usePage } from '@inertiajs/react';
 import ClassGroupController from '@/actions/App/Http/Controllers/Admin/ClassGroupController';
-import CourseController from '@/actions/App/Http/Controllers/Admin/CourseController';
+import AdminCourseController from '@/actions/App/Http/Controllers/Admin/CourseController';
+import CourseController from '@/actions/App/Http/Controllers/CourseController';
 import UserController from '@/actions/App/Http/Controllers/Admin/UserController';
 import SlotController from '@/actions/App/Http/Controllers/Monitoring/SlotController';
 import ProfessorClassGroupController from '@/actions/App/Http/Controllers/Professor/ClassGroupController';
@@ -8,6 +9,11 @@ import { dashboard } from '@/routes';
 import type { NavItem, NavSpace } from '@/types';
 
 const overview: NavItem = { title: 'Visão geral', href: dashboard() };
+
+const searchCourses: NavItem = {
+    title: 'Buscar disciplinas',
+    href: CourseController.index(),
+};
 
 const mySlots: NavItem = {
     title: 'Meus horários',
@@ -20,8 +26,9 @@ const spaces = {
         profile: 'Administração',
         items: [
             overview,
+            searchCourses,
             { title: 'Usuários', href: UserController.index() },
-            { title: 'Disciplinas', href: CourseController.index() },
+            { title: 'Disciplinas', href: AdminCourseController.index() },
             { title: 'Turmas', href: ClassGroupController.index() },
         ],
     },
@@ -29,6 +36,7 @@ const spaces = {
         label: 'Espaço do professor',
         profile: 'Professor',
         items: [
+            searchCourses,
             {
                 title: 'Minhas turmas',
                 href: ProfessorClassGroupController.index(),
@@ -38,12 +46,12 @@ const spaces = {
     student: {
         label: 'Espaço do aluno',
         profile: 'Aluno',
-        items: [overview],
+        items: [overview, searchCourses],
     },
     monitor: {
         label: 'Espaço do monitor',
         profile: 'Monitor',
-        items: [overview, mySlots],
+        items: [overview, searchCourses, mySlots],
     },
 } satisfies Record<string, NavSpace>;
 
