@@ -1,4 +1,4 @@
-import { Link, usePage } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import { X } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavMain } from '@/components/nav-main';
@@ -15,8 +15,7 @@ import { useNavSpace } from '@/hooks/use-nav-space';
 import { dashboard } from '@/routes';
 
 export function AppSidebar() {
-    const { profile, groups } = useNavSpace();
-    const { currentSemester } = usePage().props;
+    const { groups } = useNavSpace();
     const { isMobile, setOpenMobile } = useSidebar();
 
     return (
@@ -52,16 +51,8 @@ export function AppSidebar() {
                 ))}
             </SidebarContent>
 
-            <SidebarFooter className="gap-4 px-3.5 pb-6">
+            <SidebarFooter className="px-3.5 pb-6">
                 <NavUser />
-                <div className="flex flex-col gap-1 leading-5 text-sidebar-foreground">
-                    <p className="text-[11px] font-semibold uppercase">
-                        Slot · {profile}
-                    </p>
-                    <p className="text-xs leading-5">
-                        IMD / UFRN · Semestre {currentSemester}
-                    </p>
-                </div>
             </SidebarFooter>
         </Sidebar>
     );
