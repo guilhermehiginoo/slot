@@ -26,7 +26,11 @@ export default function CourseShow({
                     <h1 className="text-3xl font-bold tracking-tight">
                         {course.code}
                     </h1>
-                    <p className="text-muted-foreground">{course.name}</p>
+                    <p className="text-muted-foreground">
+                        {course.name}
+                        {course.workload_hours !== null &&
+                            ` · ${course.workload_hours}h`}
+                    </p>
                 </header>
 
                 {course.description && (

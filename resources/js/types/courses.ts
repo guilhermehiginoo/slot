@@ -7,6 +7,7 @@ export type CourseDetails = {
     code: string;
     name: string;
     description: string | null;
+    workload_hours: number | null;
 };
 
 export type CourseClassGroup = {

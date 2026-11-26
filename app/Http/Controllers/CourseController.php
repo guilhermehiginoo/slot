@@ -57,7 +57,7 @@ class CourseController extends Controller
             ->pluck('name');
 
         return Inertia::render('courses/show', [
-            'course'         => $course->only(['code', 'name', 'description']),
+            'course'         => $course->only(['code', 'name', 'description', 'workload_hours']),
             'classGroups'    => $classGroups,
             'pastProfessors' => $pastProfessors,
         ]);

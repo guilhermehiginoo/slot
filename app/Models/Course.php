@@ -16,12 +16,13 @@ use Illuminate\Support\{Carbon, Str};
  * @property string $code
  * @property string $name
  * @property string|null $description
+ * @property int|null $workload_hours
  * @property string $search_name
  * @property CarbonImmutable|null $archived_at
  * @property Carbon|null $created_at
  * @property Carbon|null $updated_at
  */
-#[Fillable(['code', 'name', 'description'])]
+#[Fillable(['code', 'name', 'description', 'workload_hours'])]
 class Course extends Model
 {
     /** @use HasFactory<CourseFactory> */
@@ -38,7 +39,8 @@ class Course extends Model
     protected function casts(): array
     {
         return [
-            'archived_at' => 'datetime',
+            'archived_at'    => 'datetime',
+            'workload_hours' => 'integer',
         ];
     }
 

@@ -20,7 +20,7 @@ class ShowCourseTest extends TestCase
 
         config(['slot.current_semester' => '2026.2']);
 
-        $this->course = Course::factory()->create(['code' => 'IMD0030', 'name' => 'Linguagem de Programação I']);
+        $this->course = Course::factory()->create(['code' => 'IMD0030', 'name' => 'Linguagem de Programação I', 'workload_hours' => 60]);
     }
 
     #[TestDox('Cenário: Abrir uma disciplina')]
@@ -46,6 +46,7 @@ class ShowCourseTest extends TestCase
                 ->component('courses/show')
                 ->where('course.code', 'IMD0030')
                 ->where('course.name', 'Linguagem de Programação I')
+                ->where('course.workload_hours', 60)
                 ->where('currentSemester', '2026.2')
                 ->has('classGroups', 2)
                 ->where('classGroups.0', [

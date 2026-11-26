@@ -33,37 +33,38 @@ class DatabaseSeederTest extends TestCase
         );
     }
 
-    public function test_seeder_creates_the_bti_courses()
+    public function test_seeder_imports_the_imd_courses_from_sigaa()
     {
         $this->seed();
 
+        $data = json_decode((string) file_get_contents(database_path('seeders/data/courses.json')), true);
+
+        $this->assertGreaterThan(500, count($data));
+        $this->assertSame(count($data), Course::count());
         $this->assertSame(
             [
                 'IMD0012' => 'Introdução às Técnicas de Programação',
-                'IMD0017' => 'Práticas de Leitura e Escrita em Português I',
-                'IMD0018' => 'Práticas de Leitura em Inglês',
-                'IMD0019' => 'Resolução de Problemas Matemáticos para TI',
-                'IMD0020' => 'Tecnologia da Informação e Sociedade',
-                'IMD0024' => 'Cálculo Diferencial e Integral I',
-                'IMD0027' => 'Práticas de Leitura e Escrita em Português II',
-                'IMD0028' => 'Fundamentos Matemáticos da Computação I',
                 'IMD0029' => 'Estrutura de Dados Básicas I',
                 'IMD0030' => 'Linguagem de Programação I',
-                'IMD0033' => 'Probabilidade',
-                'IMD0034' => 'Vetores e Geometria Analítica',
-                'IMD0038' => 'Fundamentos Matemáticos da Computação II',
-                'IMD0041' => 'Introdução à Organização e Arquitetura de Computadores',
+                'IMD0040' => 'Linguagem de Programação II',
             ],
-            Course::orderBy('code')->pluck('name', 'code')->all(),
+            Course::whereIn('code', ['IMD0012', 'IMD0029', 'IMD0030', 'IMD0040'])->orderBy('code')->pluck('name', 'code')->all(),
         );
+
+        $course = Course::firstWhere('code', 'IMD0030');
+        $this->assertSame(60, $course->workload_hours);
+        $this->assertNull($course->description);
+        $this->assertSame('linguagem de programacao i', $course->search_name);
     }
 
     public function test_running_the_seeder_twice_does_not_duplicate_courses()
     {
         $this->seed(CourseSeeder::class);
+        $count = Course::count();
+
         $this->seed(CourseSeeder::class);
 
-        $this->assertSame(14, Course::count());
+        $this->assertSame($count, Course::count());
     }
 
     public function test_seeder_creates_the_class_groups_of_the_current_semester()
