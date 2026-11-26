@@ -5,7 +5,7 @@ import UserController from '@/actions/App/Http/Controllers/Admin/UserController'
 import SlotController from '@/actions/App/Http/Controllers/Monitoring/SlotController';
 import ProfessorClassGroupController from '@/actions/App/Http/Controllers/Professor/ClassGroupController';
 import { dashboard } from '@/routes';
-import type { NavItem, NavSpace } from '@/types';
+import type { NavGroup, NavItem, NavSpace } from '@/types';
 
 const overview: NavItem = { title: 'Visão geral', href: dashboard() };
 
@@ -14,50 +14,56 @@ const mySlots: NavItem = {
     href: SlotController.index(),
 };
 
+const monitorGroup: NavGroup = {
+    label: 'Espaço do monitor',
+    items: [mySlots],
+};
+
 const spaces = {
     admin: {
-        label: 'Espaço administrativo',
         profile: 'Administração',
-        items: [
-            overview,
-            { title: 'Usuários', href: UserController.index() },
-            { title: 'Disciplinas', href: CourseController.index() },
-            { title: 'Turmas', href: ClassGroupController.index() },
+        groups: [
+            {
+                label: 'Espaço administrativo',
+                items: [
+                    overview,
+                    { title: 'Usuários', href: UserController.index() },
+                    { title: 'Disciplinas', href: CourseController.index() },
+                    { title: 'Turmas', href: ClassGroupController.index() },
+                ],
+            },
         ],
     },
     professor: {
-        label: 'Espaço do professor',
         profile: 'Professor',
-        items: [
+        groups: [
             {
-                title: 'Minhas turmas',
-                href: ProfessorClassGroupController.index(),
+                label: 'Espaço do professor',
+                items: [
+                    {
+                        title: 'Minhas turmas',
+                        href: ProfessorClassGroupController.index(),
+                    },
+                ],
             },
         ],
     },
     student: {
-        label: 'Espaço do aluno',
         profile: 'Aluno',
-        items: [overview],
-    },
-    monitor: {
-        label: 'Espaço do monitor',
-        profile: 'Monitor',
-        items: [overview, mySlots],
+        groups: [{ label: 'Espaço do aluno', items: [overview] }],
     },
 } satisfies Record<string, NavSpace>;
 
 export function useNavSpace(): NavSpace {
     const { auth, canManageSlots } = usePage().props;
-    const role = auth.user.role;
+    const space = spaces[auth.user.role];
 
-    if (role === 'student') {
-        return canManageSlots ? spaces.monitor : spaces.student;
+    if (!canManageSlots) {
+        return space;
     }
 
-    if (canManageSlots) {
-        return { ...spaces[role], items: [...spaces[role].items, mySlots] };
-    }
-
-    return spaces[role];
+    return {
+        profile: auth.user.role === 'student' ? 'Monitor' : space.profile,
+        groups: [...space.groups, monitorGroup],
+    };
 }

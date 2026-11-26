@@ -43,7 +43,7 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
     const { auth } = page.props;
     const getInitials = useInitials();
     const { isCurrentUrl, whenCurrentUrl } = useCurrentUrl();
-    const mainNavItems = useNavSpace().items;
+    const mainNavItems = useNavSpace().groups.flatMap((group) => group.items);
 
     return (
         <>
