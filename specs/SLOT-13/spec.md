@@ -2,6 +2,7 @@
 
 Card: https://slotgestao.atlassian.net/browse/SLOT-13
 Tipo: História · Branch: `feature/SLOT-13-buscar-disciplinas-turmas` · Base: `develop`
+Protótipo: https://www.figma.com/design/nfTNXwoHBdJ2If6mGditTw?node-id=11-8761
 Aprovado por:
 
 ## Objetivo
