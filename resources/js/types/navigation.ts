@@ -19,6 +19,5 @@ export type NavGroup = {
 };
 
 export type NavSpace = {
-    profile: string;
     groups: NavGroup[];
 };

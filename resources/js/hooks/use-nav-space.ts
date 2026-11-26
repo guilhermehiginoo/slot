@@ -27,7 +27,6 @@ const monitorGroup: NavGroup = {
 
 const spaces = {
     admin: {
-        profile: 'Administração',
         groups: [
             {
                 label: 'Espaço administrativo',
@@ -45,7 +44,6 @@ const spaces = {
         ],
     },
     professor: {
-        profile: 'Professor',
         groups: [
             {
                 label: 'Espaço do professor',
@@ -60,7 +58,6 @@ const spaces = {
         ],
     },
     student: {
-        profile: 'Aluno',
         groups: [
             { label: 'Espaço do aluno', items: [overview, searchCourses] },
         ],
@@ -76,7 +73,6 @@ export function useNavSpace(): NavSpace {
     }
 
     return {
-        profile: auth.user.role === 'student' ? 'Monitor' : space.profile,
         groups: [...space.groups, monitorGroup],
     };
 }
