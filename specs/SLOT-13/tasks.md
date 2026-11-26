@@ -12,6 +12,6 @@
 - [x] T4 · Admin escreve a descrição no modal do catálogo
     - Teste: `tests/Feature/Admin/CourseManagementTest::test_saves_description` (Cenário: Admin escreve a descrição), `::test_rejects_long_description` (Cenário: Descrição longa demais)
     - Arquivos: `Admin\SaveCourseRequest`, `CreateCourse`, `UpdateCourse`, `Admin\CourseController`, `components/ui/textarea.tsx`, `components/admin/course-form-dialog.tsx`, `types/admin.ts`
-- [ ] T5 · Conferir busca, página da disciplina e modal com 375px e no desktop
+- [x] T5 · Conferir busca, página da disciplina e modal com 375px e no desktop
     - Teste: `composer ci:check` verde e conferência no navegador
     - Arquivos: só ajustes de layout, se precisar
