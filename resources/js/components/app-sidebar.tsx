@@ -1,4 +1,5 @@
 import { Link, usePage } from '@inertiajs/react';
+import { X } from 'lucide-react';
 import AppLogo from '@/components/app-logo';
 import { NavMain } from '@/components/nav-main';
 import { NavUser } from '@/components/nav-user';
@@ -30,11 +31,13 @@ export function AppSidebar() {
                 </Link>
                 {isMobile && (
                     <Button
-                        variant="outline"
-                        className="h-11 rounded-[10px] bg-sidebar px-4 font-semibold"
+                        variant="ghost"
+                        size="icon"
+                        className="size-11 [&_svg]:size-5!"
                         onClick={() => setOpenMobile(false)}
+                        aria-label="Fechar menu"
                     >
-                        Fechar
+                        <X />
                     </Button>
                 )}
             </SidebarHeader>
