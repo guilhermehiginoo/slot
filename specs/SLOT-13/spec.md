@@ -2,7 +2,7 @@
 
 Card: https://slotgestao.atlassian.net/browse/SLOT-13
 Tipo: História · Branch: `feature/SLOT-13-buscar-disciplinas-turmas` · Base: `enhancement/SLOT-35-menu-prototipo`
-Aprovado por:
+Aprovado por: Guilherme Higino
 
 ## Objetivo
 
