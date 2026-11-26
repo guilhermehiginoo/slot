@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\{ClassGroup, Course, User};
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Gate;
@@ -48,9 +49,17 @@ class CourseController extends Controller
                 'monitors'   => $classGroup->monitors->map(fn (User $user) => $user->name)->all(),
             ]);
 
+        $pastProfessors = User::query()
+            ->whereHas('taughtClassGroups', fn (Builder $query) => $query
+                ->where('course_id', $course->id)
+                ->where('semester', '<', config('slot.current_semester')))
+            ->orderBy('name')
+            ->pluck('name');
+
         return Inertia::render('courses/show', [
-            'course'      => $course->only(['code', 'name']),
-            'classGroups' => $classGroups,
+            'course'         => $course->only(['code', 'name', 'description']),
+            'classGroups'    => $classGroups,
+            'pastProfessors' => $pastProfessors,
         ]);
     }
 }

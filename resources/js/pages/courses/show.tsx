@@ -7,9 +7,14 @@ import type { CourseClassGroup, CourseDetails } from '@/types';
 type Props = {
     course: CourseDetails;
     classGroups: CourseClassGroup[];
+    pastProfessors: string[];
 };
 
-export default function CourseShow({ course, classGroups }: Props) {
+export default function CourseShow({
+    course,
+    classGroups,
+    pastProfessors,
+}: Props) {
     const { currentSemester } = usePage().props;
 
     return (
@@ -23,6 +28,12 @@ export default function CourseShow({ course, classGroups }: Props) {
                     </h1>
                     <p className="text-muted-foreground">{course.name}</p>
                 </header>
+
+                {course.description && (
+                    <p className="max-w-3xl whitespace-pre-line">
+                        {course.description}
+                    </p>
+                )}
 
                 <section className="flex flex-col gap-4">
                     <h2 className="text-xl font-semibold">
@@ -44,6 +55,24 @@ export default function CourseShow({ course, classGroups }: Props) {
                         />
                     )}
                 </section>
+
+                {pastProfessors.length > 0 && (
+                    <section className="flex flex-col gap-4">
+                        <h2 className="text-xl font-semibold">
+                            Professores anteriores
+                        </h2>
+                        <ul className="flex flex-wrap gap-2">
+                            {pastProfessors.map((name) => (
+                                <li
+                                    key={name}
+                                    className="rounded-full border bg-card px-3 py-1 text-sm"
+                                >
+                                    {name}
+                                </li>
+                            ))}
+                        </ul>
+                    </section>
+                )}
             </div>
         </>
     );

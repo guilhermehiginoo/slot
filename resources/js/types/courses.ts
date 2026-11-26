@@ -6,6 +6,7 @@ export type CourseSearchResult = {
 export type CourseDetails = {
     code: string;
     name: string;
+    description: string | null;
 };
 
 export type CourseClassGroup = {

@@ -6,7 +6,7 @@
 - [x] T2 · Página da disciplina com as turmas do semestre atual e 404 para arquivada
     - Teste: `tests/Feature/Courses/ShowCourseTest::test_shows_current_class_groups` (Cenário: Abrir uma disciplina), `::test_archived_is_not_found` (Cenário: Página de disciplina arquivada); também turmas de outro semestre fora e nenhuma prop com `email` (R9, R13)
     - Arquivos: `Course::classGroups()`, `CoursePolicy::view`, `CourseController@show`, `pages/courses/show.tsx`, `components/courses/class-group-card.tsx`
-- [ ] T3 · Descrição e professores anteriores na página da disciplina
+- [x] T3 · Descrição e professores anteriores na página da disciplina
     - Teste: `ShowCourseTest::test_shows_description` (Cenário: Descrição da disciplina), `::test_lists_past_professors` (Cenário: Professores que já deram a disciplina); também semestre futuro fora (R10)
     - Arquivos: `User::taughtClassGroups()`, `CourseFactory::withDescription()`, `CourseController@show`, `pages/courses/show.tsx`
 - [ ] T4 · Admin escreve a descrição no modal do catálogo

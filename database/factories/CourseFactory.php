@@ -28,4 +28,11 @@ class CourseFactory extends Factory
             'archived_at' => now(),
         ]);
     }
+
+    public function withDescription(): static
+    {
+        return $this->state(fn (array $attributes) => [
+            'description' => fake()->paragraph(),
+        ]);
+    }
 }
