@@ -150,7 +150,7 @@ O controller só liga as peças. Cada método faz, nesta ordem: autoriza, valida
 - `$fillable` explícito, `casts()` para datas, booleanos e enums, relações com tipo de retorno.
 - Status e papéis em PHP enums (`app/Enums/`), nunca strings soltas.
 - Migrations com `foreignId()->constrained()`, índice em toda coluna usada em `where`, `orderBy` ou `join`, e `unique` onde a regra de negócio exige unicidade (por exemplo, um aluno não pode ter dois agendamentos no mesmo horário).
-- Todo model novo tem factory.
+- Todo model novo tem factory e um seeder com alguns registros realistas, chamado pelo `DatabaseSeeder`, para o app abrir populado em todas as visões. O seeder é idempotente (rodar de novo não duplica nada) e tem teste em `tests/Feature/Database/DatabaseSeederTest`.
 
 ### Performance e N+1
 
